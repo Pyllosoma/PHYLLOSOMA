@@ -4,33 +4,22 @@ using UnityEngine;
 
 namespace Runtime.Translation
 {
-    public class TranslationManager : MonoBehaviour
+    //단하나만 존재하며 항상 메모리 공간에 위치해야 하기 때문에 static으로 선언
+    public static class TranslationManager
     {
         private const string TRANSLATION_PATH = "Translations/";
         private const string UI_TRANSLATION_PATH = "ui";
-        private string _currentLanguage = "ko_kr";
+        private const string GAME_ITEM_TRANSLATION_PATH = "game_item";
+        //현재 언어를 저장하는 변수
+        private static string _currentLanguage = "ko_kr";
         //데이터를 저장하는 변수
-        private readonly Dictionary<string, string> _translation = new Dictionary<string, string>();
-        public static TranslationManager Instance { get; private set; }
-        
-        private void Awake()
-        {
-            if (!Instance) {
-                Instance = this;
-                SetLanguage("ko_kr");
-                DontDestroyOnLoad(transform.root.gameObject);
-            }
-            else {
-                Destroy(gameObject);
-            }
-        }
-
-        public void SetLanguage(string language)
+        private static readonly Dictionary<string, string> _translation = new Dictionary<string, string>();
+        public static void InitLanguage(string language)
         {
             _currentLanguage = language;
             InternalLoadTranslation();
         }
-        private void InternalLoadTranslation()
+        private static void InternalLoadTranslation()
         {
             _translation.Clear();
             var translationPath = TRANSLATION_PATH + _currentLanguage + "/";
@@ -53,7 +42,10 @@ namespace Runtime.Translation
         /// </summary>
         /// <param name="translationKey">The key that matches translation string.</param>
         /// <returns>Translation string founded by key</returns>
-        public string GetTranslation(string translationKey) {
+        public static string GetTranslation(string translationKey) {
+            if (_translation.Count == 0) {
+                InternalLoadTranslation();
+            }
             return !_translation.ContainsKey(translationKey) ? translationKey : _translation[translationKey];
         }
     }

@@ -241,6 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _translationKey: UI_MENU_CONTROL_KEY
+  _frontText: 
+  _backText: 
   _legacyText: {fileID: 0}
   _text: {fileID: 702526662748796569}
 --- !u!1 &4059343527755995256

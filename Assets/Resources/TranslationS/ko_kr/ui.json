@@ -1,10 +1,21 @@
 ﻿{
+  "UI_MASTER" : "전체 음량",
+  "UI_MUSIC" : "배경 음악",
+  "UI_SFX" : "효과음",
+  "UI_CONVERSATION" : "대사",
+  "UI_SCREEN_RESOLUTION" : "해상도",
+  "UI_LEVEL" : "레벨",
+  "UI_TOTAL_PLAY_TIME" : "총 플레이 시간",
+  "UI_LAST_SAVE_TIME" : "마지막 저장 시간",
+  "UI_SAVE_AND_EXIT" : "저장 후 종료",
   "UI_MENU_SHOW_DETAILS": "상세보기",
   "UI_MENU_SELECT" : "선택하기",
   "UI_MENU_RETURN" : "뒤로가기",
   "UI_MENU_CHARACTER" : "캐릭터",
   "UI_MENU_INVENTORY" : "도구함",
   "UI_MENU_SYSTEM" : "시스템",
+  "UI_MENU_GRAPHICS":"그래픽",
+  "UI_MENU_SOUND":"사운드",
   "UI_MENU_END_GAME" : "게임종료",
   "UI_MENU_CONTROL_KEY" : "조작방법"
 }

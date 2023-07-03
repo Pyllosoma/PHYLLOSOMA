@@ -8,17 +8,15 @@ namespace Runtime.Translation
     public class Translator : MonoBehaviour
     {
         [SerializeField] private string _translationKey = "NONE";
+        [SerializeField] private string _frontText = "";
+        [SerializeField] private string _backText = "";
         [SerializeField] private Text _legacyText;
         [SerializeField] private TextMeshProUGUI _text;
 
-        private void Start()
+        private void OnEnable()
         {
-            if (!TranslationManager.Instance) {
-                Debug.LogError("Translator: TranslationManager is not found.");
-                return;
-            }
-            if(_legacyText) _legacyText.text = TranslationManager.Instance.GetTranslation(_translationKey);
-            if(_text) _text.text = TranslationManager.Instance.GetTranslation(_translationKey);
+            if(_legacyText) _legacyText.text = _frontText + TranslationManager.GetTranslation(_translationKey) + _backText;
+            if(_text) _text.text = _frontText + TranslationManager.GetTranslation(_translationKey) + _backText;
         }
         private void OnValidate()
         {

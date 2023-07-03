@@ -30,7 +30,7 @@ namespace Runtime.UI.Components.TabBar
         /// <param name="index">The index of selected button</param>
         public void OnTabSelected(int index)
         {
-            Debug.Log($"OnTabSelected: {index}");
+            //Debug.Log($"OnTabSelected: {index}");
             _currentSelectedIndex = index;
             for (var i = 0; i < _tabButtons.Count; i++) {
                 _tabButtons[i].Attention(i == index);

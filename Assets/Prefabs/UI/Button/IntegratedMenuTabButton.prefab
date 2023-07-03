@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 175690044783378840}
   - component: {fileID: 6756779731911071553}
   - component: {fileID: 9174712626994534316}
+  - component: {fileID: 2495959004876759196}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -245,7 +246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCE90\uB9AD\uD130"
+  m_text: "\uD0ED \uC774\uB984"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,
@@ -315,6 +316,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2495959004876759196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702812529174637745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d764a0b7c4840468b93917458ea5cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _translationKey: NONE
+  _legacyText: {fileID: 0}
+  _text: {fileID: 9174712626994534316}
 --- !u!1 &7785119687789771357
 GameObject:
   m_ObjectHideFlags: 0

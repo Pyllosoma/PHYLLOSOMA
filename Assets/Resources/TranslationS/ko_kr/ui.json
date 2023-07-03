@@ -1,0 +1,10 @@
+﻿{
+  "UI_MENU_SHOW_DETAILS": "상세보기",
+  "UI_MENU_SELECT" : "선택하기",
+  "UI_MENU_RETURN" : "뒤로가기",
+  "UI_MENU_CHARACTER" : "캐릭터",
+  "UI_MENU_INVENTORY" : "도구함",
+  "UI_MENU_SYSTEM" : "시스템",
+  "UI_MENU_END_GAME" : "게임종료",
+  "UI_MENU_CONTROL_KEY" : "조작방법"
+}

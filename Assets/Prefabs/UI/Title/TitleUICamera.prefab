@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2359442675791931866}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7376012023511437060
 Camera:
@@ -264,14 +264,14 @@ RectTransform:
   m_Children:
   - {fileID: 933435445758218456}
   - {fileID: 4015866696762548961}
-  - {fileID: 4621011649463540179}
+  - {fileID: 4410548635729353831}
   - {fileID: 6984739056410397230}
   m_Father: {fileID: 2359442675791931866}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: -1200, y: 150}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &3735284572840359978
@@ -336,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_AnchoredPosition: {x: -25, y: 0}
+  m_SizeDelta: {x: 0, y: 210}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7523267754150078374
 CanvasRenderer:
@@ -673,7 +673,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f38b718a2b957e54f9d92e53e7025ca1, type: 3}
---- !u!224 &4621011649463540179 stripped
+--- !u!224 &4410548635729353831 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9012911222278587829, guid: f38b718a2b957e54f9d92e53e7025ca1,
     type: 3}

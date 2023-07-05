@@ -17,6 +17,13 @@ namespace Runtime.UI.Components.Settings
         protected override void OnEnable()
         {
             base.OnEnable();
+            //Find index of current value.
+            for (var i = 0; i < _values.Count; i++) {
+                if (_values[i] != _settingValue) continue;
+                _currentSelectedIndex = i;
+                break;
+            }
+            //Run OnArrowButtonClick to update UI.
             OnArrowButtonClick(0);
         }
 
@@ -30,6 +37,10 @@ namespace Runtime.UI.Components.Settings
             _leftArrowButton.interactable = _currentSelectedIndex != 0;
             _rightArrowButton.interactable = _currentSelectedIndex != _values.Count - 1;
             _valueLabel.text = TranslationManager.GetTranslation(_valueTranslations[_currentSelectedIndex]);
+            
+            //Save to setting id.
+            _settingValue = _values[_currentSelectedIndex];
+            SaveToSettingId();
         }
         private void OnValidate()
         {

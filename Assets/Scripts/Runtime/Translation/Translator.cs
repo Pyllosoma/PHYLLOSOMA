@@ -7,6 +7,7 @@ namespace Runtime.Translation
 {
     public class Translator : MonoBehaviour
     {
+        [SerializeField] private bool _enablePreload = true;
         [SerializeField] private string _translationKey = "NONE";
         [SerializeField] private string _frontText = "";
         [SerializeField] private string _backText = "";
@@ -14,6 +15,10 @@ namespace Runtime.Translation
         [SerializeField] private TextMeshProUGUI _text;
 
         private void OnEnable()
+        {
+            InternalLoadTranslation();
+        }
+        private void InternalLoadTranslation()
         {
             if(_legacyText) _legacyText.text = _frontText + TranslationManager.GetTranslation(_translationKey) + _backText;
             if(_text) _text.text = _frontText + TranslationManager.GetTranslation(_translationKey) + _backText;
@@ -30,6 +35,10 @@ namespace Runtime.Translation
             }
             else {
                 Debug.LogError("Translator: Text or TextMeshProUGUI component is not found.");
+            }
+
+            if (_enablePreload) {
+                InternalLoadTranslation();
             }
         }
     }

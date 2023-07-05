@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9213778603581535918}
   - component: {fileID: 2312192365136568356}
+  - component: {fileID: 9025325883312310971}
   m_Layer: 0
   m_Name: SettingUISlider
   m_TagString: Untagged
@@ -90,7 +91,36 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9025325883312310971}
+        m_TargetAssemblyTypeName: Runtime.UI.Components.Settings.SliderSettingComponent,
+          Assembly-CSharp
+        m_MethodName: SaveToSettingId
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9025325883312310971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338239689593767611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a4bf2d4fa4556bb0829ee2b8d23a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadOnEnable: 1
+  _settingTargetId: NONE
+  _settingValue: 0
+  _slider: {fileID: 2312192365136568356}
 --- !u!1 &4465189101670204779
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uB274 \uC774\uB984"
+  m_text: NONE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,
@@ -240,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d764a0b7c4840468b93917458ea5cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enablePreload: 1
   _translationKey: NONE
   _frontText: 
   _backText: 
@@ -282,7 +313,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591042452048685038
 MonoBehaviour:

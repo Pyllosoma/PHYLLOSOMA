@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Managers;
 using UnityEngine;
 
 namespace Runtime.UI.Components.Settings
@@ -14,14 +15,24 @@ namespace Runtime.UI.Components.Settings
         {
             if (_loadOnEnable) LoadFromSettingId();
         }
-        protected void LoadFromSettingId()
+        protected virtual void LoadFromSettingId()
         {
             //Get value by setting id.
-            _settingValue = default;
+            _settingValue = SettingManager.Instance.GetSettingDataById<T>(_settingTargetId);
         }
-        protected void SaveToSettingId()
+        public virtual void SaveToSettingId()
         {
+            if (_settingTargetId == "NONE") return;
             //Save value by setting id.
+            SettingManager.Instance.SetSettingDataById(_settingTargetId, $"{_settingValue}");
+        }
+        protected virtual void OnValidate()
+        {
+            //if gameobject is prefab then return.
+            if (gameObject.scene.name == null) return;
+            if (_settingTargetId == "NONE") {
+                Debug.LogError($"SettingComponent : Setting target id is not set.\n{transform.gameObject.name}");
+            }
         }
     }
 }

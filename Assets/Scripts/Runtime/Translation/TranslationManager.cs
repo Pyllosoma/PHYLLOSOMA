@@ -9,7 +9,7 @@ namespace Runtime.Translation
     {
         private const string TRANSLATION_PATH = "Translations/";
         private const string UI_TRANSLATION_PATH = "ui";
-        private const string GAME_ITEM_TRANSLATION_PATH = "game_item";
+        private const string GAME_ITEM_TRANSLATION_PATH = "item";
         //현재 언어를 저장하는 변수
         private static string _currentLanguage = "ko_kr";
         //데이터를 저장하는 변수
@@ -24,7 +24,7 @@ namespace Runtime.Translation
             _translation.Clear();
             var translationPath = TRANSLATION_PATH + _currentLanguage + "/";
             var uiTranslationPath = translationPath + UI_TRANSLATION_PATH;
-            
+            var gameItemTranslationPath = translationPath + GAME_ITEM_TRANSLATION_PATH;
             //Load UI Translation
             var uiTranslation = Resources.Load<TextAsset>(uiTranslationPath);
             //Debug.Log(uiTranslation.text);
@@ -34,6 +34,17 @@ namespace Runtime.Translation
             }
             var uiTranslationData = JsonConvert.DeserializeObject<Dictionary<string, string>>(uiTranslation.text);
             foreach (var data in uiTranslationData) {
+                _translation.Add(data.Key, data.Value);
+            }
+            //Load Game Item Translation
+            var gameItemTranslation = Resources.Load<TextAsset>(gameItemTranslationPath);
+            //Debug.Log(gameItemTranslation.text);
+            if (gameItemTranslation == null) {
+                Debug.LogError("TranslationManager: Game Item Translation is not found.");
+                return;
+            }
+            var gameItemTranslationData = JsonConvert.DeserializeObject<Dictionary<string, string>>(gameItemTranslation.text);
+            foreach (var data in gameItemTranslationData) {
                 _translation.Add(data.Key, data.Value);
             }
         }

@@ -20,26 +20,26 @@ namespace Runtime.UI.Components.Settings
             }
             _dropdown.RefreshShownValue();
         }
-
-        public override void SaveToSettingId()
-        {
-            //Set setting value and save.
-            _settingValue = _dropdown.options[_dropdown.value].text;
-            base.SaveToSettingId();
-        }
-
         protected override void OnEnable()
         {
             base.OnEnable();
             //Set dropdown value to current resolution.
             var currentResolution = _settingValue;
+            Debug.Log(currentResolution);
             for (int i = 0; i < _dropdown.options.Count; i++) {
                 if (_dropdown.options[i].text != currentResolution) continue;
                 _dropdown.value = i;
             }
         }
-
-        private void OnValidate()
+        public override void SaveToSettingId()
+        {
+            //Set setting value and save.
+            _settingValue = _dropdown.options[_dropdown.value].text;
+            Debug.Log(_settingValue);
+            base.SaveToSettingId();
+        }
+        
+        protected override void OnValidate()
         {
             _dropdown = GetComponent<TMP_Dropdown>();
         }

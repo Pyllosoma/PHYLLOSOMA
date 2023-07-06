@@ -7,7 +7,7 @@ namespace Runtime.UI.Components.Settings
     //설정 값을 저장하는 함수
     public class SettingComponent<T> : MonoBehaviour
     {
-        [SerializeField] private bool _loadOnEnable = false;
+        [SerializeField] private bool _loadOnEnable = true;
         [SerializeField] private string _settingTargetId = "NONE";
         [SerializeField] protected T _settingValue = default;
 

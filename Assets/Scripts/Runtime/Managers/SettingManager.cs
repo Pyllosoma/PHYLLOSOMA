@@ -65,6 +65,7 @@ namespace Runtime.Managers
                 return convertedValue;
             }
             catch (Exception e) {
+                Debug.LogError($"Setting value convert error.\n{e}");
                 return default;
             }
         }

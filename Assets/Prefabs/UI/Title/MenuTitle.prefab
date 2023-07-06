@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 1894876963970685102}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -40}
-  m_SizeDelta: {x: 0, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 65, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1914155082810275617
 CanvasRenderer:
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uB274 \uC81C\uBAA9"
+  m_text: "\uC870\uC791\uBC29\uBC95"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d764a0b7c4840468b93917458ea5cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enablePreload: 1
   _translationKey: UI_MENU_CONTROL_KEY
   _frontText: 
   _backText: 

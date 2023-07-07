@@ -14,10 +14,12 @@ namespace Runtime.Translation
         private static string _currentLanguage = "ko_kr";
         //데이터를 저장하는 변수
         private static readonly Dictionary<string, string> _translation = new Dictionary<string, string>();
+        private static readonly List<ITranslationObserver> _translator = new List<ITranslationObserver>();
         public static void InitLanguage(string language)
         {
             _currentLanguage = language;
             InternalLoadTranslation();
+            InternalNotifyObserver();
         }
         private static void InternalLoadTranslation()
         {
@@ -58,6 +60,17 @@ namespace Runtime.Translation
                 InternalLoadTranslation();
             }
             return !_translation.ContainsKey(translationKey) ? translationKey : _translation[translationKey];
+        }
+
+        public static void AddObserver(ITranslationObserver translator) {
+            _translator.Add(translator);
+        }
+        private static void InternalNotifyObserver() {
+            //remove null value from list
+            _translator.RemoveAll(item => item == null);
+            foreach (var observer in _translator) {
+                observer.OnTranslationChanged();
+            }
         }
     }
 }

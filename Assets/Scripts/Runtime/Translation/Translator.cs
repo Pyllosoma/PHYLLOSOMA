@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Runtime.Translation
 {
-    public class Translator : MonoBehaviour
+    public class Translator : MonoBehaviour,ITranslationObserver
     {
         [SerializeField] private bool _enablePreload = true;
         [SerializeField] private string _translationKey = "NONE";
@@ -13,6 +13,11 @@ namespace Runtime.Translation
         [SerializeField] private string _backText = "";
         [SerializeField] private Text _legacyText;
         [SerializeField] private TextMeshProUGUI _text;
+
+        private void Awake()
+        {
+            TranslationManager.AddObserver(this);
+        }
 
         private void OnEnable()
         {
@@ -40,6 +45,15 @@ namespace Runtime.Translation
             if (_enablePreload) {
                 InternalLoadTranslation();
             }
+        }
+        //Invoke when translation changed.
+        public void OnTranslationChanged()
+        {
+            //If gameobject is not active, do nothing.
+            if (!gameObject.activeSelf) return;
+            //If translation key is NONE, do nothing.
+            if (_translationKey == "NONE") return;
+            InternalLoadTranslation();
         }
     }
 }

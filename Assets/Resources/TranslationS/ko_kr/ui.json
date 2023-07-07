@@ -1,4 +1,9 @@
 ﻿{
+  "__comment__" : "Korean translation by Postive",
+  "__translator__" : "Postive",
+  
+  "__ui_words__" : "UI 단어 모음",
+  
   "UI_HEALTH" : "체력",
   "UI_ATTACK" : "공격력",
   "UI_DEFENSE" : "방어력",
@@ -6,18 +11,27 @@
   "UI_STAMINA" : "스태미나",
   "UI_SPEED" : "민첩",
   "UI_FAITH" : "신앙",
-  "UI_ON" : "켜기",
-  "UI_OFF" : "끄기",
+  
+
+
+  "UI_SCREEN_RESOLUTION" : "해상도",
   "UI_MASTER" : "전체 음량",
   "UI_MUSIC" : "배경 음악",
   "UI_SFX" : "효과음",
   "UI_CONVERSATION" : "대사",
-  "UI_SCREEN_RESOLUTION" : "해상도",
+  "UI_SHOW_TUTORIAL" : "튜토리얼 표시",
+
+  "UI_ON" : "켜기",
+  "UI_OFF" : "끄기",
+ 
   "UI_LEVEL" : "레벨",
   "UI_TOTAL_PLAY_TIME" : "총 플레이 시간",
   "UI_LAST_SAVE_TIME" : "마지막 저장 시간",
   "UI_SAVE_AND_EXIT" : "저장 후 종료",
-  "UI_SHOW_TUTORIAL" : "튜토리얼 표시",
+  
+  
+  "__ui_menu_words__" : "UI 메뉴 단어 모음",
+  
   "UI_MENU_INVENTORY_SELECTED" : "선택함",
   "UI_MENU_SHOW_DETAILS": "상세보기",
   "UI_MENU_SELECT" : "선택하기",

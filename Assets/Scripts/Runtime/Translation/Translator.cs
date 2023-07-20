@@ -13,12 +13,9 @@ namespace Runtime.Translation
         [SerializeField] private string _backText = "";
         [SerializeField] private Text _legacyText;
         [SerializeField] private TextMeshProUGUI _text;
-
-        private void Awake()
-        {
-            TranslationManager.AddObserver(this);
+        private void Awake() {
+            //TranslationManager.AddObserver(this);
         }
-
         private void OnEnable()
         {
             InternalLoadTranslation();

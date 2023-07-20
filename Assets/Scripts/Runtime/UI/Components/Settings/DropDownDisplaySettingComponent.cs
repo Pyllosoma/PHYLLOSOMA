@@ -25,7 +25,7 @@ namespace Runtime.UI.Components.Settings
             base.OnEnable();
             //Set dropdown value to current resolution.
             var currentResolution = _settingValue;
-            Debug.Log(currentResolution);
+            //Debug.Log(currentResolution);
             for (int i = 0; i < _dropdown.options.Count; i++) {
                 if (_dropdown.options[i].text != currentResolution) continue;
                 _dropdown.value = i;

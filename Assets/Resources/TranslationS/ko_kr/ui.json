@@ -12,8 +12,15 @@
   "UI_SPEED" : "민첩",
   "UI_FAITH" : "신앙",
   
-
-
+  "UI_NOW" : "현재",
+  "UI_NEED" : "필요",
+  "UI_REMAIN" : "잔여",
+  
+  "UI_ITEM_EFFECT" : "아이템 효과",
+  "UI_ITEM_DESCRIPTION" : "아이템 설명",
+  
+  "UI_APPLY" : "적용하기",
+  
   "UI_SCREEN_RESOLUTION" : "해상도",
   "UI_MASTER" : "전체 음량",
   "UI_MUSIC" : "배경 음악",

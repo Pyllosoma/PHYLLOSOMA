@@ -12,11 +12,10 @@ namespace Runtime.UI.Components.TabBar
         
         public void Activate(int index)
         {
+            Debug.Log("Activate: " + index);
             //Return if index is out of range.
             if (index < 0 || index >= _gameObjects.Count) return;
             //Return if index is already activated.
-            if (index == _lastActivatedIndex) return;
-            
             if (_deactivateOtherIndex) {
                 _gameObjects[_lastActivatedIndex].SetActive(false);
                 _gameObjects[index].SetActive(true);

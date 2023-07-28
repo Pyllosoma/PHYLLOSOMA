@@ -15,10 +15,15 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: ba4e911e14e160540b8c9d3c89c7b586
+  m_GUID: 608e53887270e2f4a98735d6dcd99ea0
   m_SerializeEntries:
-  - m_GUID: 2acb2154a9f4a61499cc60cb9c6e82ea
-    m_Address: Assets/Localization/UI/UI Shared Data.asset
+  - m_GUID: c1433874d4ece0c4db96a1b77944600c
+    m_Address: Assets/Localization/UI/UI_NOUN Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b277e011252b33f48946274319687941
+    m_Address: Assets/Localization/UI/Menu/UI_MENU Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

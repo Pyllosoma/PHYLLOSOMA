@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3930516450188178154}
   - component: {fileID: 2854423926467136383}
   - component: {fileID: 3877694943655969922}
-  - component: {fileID: 5747480196385727944}
+  - component: {fileID: 2699399141466671304}
+  - component: {fileID: 7293305339879730191}
   m_Layer: 0
   m_Name: StatTitle
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5747480196385727944
+--- !u!114 &2699399141466671304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,15 +147,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 2681675518220487917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d764a0b7c4840468b93917458ea5cda, type: 3}
+  m_Script: {fileID: 11500000, guid: 053e696bea34417891dd964eb2eb7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enablePreload: 1
-  _translationKey: NONE
-  _frontText: 
-  _backText: 
-  _legacyText: {fileID: 0}
-  _text: {fileID: 3877694943655969922}
+  _target: {fileID: 3877694943655969922}
+  _isCapitalizeText: 1
+  _isEnablePrefixAndSuffix: 0
+  _prefix: 
+  _suffix: 
+--- !u!114 &7293305339879730191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681675518220487917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2699399141466671304}
+        m_TargetAssemblyTypeName: Runtime.Utils.TextMeshProUtils, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4903378418845444363
 GameObject:
   m_ObjectHideFlags: 0

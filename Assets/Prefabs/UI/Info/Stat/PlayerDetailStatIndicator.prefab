@@ -263,6 +263,16 @@ PrefabInstance:
       propertyPath: _translationKey
       value: UI_STAMINA
       objectReference: {fileID: 0}
+    - target: {fileID: 7293305339879730191, guid: 8d78dcd65d10ab14da149fe63c934757,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 506429812736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293305339879730191, guid: 8d78dcd65d10ab14da149fe63c934757,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:c1433874d4ece0c4db96a1b77944600c
+      objectReference: {fileID: 0}
     - target: {fileID: 7630440403259225612, guid: 8d78dcd65d10ab14da149fe63c934757,
         type: 3}
       propertyPath: m_Name
@@ -473,6 +483,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _translationKey
       value: UI_HEALTH
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293305339879730191, guid: 8d78dcd65d10ab14da149fe63c934757,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 95014727680
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293305339879730191, guid: 8d78dcd65d10ab14da149fe63c934757,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:c1433874d4ece0c4db96a1b77944600c
       objectReference: {fileID: 0}
     - target: {fileID: 7630440403259225612, guid: 8d78dcd65d10ab14da149fe63c934757,
         type: 3}

@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_WORDS_en-US
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-US
+  m_SharedData: {fileID: 11400000, guid: c1433874d4ece0c4db96a1b77944600c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 95014727680
+    m_Localized: Health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254545080320
+    m_Localized: Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385747103744
+    m_Localized: Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 458056904704
+    m_Localized: Endurance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 506429812736
+    m_Localized: Stamina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 562658652160
+    m_Localized: Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 588076134400
+    m_Localized: Faith
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672973041664
+    m_Localized: Now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 701095849984
+    m_Localized: Need
+    m_Metadata:
+      m_Items: []
+  - m_Id: 726697881600
+    m_Localized: Remain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 813113126912
+    m_Localized: Item Effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 827319234560
+    m_Localized: Item Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2656698478592
+    m_Localized: Apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2686222184448
+    m_Localized: Screen Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2760247455744
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2812298768384
+    m_Localized: BGM Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2887917875200
+    m_Localized: SFX Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3134467452928
+    m_Localized: Dialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3186732675072
+    m_Localized: Show Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3265682059264
+    m_Localized: ON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3307738345472
+    m_Localized: OFF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360565604352
+    m_Localized: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3414793760768
+    m_Localized: Total Play Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3477720903680
+    m_Localized: Last Save Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3540694183936
+    m_Localized: Save & Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4283186655232
+    m_Localized: Selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4358017232896
+    m_Localized: Details
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449650192384
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4514959699968
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

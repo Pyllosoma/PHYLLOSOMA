@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_WORDS Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI_WORDS
+  m_TableCollectionNameGuidString: c1433874d4ece0c4db96a1b77944600c
+  m_Entries:
+  - m_Id: 95014727680
+    m_Key: UI_HEALTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254545080320
+    m_Key: UI_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385747103744
+    m_Key: UI_DEFENSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 458056904704
+    m_Key: UI_ENDURANCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 506429812736
+    m_Key: UI_STAMINA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 562658652160
+    m_Key: UI_SPEED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 588076134400
+    m_Key: UI_FAITH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672973041664
+    m_Key: UI_NOW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 701095849984
+    m_Key: UI_NEED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 726697881600
+    m_Key: UI_REMAIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 813113126912
+    m_Key: UI_ITEM_EFFECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 827319234560
+    m_Key: UI_ITEM_DESCRIPTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2656698478592
+    m_Key: UI_APPLY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2686222184448
+    m_Key: UI_SCREEN_RESOLUTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2760247455744
+    m_Key: UI_MASTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2812298768384
+    m_Key: UI_MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2887917875200
+    m_Key: UI_SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3134467452928
+    m_Key: UI_Dialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3186732675072
+    m_Key: UI_SHOW_TUTORIAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3265682059264
+    m_Key: UI_ON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3307738345472
+    m_Key: UI_OFF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360565604352
+    m_Key: UI_LEVEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3414793760768
+    m_Key: UI_TOTAL_PLAY_TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3477720903680
+    m_Key: UI_LAST_SAVE_TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3540694183936
+    m_Key: UI_SAVE_AND_EXIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4283186655232
+    m_Key: UI_INVENTORY_SELECTED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4358017232896
+    m_Key: UI_SHOW_DETAILS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449650192384
+    m_Key: UI_SELECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4514959699968
+    m_Key: UI_RETURN
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5101389350856818743
+  references:
+    version: 2
+    RefIds:
+    - rid: 5101389350856818743
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1690560806073

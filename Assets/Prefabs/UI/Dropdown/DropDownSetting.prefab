@@ -472,7 +472,8 @@ GameObject:
   - component: {fileID: 6472059235683792215}
   - component: {fileID: 2544425182366199757}
   - component: {fileID: 6867314629762585068}
-  - component: {fileID: 7072855875508313474}
+  - component: {fileID: 5016489128227475763}
+  - component: {fileID: 2981278846390135275}
   m_Layer: 0
   m_Name: SettingUIDefaultText
   m_TagString: Untagged
@@ -528,7 +529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uB274 \uC774\uB984"
+  m_text: NONE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,
@@ -598,7 +599,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7072855875508313474
+--- !u!114 &5016489128227475763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,14 +608,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 5130695383083387746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d764a0b7c4840468b93917458ea5cda, type: 3}
+  m_Script: {fileID: 11500000, guid: 053e696bea34417891dd964eb2eb7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _translationKey: NONE
-  _frontText: 
-  _backText: 
-  _legacyText: {fileID: 0}
-  _text: {fileID: 6867314629762585068}
+  _target: {fileID: 6867314629762585068}
+  _isCapitalizeText: 0
+  _isEnablePrefixAndSuffix: 0
+  _prefix: 
+  _suffix: 
+--- !u!114 &2981278846390135275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130695383083387746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:c1433874d4ece0c4db96a1b77944600c
+    m_TableEntryReference:
+      m_KeyId: 2686222184448
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5016489128227475763}
+        m_TargetAssemblyTypeName: Runtime.Utils.TextMeshProUtils, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5279295727117315980
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,10 +1039,10 @@ RectTransform:
   m_Father: {fileID: 3017756224584806127}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 155, y: -20}
+  m_SizeDelta: {x: 310, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513563310429879205
 MonoBehaviour:

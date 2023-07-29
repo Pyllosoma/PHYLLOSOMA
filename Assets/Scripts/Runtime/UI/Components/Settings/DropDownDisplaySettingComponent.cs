@@ -35,7 +35,7 @@ namespace Runtime.UI.Components.Settings
         {
             //Set setting value and save.
             _settingValue = _dropdown.options[_dropdown.value].text;
-            Debug.Log(_settingValue);
+            //Debug.Log(_settingValue);
             base.SaveToSettingId();
         }
         

@@ -31,6 +31,13 @@ MonoBehaviour:
     - Locale-ko-KR
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43b46083747df47418c0912f67317d67
+    m_Address: ITEM_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 886d740d7a8433f4ca254bdae3c83c04, type: 2}
   m_SchemaSet:

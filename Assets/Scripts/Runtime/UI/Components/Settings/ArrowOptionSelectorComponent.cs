@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Runtime.Translation;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Runtime.UI.Components.Settings
@@ -10,7 +11,7 @@ namespace Runtime.UI.Components.Settings
     {
         [SerializeField] private int _currentSelectedIndex = 0;
         [SerializeField] private List<string> _values;
-        [SerializeField] private List<string> _valueTranslations;
+        [SerializeField] private List<LocalizedString> _valueTranslations;
         [SerializeField] private Button _leftArrowButton;
         [SerializeField] private Button _rightArrowButton;
         [SerializeField] private TextMeshProUGUI _valueLabel;
@@ -36,7 +37,7 @@ namespace Runtime.UI.Components.Settings
             //Disable arrow buttons when reach the end of the list.
             _leftArrowButton.interactable = _currentSelectedIndex != 0;
             _rightArrowButton.interactable = _currentSelectedIndex != _values.Count - 1;
-            _valueLabel.text = TranslationManager.GetTranslation(_valueTranslations[_currentSelectedIndex]);
+            _valueLabel.text = _valueTranslations[_currentSelectedIndex].GetLocalizedString();
             
             //Save to setting id.
             _settingValue = _values[_currentSelectedIndex];

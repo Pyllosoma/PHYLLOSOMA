@@ -21,7 +21,7 @@ namespace Runtime.Managers
         {
             _settingData = new Dictionary<string, string>();
             var path = Application.persistentDataPath + "\\" + _settingSavePath;
-            Debug.Log(path);
+            //Debug.Log(path);
             //Check is file exists.
             if (!File.Exists(path)) {
                 Debug.Log("SettingManager: Setting file is not exists.");

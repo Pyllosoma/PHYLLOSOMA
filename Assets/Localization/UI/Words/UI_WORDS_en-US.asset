@@ -59,11 +59,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 813113126912
-    m_Localized: Item Effect
+    m_Localized: Effect
     m_Metadata:
       m_Items: []
   - m_Id: 827319234560
-    m_Localized: Item Description
+    m_Localized: Description
     m_Metadata:
       m_Items: []
   - m_Id: 2656698478592

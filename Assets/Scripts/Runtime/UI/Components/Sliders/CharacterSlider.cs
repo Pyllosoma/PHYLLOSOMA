@@ -10,8 +10,8 @@ namespace Runtime.UI.Components.Sliders
         [SerializeField] private int _maxHealth = 100;
         [SerializeField] private int _currentHealth = 100;
         [SerializeField] private float _followTime = 1f;
-        [SerializeField] private int _followWaitTime = 1;
-        [SerializeField] private float _updatesPerSecond = 60f;
+        [SerializeField] private float _followWaitTime = 0.5f;
+        [SerializeField] private int _updatesPerSecond = 60;
         [SerializeField] private Slider _foreSlider;
         [SerializeField] private Slider _backSlider;
         private IEnumerator _followCurrentHealthCoroutine = null;

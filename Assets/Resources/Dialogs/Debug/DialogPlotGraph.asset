@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6876080302276511478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a15fcabc65eed429e521129bd64ae2, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2072, y: -232}
+  ports:
+    keys:
+    - Previous
+    - Next
+    values:
+    - _fieldName: Previous
+      _node: {fileID: -6876080302276511478}
+      _typeQualifiedName: DialogSystem.Nodes.DialogBaseNode, DialogSystem, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: 919802890008181265}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Next
+      _node: {fileID: -6876080302276511478}
+      _typeQualifiedName: DialogSystem.Nodes.DialogBaseNode, DialogSystem, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Previous: {fileID: 0}
+  Next: {fileID: 0}
+  _isEndPast: 1
+  _line:
+    SpeakerTag: DialogSpeaker
+    DialogEvents: []
+    DialogContent:
+      StringReference:
+        m_TableReference:
+          m_TableCollectionName: GUID:e428f92d07ac04f4daa8846ae6b063eb
+        m_TableEntryReference:
+          m_KeyId: 37594705920
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +76,8 @@ MonoBehaviour:
   - {fileID: 804736112621760584}
   - {fileID: 3080733194080139682}
   - {fileID: 2576862417981394019}
+  - {fileID: 919802890008181265}
+  - {fileID: -6876080302276511478}
 --- !u!114 &804736112621760584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +140,68 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &919802890008181265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a15fcabc65eed429e521129bd64ae2, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1560, y: -232}
+  ports:
+    keys:
+    - Previous
+    - Next
+    values:
+    - _fieldName: Previous
+      _node: {fileID: 919802890008181265}
+      _typeQualifiedName: DialogSystem.Nodes.DialogBaseNode, DialogSystem, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: 2576862417981394019}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Next
+      _node: {fileID: 919802890008181265}
+      _typeQualifiedName: DialogSystem.Nodes.DialogBaseNode, DialogSystem, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Previous
+        node: {fileID: -6876080302276511478}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Previous: {fileID: 0}
+  Next: {fileID: 0}
+  _isEndPast: 1
+  _line:
+    SpeakerTag: DialogSpeaker
+    DialogEvents: []
+    DialogContent:
+      StringReference:
+        m_TableReference:
+          m_TableCollectionName: GUID:e428f92d07ac04f4daa8846ae6b063eb
+        m_TableEntryReference:
+          m_KeyId: 30581829632
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2576862417981394019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +237,10 @@ MonoBehaviour:
       _node: {fileID: 2576862417981394019}
       _typeQualifiedName: DialogSystem.Nodes.DialogBaseNode, DialogSystem, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Previous
+        node: {fileID: 919802890008181265}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

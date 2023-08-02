@@ -205,9 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _followHealth: 100
   _currentHealth: 100
   _followTime: 1
+  _followWaitTime: 0.5
+  _updatesPerSecond: 60
   _foreSlider: {fileID: 5290311467571611081}
   _backSlider: {fileID: 1382409988199816526}
 --- !u!1 &5629128276640458651
@@ -735,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.95686066, b: 0, a: 1}
+  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

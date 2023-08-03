@@ -17,13 +17,13 @@ namespace Tests.Utils
         private void OnTriggerEnter(Collider other)
         {
             if (_targetTag.Contains(other.tag)&&!_foundTargets.Contains(other.gameObject)) {
-                Debug.Log($"Target {other.gameObject.name} is found.");
+                //Debug.Log($"Target {other.gameObject.name} is found.");
                 _foundTargets.Add(other.gameObject);
             }
         }
         private void OnTriggerExit(Collider other)
         {
-            Debug.Log($"Target {other.gameObject.name} is lost.");
+            //Debug.Log($"Target {other.gameObject.name} is lost.");
             _foundTargets.Remove(other.gameObject);
         }
     }

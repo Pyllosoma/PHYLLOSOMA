@@ -1,14 +1,17 @@
 ﻿using System;
 using Runtime.Characters.FSM;
+using Tests.Characters.MonsterFSM;
 using Tests.Utils;
+using Tests.Weapons;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Tests.Characters
 {
     //일단 테스트를 위해 상위 부모 클래스 없이 구현
     public class Monster : MonoBehaviour
     {
-        public State<Monster> State {
+        public IState<Monster> State {
             get => _state;
             set {
                 _state?.Exit(this);
@@ -16,16 +19,29 @@ namespace Tests.Characters
                 _state?.Enter(this);
             }
         }
-        public TargetDetector Detector => _targetDetector;
-        private State<Monster> _state = null;
+        public float Speed => _speed;
+        public float Acceleration => _acceleration;
+        public float RotateSpeed => _rotateSpeed;
+        public Laser Laser => _laser;
+        public NavMeshAgent Controller => _controller;
+        public TargetDetector TargetDetector => _targetDetector;
+        private IState<Monster> _state = null;
+        [SerializeField] private float _speed = 1f;
+        [SerializeField] private float _acceleration = 1f;
+        [SerializeField] private float _rotateSpeed = 720f;
+        [SerializeField] private Laser _laser = null;
+        [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
         private void Start()
         {
-            _state = new State<Monster>();
+            _controller.speed = _speed;
+            _controller.acceleration = _acceleration;
+            _controller.angularSpeed = _rotateSpeed;
+            _state = new MonsterIdleState();
         }
         private void Update()
         {
-            State?.Execute(this);
+            State?.Update(this);
         }
     }
 }

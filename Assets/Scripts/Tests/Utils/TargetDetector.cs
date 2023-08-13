@@ -19,6 +19,7 @@ namespace Tests.Utils
             if (_targetTag.Contains(other.tag)&&!_foundTargets.Contains(other.gameObject)) {
                 //Debug.Log($"Target {other.gameObject.name} is found.");
                 _foundTargets.Add(other.gameObject);
+                //get hit point
             }
         }
         private void OnTriggerExit(Collider other)

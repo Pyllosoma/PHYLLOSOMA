@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Runtime.Patterns;
 using Runtime.Settings;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Runtime.Managers
 {
     public class SettingManager : Singleton<SettingManager>
     {
-        private const string _settingSavePath = "save.data";
+        private const string _settingSavePath = "setting.data";
         private Dictionary<string, string> _settingData = null;
         //The setting value will apply by real time.
         public override void Awake()

@@ -1,10 +1,11 @@
 ﻿using System;
-using Runtime.Characters.FSM;
+using Runtime.Patterns.FSM;
 using Tests.Characters.MonsterFSM;
 using Tests.Utils;
 using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
@@ -25,6 +26,7 @@ namespace Tests.Characters
         public Laser Laser => _laser;
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
+        public TargetLooker TargetLooker => _targetLooker;
         private IState<Monster> _state = null;
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _acceleration = 1f;
@@ -32,6 +34,7 @@ namespace Tests.Characters
         [SerializeField] private Laser _laser = null;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
+        [SerializeField] private TargetLooker _targetLooker = null;
         private void Start()
         {
             _controller.speed = _speed;
@@ -42,6 +45,11 @@ namespace Tests.Characters
         private void Update()
         {
             State?.Update(this);
+            if (_targetDetector.IsTargetExist) {
+                _targetLooker.SetTarget(_targetDetector.Targets[0].transform);
+            } else {
+                _targetLooker.SetTarget(null);
+            }
         }
     }
 }

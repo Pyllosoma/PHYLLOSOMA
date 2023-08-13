@@ -1,4 +1,4 @@
-﻿using Runtime.Characters.FSM;
+﻿using Runtime.Patterns.FSM;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM
@@ -7,7 +7,7 @@ namespace Tests.Characters.MonsterFSM
     {
         public void Enter(Monster entity)
         {
-            
+
         }
         public void Update(Monster entity)
         {
@@ -20,19 +20,16 @@ namespace Tests.Characters.MonsterFSM
                 entity.State = new MonsterIdleState();
                 return;
             }
-            // //공격하는 부분
-            // if (entity.Laser.IsInAttackAngle(target)) {
-            //     //Rotate to target
-            //     var targetDir = target.transform.position - entity.transform.position;
-            //     var newDir = Vector3.RotateTowards(entity.transform.forward, targetDir, entity.RotateSpeed * Time.deltaTime, 0.0f);
-            //     entity.transform.rotation = Quaternion.LookRotation(newDir);
-            //     return;
-            // }
+            if (!entity.TargetLooker.IsInAngle) {
+                entity.Laser.EnableLaser(false);
+                return;
+            }
+            entity.Laser.EnableLaser(true);
             entity.Laser.Attack(target);
         }
         public void Exit(Monster entity)
         {
-            
+            entity.Laser.EnableLaser(false);
         }
     }
 }

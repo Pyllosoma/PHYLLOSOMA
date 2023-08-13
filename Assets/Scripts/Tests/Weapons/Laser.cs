@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Tests.Weapons
 {
@@ -11,33 +12,49 @@ namespace Tests.Weapons
         [SerializeField] private float _damage = 1f;
         [SerializeField] private float _attackDelay = 0.05f;
         [SerializeField] private float _attackRange = 10f;
-        [SerializeField] private float _attackAngle = 45f;
         [SerializeField] private LineRenderer _laserLine = null;
+        [SerializeField] private VisualEffect _laserEffect = null;
+        [SerializeField] private float _chargeTime = 1f;
         private float _lastAttackTime = 0f;
+        private float _chargeValue = 0f;
+        public void EnableLaser(bool isEnable)
+        {
+            _laserLine.gameObject.SetActive(isEnable);
+            if (isEnable) {
+                _laserEffect.Play();
+            }
+            else{
+                _laserEffect.Stop();
+                _chargeValue = 0f;
+                _laserLine.material.SetFloat("_LaserPower", _chargeValue);
+                _laserLine.SetPositions(new []{transform.position, transform.position});
+            }
+        }
+        
         public void Attack(GameObject target)
         {
+            _chargeValue += Time.deltaTime;
+            _laserLine.material.SetFloat("_LaserPower", _chargeValue/_chargeTime);
+            _laserLine.SetPositions(new []{transform.position, target.transform.position});
+            _laserEffect.transform.position = target.transform.position;
+            
+            if (_chargeValue < _chargeTime) {
+                return;
+            }
+            _chargeValue = _chargeTime;
+            
             if (Time.time - _lastAttackTime < _attackDelay) return;
             _lastAttackTime = Time.time;
             //공격하는 부분
-            Debug.Log("Laser Attack!");
+            //Debug.Log("Laser Attack!");
             //공격할 타겟에게 
-            _laserLine.SetPositions(new []{transform.position, target.transform.position});
+            //Calculate hit point
+            // shot raycast
+            //공격 데미지를 주는 부분
         }
         public bool IsInRange(GameObject target)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > _attackRange) {
-                return false;
-            }
-            return true;
-        }
-        public bool IsInAttackAngle(GameObject target)
-        {
-            var direction = target.transform.position - transform.position;
-            var angle = Vector3.Angle(direction, transform.forward);
-            if (angle > _attackAngle) {
-                return false;
-            }
-            return true;
+            return !(Vector3.Distance(transform.position, target.transform.position) > _attackRange);
         }
     }
 }

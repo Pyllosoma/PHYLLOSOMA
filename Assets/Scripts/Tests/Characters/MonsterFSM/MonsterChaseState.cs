@@ -1,4 +1,4 @@
-﻿using Runtime.Characters.FSM;
+﻿using Runtime.Patterns.FSM;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM

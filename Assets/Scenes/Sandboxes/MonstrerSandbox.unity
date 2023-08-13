@@ -689,7 +689,7 @@ MonoBehaviour:
   _attackRange: 10
   _laserLine: {fileID: 1717048777}
   _laserEffect: {fileID: 1677826551}
-  _chargeTime: 5
+  _chargeTime: 20
 --- !u!1 &1331836871
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData:
+    Level: 1
     TotalPlayTime: 0
     LastSaveTime: 0
 --- !u!4 &1526686001

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Runtime.Translation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;

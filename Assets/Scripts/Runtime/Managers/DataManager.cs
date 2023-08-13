@@ -45,8 +45,8 @@ namespace Runtime.Managers
                 _playerData = new PlayerData();
             }
             _playStartTime = DateTime.Now.Ticks;
-            Debug.Log(new DateTime(_playerData.LastSaveTime));
-            Debug.Log(new DateTime(_playerData.TotalPlayTime));
+            // Debug.Log(new DateTime(_playerData.LastSaveTime));
+            // Debug.Log(new DateTime(_playerData.TotalPlayTime));
         }
         public void Save()
         {

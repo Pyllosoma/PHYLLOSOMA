@@ -131,6 +131,14 @@ MonoBehaviour:
     m_Key: UI_RETURN
     m_Metadata:
       m_Items: []
+  - m_Id: 6015102181552128
+    m_Key: UI_CANCEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6015218267303936
+    m_Key: UI_SAVE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

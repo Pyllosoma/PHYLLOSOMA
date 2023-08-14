@@ -134,6 +134,14 @@ MonoBehaviour:
     m_Localized: Return
     m_Metadata:
       m_Items: []
+  - m_Id: 6015102181552128
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6015218267303936
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

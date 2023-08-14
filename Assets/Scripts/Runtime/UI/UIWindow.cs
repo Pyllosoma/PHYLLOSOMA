@@ -1,57 +1,46 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.UI
 {
-    public sealed class UIWindow : MonoBehaviour
+    [RequireComponent(typeof(CanvasGroup))]
+    public class UIWindow : MonoBehaviour
     {
-        private const uint UPDATE_STEP = 20;  
         [SerializeField] private bool _isOpenOnStart = false;
         [SerializeField] private float _delay = 0.25f;
+        [SerializeField] private Ease _ease = Ease.Linear;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private UnityEvent _openEvent;
         [SerializeField] private UnityEvent _closeEvent;
         private bool _isOpen = false;
         private void Start() {
-            if (_isOpenOnStart) Open();
+            if (_isOpenOnStart) Open(true);
         }
-        public void Open()
+        public void Open(bool isOpen)
         {
-            if (_isOpen) return;
-            _isOpen = true;
-            gameObject.SetActive(true);
-            _canvasGroup.blocksRaycasts = true;
-            //Debug.Log("Open");
-            StartCoroutine(WindowAnimation());
-        }
-        public void Close()
-        {
-            if (!_isOpen) return;
-            _isOpen = false;
-            _canvasGroup.interactable = false;
-            StartCoroutine(WindowAnimation());
-        }
-        private IEnumerator WindowAnimation()
-        {
-            var currentTime = 0f;
-            var updateTick = _delay / UPDATE_STEP;
-            while (currentTime < _delay) {
-                var alpha = currentTime / _delay;
-                currentTime += updateTick;
-                _canvasGroup.alpha = _isOpen ? alpha : 1 - alpha;
-                yield return new WaitForSecondsRealtime(updateTick);
+            if (_isOpen == isOpen) return;
+            _isOpen = isOpen;
+            if (_isOpen) {
+                gameObject.SetActive(true);
             }
-            _canvasGroup.alpha = _isOpen ? 1 : 0;
+            _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.interactable = false;
+            _canvasGroup.alpha = _isOpen ? 0 : 1;
+            _canvasGroup.DOFade(_isOpen ? 1 : 0, _delay).SetEase(_ease).OnComplete(AfterEvent);
+        }
+        private void AfterEvent()
+        {
             gameObject.SetActive(_isOpen);
             if (_isOpen) {
                 _canvasGroup.interactable = true;
                 _openEvent.Invoke();
-            }
-            else {
+            } else {
                 _canvasGroup.blocksRaycasts = false;
                 _closeEvent.Invoke();
             }
+
         }
         private void OnValidate()
         {

@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Laser
-  m_Shader: {fileID: -6465566751694194690, guid: 4f4ad55869bb80e4787707df3b1ba342,
+  m_Shader: {fileID: -6465566751694194690, guid: c89b20c6bcb19fd4ba2cfd06729558d3,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -116,7 +116,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LaserPower: 0
+    - _LaserPower: 1
     - _Metallic: 0
     - _NoiseRatio: 0.3
     - _NoiseSize: 20

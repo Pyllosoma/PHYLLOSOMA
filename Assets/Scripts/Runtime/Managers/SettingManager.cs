@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Runtime.Patterns;
 using Runtime.Settings;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Runtime.Managers
 {
@@ -12,11 +13,13 @@ namespace Runtime.Managers
     {
         private const string _settingSavePath = "setting.data";
         private Dictionary<string, string> _settingData = null;
+        [SerializeField] private AudioMixer _mixer;
         //The setting value will apply by real time.
         public override void Awake()
         {
             base.Awake();
             LoadSettingData();
+            ApplySettingData();
         }
         private void LoadSettingData()
         {
@@ -50,6 +53,23 @@ namespace Runtime.Managers
             var jsonData = JsonConvert.SerializeObject(_settingData);
             //Debug.Log(jsonData);
             File.WriteAllText(path, jsonData);
+            ApplySettingData();
+        }
+        private void ApplySettingData()
+        {
+            //Debug.Log("ApplySettingData");
+            Debug.Log(_settingData[SettingConstant.MASTER_VOLUME]);
+            Debug.Log(_settingData[SettingConstant.BGM_VOLUME]);
+            Debug.Log(_settingData[SettingConstant.SFX_VOLUME]);
+            Debug.Log(_settingData[SettingConstant.CONVERSATION_VOLUME]);
+            Debug.Log(_settingData[SettingConstant.SCREEN_RESOLUTION]);
+            string resolution = _settingData[SettingConstant.SCREEN_RESOLUTION];
+            string[] res = resolution.Split('X');
+            Screen.SetResolution(int.Parse(res[0]), int.Parse(res[1]), true);
+            _mixer.SetFloat("Master", float.Parse(_settingData[SettingConstant.MASTER_VOLUME]) * 100 - 90);
+            _mixer.SetFloat("SFX", float.Parse(_settingData[SettingConstant.BGM_VOLUME]) * 100 - 90);
+            _mixer.SetFloat("BGM", float.Parse(_settingData[SettingConstant.SFX_VOLUME]) * 100 - 90);
+            _mixer.SetFloat("Conversation", float.Parse(_settingData[SettingConstant.CONVERSATION_VOLUME]) * 100 - 90);
         }
         public T GetSettingDataById<T>(string settingId)
         {
@@ -69,6 +89,7 @@ namespace Runtime.Managers
                 Debug.LogError($"Setting value convert error.\n{e}");
                 return default;
             }
+            
         }
         /// <summary>
         /// Save setting data by setting id.

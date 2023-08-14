@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using DialogSystem.Attributes;
+using Runtime.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace Runtime.Attributes
+namespace Editor.Attributes
 {
     [CustomPropertyDrawer(typeof(TagSelectorAttribute))]
     public class TagSelectorPropertyDrawer : PropertyDrawer

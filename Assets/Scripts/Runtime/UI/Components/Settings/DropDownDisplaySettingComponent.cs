@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,10 +13,16 @@ namespace Runtime.UI.Components.Settings
             _dropdown.ClearOptions();
             //Get display resolution and add to dropdown.
             var resolutions = Screen.resolutions;
-            foreach (var resolution in resolutions)
+            List<string> optionList = new List<string>();
+            foreach (var resolution in resolutions) {
+                string option = $"{resolution.width}X{resolution.height}";
+                if(optionList.Contains(option)) continue;
+                optionList.Add(option);
+            }
+            foreach (var option in optionList)
             {
                 TMP_Dropdown.OptionData optionData = new TMP_Dropdown.OptionData();
-                optionData.text = resolution.width + "X" + resolution.height;
+                optionData.text = option;
                 _dropdown.options.Add(optionData);
             }
             _dropdown.RefreshShownValue();

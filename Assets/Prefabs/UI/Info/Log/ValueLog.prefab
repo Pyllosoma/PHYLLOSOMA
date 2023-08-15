@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 800899743191042914}
   - component: {fileID: 1614573857400199618}
   - component: {fileID: 6127601929346103151}
+  - component: {fileID: 3116480342627005819}
+  - component: {fileID: 5385947338854932613}
   m_Layer: 0
   m_Name: ValueLog
   m_TagString: Untagged
@@ -162,6 +164,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ab8d646cb506343ac10c0314883acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _logLifeTime: 1
+  _fadeAnimation: {fileID: 3116480342627005819}
+  _resizeAnimation: {fileID: 5385947338854932613}
+--- !u!114 &3116480342627005819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357854235732821046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b982274c9f124fac6173c4aea29cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationTime: 0.25
+  _fadeEase: 5
+--- !u!114 &5385947338854932613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357854235732821046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab02e1b146d2434aa8ecab937f26d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationTime: 0.25
   _resizeCurve:
     serializedVersion: 2
     m_Curve:
@@ -186,9 +218,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _fadeEase: 5
-  _logShowTime: 0.25
-  _logLifeTime: 1
-  _logResizeTime: 0.25
   _logResizePerSecond: 30
-  _logTargetScale: {x: 190, y: 0}
+  _targetScale: {x: 1, y: 0}

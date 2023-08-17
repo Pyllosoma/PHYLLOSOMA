@@ -10,7 +10,6 @@ namespace Runtime.UI.Menus
         {
             DataManager.Instance.Save();
             SceneManager.LoadScene("StartUpUI");
-            
         }
     }
 }

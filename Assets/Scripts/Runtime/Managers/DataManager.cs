@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Runtime.Data;
+using Runtime.Data.ScriptableObjects;
 using Runtime.Patterns;
 using UnityEngine;
 
@@ -8,20 +9,18 @@ namespace Runtime.Managers
 {
     public class DataManager : Singleton<DataManager>
     {
+        public enum SaveDataType {
+            NEW_GAME,//Create new save data
+            LOAD_GAME,//Load save from file list
+            CONTINUE_GAME//Load last save data
+        }
         public const string PLAYER_SAVE_PATH = "save.data";
         public PlayerData PlayerData => _playerData;
+        public ItemInfos Items => _itemInfos;
+        [SerializeField] private ItemInfos _itemInfos;
         [SerializeField] private PlayerData _playerData = new PlayerData();
         private long _playStartTime = 0;
         private long _playEndTime = 0;
-        public override void Awake()
-        {
-            base.Awake();
-            Load();
-        }
-        private void OnDisable()
-        {
-            Save();
-        }
         public void SaveDataToPath<T>(string path,T data)
         {
             string savePath = Application.persistentDataPath + "\\" + path;
@@ -54,6 +53,19 @@ namespace Runtime.Managers
             _playerData.LastSaveTime = DateTime.Now.Ticks;
             _playerData.TotalPlayTime += _playEndTime - _playStartTime;
             SaveDataToPath(PLAYER_SAVE_PATH,_playerData);
+        }
+        public void LoadSaveData(SaveDataType saveDataType)
+        {
+            switch (saveDataType) {
+                case SaveDataType.NEW_GAME:
+                    _playerData = new PlayerData();
+                    break;
+                case SaveDataType.LOAD_GAME:
+                    Load();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

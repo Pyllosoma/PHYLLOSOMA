@@ -58,11 +58,11 @@ namespace Runtime.Managers
         private void ApplySettingData()
         {
             //Debug.Log("ApplySettingData");
-            Debug.Log(_settingData[SettingConstant.MASTER_VOLUME]);
-            Debug.Log(_settingData[SettingConstant.BGM_VOLUME]);
-            Debug.Log(_settingData[SettingConstant.SFX_VOLUME]);
-            Debug.Log(_settingData[SettingConstant.CONVERSATION_VOLUME]);
-            Debug.Log(_settingData[SettingConstant.SCREEN_RESOLUTION]);
+            // Debug.Log(_settingData[SettingConstant.MASTER_VOLUME]);
+            // Debug.Log(_settingData[SettingConstant.BGM_VOLUME]);
+            // Debug.Log(_settingData[SettingConstant.SFX_VOLUME]);
+            // Debug.Log(_settingData[SettingConstant.CONVERSATION_VOLUME]);
+            // Debug.Log(_settingData[SettingConstant.SCREEN_RESOLUTION]);
             string resolution = _settingData[SettingConstant.SCREEN_RESOLUTION];
             string[] res = resolution.Split('X');
             Screen.SetResolution(int.Parse(res[0]), int.Parse(res[1]), true);

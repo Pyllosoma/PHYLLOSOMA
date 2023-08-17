@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4598511428248282032}
   - component: {fileID: 8297110525052933014}
   m_Layer: 0
-  m_Name: ItemToast
+  m_Name: ItemLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uB2C8\uB9C8"
+  m_text: "\uC544\uC774\uD15C \uC774\uB984"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73eb257f59ece5a488fb2f65f5dc769e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: 73eb257f59ece5a488fb2f65f5dc769e,
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6b982274c9f124fac6173c4aea29cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationTime: 0.05
+  _animationTime: 0.1
   _fadeEase: 2
 --- !u!1 &6383717599277237305
 GameObject:

@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 71534300857697129}
   - component: {fileID: 9116625567801459063}
+  - component: {fileID: 7572591797823837626}
   m_Layer: 0
   m_Name: StatModifyHolder
   m_TagString: Untagged
@@ -282,6 +283,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 2
   m_AspectRatio: 3
+--- !u!114 &7572591797823837626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848913237324457351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd159cab57bff8e4e8ae1549b2c8a4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _min: 0
+  _max: 10
+  _current: 0
+  _numberText: {fileID: 20074066143129532}
 --- !u!1001 &3785297472759893385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,10 +307,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71534300857697129}
     m_Modifications:
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7572591797823837626}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeNumber
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Runtime.UI.Components.ArrowNumberChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4024208394777498867, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}
       propertyPath: m_Name
-      value: ArrowButton
+      value: LeftButton
       objectReference: {fileID: 0}
     - target: {fileID: 5338643271856363281, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}
@@ -441,18 +498,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479329484964629170, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}
-      propertyPath: m_LocalRotation.y
+      propertyPath: m_LocalRotation.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 479329484964629170, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479329484964629170, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7572591797823837626}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeNumber
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Runtime.UI.Components.ArrowNumberChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675805823237367055, guid: eb57a0714fe49334ea53376bd9c9a006,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4024208394777498867, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}
       propertyPath: m_Name
-      value: ArrowButton (1)
+      value: RightButton
       objectReference: {fileID: 0}
     - target: {fileID: 5338643271856363281, guid: eb57a0714fe49334ea53376bd9c9a006,
         type: 3}

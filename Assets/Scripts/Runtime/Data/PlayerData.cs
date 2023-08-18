@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Runtime.Data.Structure;
 using UnityEngine;
 
 namespace Runtime.Data
@@ -7,10 +8,15 @@ namespace Runtime.Data
     [Serializable]
     public class PlayerData
     {
-        public long Level = 1;
-        public long Anima = 0;
+
         public long TotalPlayTime = 0;
         public long LastSaveTime = 0;
+        [Header("Player Info")]
+        public long Level = 1;
+        public long Anima = 10000;
+        [Header("Player Status")]
+        public BaseStats Stats = new BaseStats();
+        
         public Dictionary<int, int> Inventory = new Dictionary<int, int>() {
             {2000,2}
         };

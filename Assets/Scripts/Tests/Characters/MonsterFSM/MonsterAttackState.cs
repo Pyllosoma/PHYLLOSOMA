@@ -21,15 +21,19 @@ namespace Tests.Characters.MonsterFSM
                 return;
             }
             if (!entity.TargetLooker.IsInAngle) {
-                entity.Laser.EnableLaser(false);
+                entity.Laser.Finish();
                 return;
             }
-            entity.Laser.EnableLaser(true);
-            entity.Laser.Attack(target);
+            // if (entity.TargetBlockChecker.IsDirectionBlocked) {
+            //     entity.Laser.Finish();
+            //     return;
+            // }
+            entity.Laser.Ready();
+            entity.Laser.Attack(target,entity.TargetBlockChecker.TargetPosition);
         }
         public void Exit(Monster entity)
         {
-            entity.Laser.EnableLaser(false);
+            entity.Laser.Finish();
         }
     }
 }

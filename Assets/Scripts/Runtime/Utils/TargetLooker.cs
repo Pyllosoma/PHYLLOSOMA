@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tests.Utils
+namespace Runtime.Utils
 {
     public class TargetLooker : MonoBehaviour
     {
@@ -11,8 +11,9 @@ namespace Tests.Utils
         [SerializeField] private bool _isZRotate = true;
         [SerializeField] private bool _stopWhenInAngle = true;
         [SerializeField] private float _maxAngleGap = 45f;
-        [SerializeField] private Transform _target;
-        [SerializeField] private bool _isInAngle = false;
+
+        private Transform _target;
+        private bool _isInAngle = false;
         private void FixedUpdate()
         {
             if (!_target) {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using DG.Tweening;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Tests.Utils
+namespace Runtime.Utils
 {
     public class FloatingEffectMaker : MonoBehaviour
     {

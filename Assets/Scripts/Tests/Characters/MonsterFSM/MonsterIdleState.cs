@@ -19,6 +19,7 @@ namespace Tests.Characters.MonsterFSM
         }
         public void Exit(Monster entity)
         {
+            
         }
     }
 }

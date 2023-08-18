@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Runtime.Attributes;
 using UnityEngine;
 
-namespace Tests.Utils
+namespace Runtime.Utils
 {
     /// <summary>
     /// 적을 탐색하기 위한 유틸성 컴포넌트

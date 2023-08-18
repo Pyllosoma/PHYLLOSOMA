@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 1273386257}
   - component: {fileID: 1273386256}
   - component: {fileID: 1273386258}
+  - component: {fileID: 1273386259}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -685,11 +686,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _attackDelay: 0.05
-  _attackRange: 10
+  _delay: 0.05
+  _range: 10
   _laserLine: {fileID: 1717048777}
   _laserEffect: {fileID: 1677826551}
-  _chargeTime: 20
+  _chargeTime: 5
+--- !u!114 &1273386259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273386253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fd633122ed353458afefc974d81777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDirectionBlocked: 0
+  _directionCheckRange: 20
+  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1331836871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1288,7 @@ MonoBehaviour:
   _controller: {fileID: 1701433795}
   _targetDetector: {fileID: 1524081104}
   _targetLooker: {fileID: 1701433796}
+  _targetBlockChecker: {fileID: 1273386259}
 --- !u!136 &1701433794
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1335,8 +1352,6 @@ MonoBehaviour:
   _isZRotate: 0
   _stopWhenInAngle: 1
   _maxAngleGap: 45
-  _target: {fileID: 0}
-  _isInAngle: 0
 --- !u!1 &1717048776
 GameObject:
   m_ObjectHideFlags: 0

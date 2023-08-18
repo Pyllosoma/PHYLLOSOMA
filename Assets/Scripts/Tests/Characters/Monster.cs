@@ -1,7 +1,7 @@
 ﻿using System;
 using Runtime.Patterns.FSM;
+using Runtime.Utils;
 using Tests.Characters.MonsterFSM;
-using Tests.Utils;
 using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,6 +27,7 @@ namespace Tests.Characters
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
         public TargetLooker TargetLooker => _targetLooker;
+        public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
         private IState<Monster> _state = null;
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _acceleration = 1f;
@@ -35,6 +36,7 @@ namespace Tests.Characters
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
         [SerializeField] private TargetLooker _targetLooker = null;
+        [SerializeField] private TargetBlockChecker _targetBlockChecker = null;
         private void Start()
         {
             _controller.speed = _speed;
@@ -47,9 +49,13 @@ namespace Tests.Characters
             State?.Update(this);
             if (_targetDetector.IsTargetExist) {
                 _targetLooker.SetTarget(_targetDetector.Targets[0].transform);
+                _targetBlockChecker.SetTarget(_targetDetector.Targets[0].transform);
             } else {
                 _targetLooker.SetTarget(null);
+                _targetBlockChecker.SetTarget(null);
             }
+            
+            
         }
     }
 }

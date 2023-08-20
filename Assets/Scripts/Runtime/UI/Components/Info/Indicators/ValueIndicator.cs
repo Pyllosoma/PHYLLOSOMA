@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Runtime.UI.Components.Info.ValueIndicators
+namespace Runtime.UI.Components.Info.Indicators
 {
     public class ValueIndicator : MonoBehaviour
     {
@@ -12,20 +12,21 @@ namespace Runtime.UI.Components.Info.ValueIndicators
         [SerializeField] private float _updateTime = 1f;
         [SerializeField] private int _updatePerSecond = 30;
         private IEnumerator _valueUpdateCoroutine = null;
-        private int test = 0;
         private void OnEnable()
         {
             //Get money info and write to text.
         }
-        private void Update()
+        public void SetStartValue(int value)
         {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                test += 1000;
-                UpdateValue(test);
-            }
+            _curValue = value;
+            _targetValue = value;
+            _moneyText.text = _curValue.ToString();
         }
         public void UpdateValue(int value)
         {
+            if (value == _targetValue) {
+                return;
+            }
             _targetValue = value;
             if (_valueUpdateCoroutine != null) {
                 StopCoroutine(_valueUpdateCoroutine);

@@ -44,8 +44,6 @@ namespace Runtime.Managers
                 _playerData = new PlayerData();
             }
             _playStartTime = DateTime.Now.Ticks;
-            // Debug.Log(new DateTime(_playerData.LastSaveTime));
-            // Debug.Log(new DateTime(_playerData.TotalPlayTime));
         }
         public void Save()
         {
@@ -59,9 +57,14 @@ namespace Runtime.Managers
             switch (saveDataType) {
                 case SaveDataType.NEW_GAME:
                     _playerData = new PlayerData();
+                    _playStartTime = DateTime.Now.Ticks;
                     break;
                 case SaveDataType.LOAD_GAME:
-                    Load();
+                    _playerData = LoadDataFromPath<PlayerData>(PLAYER_SAVE_PATH);
+                    if (_playerData == null) {
+                        _playerData = new PlayerData();
+                    }
+                    _playStartTime = DateTime.Now.Ticks;
                     break;
                 default:
                     break;

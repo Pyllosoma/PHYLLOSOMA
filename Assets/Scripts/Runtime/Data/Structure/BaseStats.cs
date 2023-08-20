@@ -5,12 +5,12 @@ namespace Runtime.Data.Structure
     [Serializable]
     public class BaseStats
     {
-        public long Health = 0;
-        public long Damage = 0;
-        public long Defense = 0;
-        public long Endurance = 0;
-        public long Agility = 0;
-        public long Faith = 0;
+        public int Health = 0;
+        public int Damage = 0;
+        public int Defense = 0;
+        public int Endurance = 0;
+        public int Agility = 0;
+        public int Faith = 0;
         public static BaseStats operator +(BaseStats a, BaseStats b){
             BaseStats result = new BaseStats();
             result.Health = a.Health + b.Health;
@@ -31,9 +31,9 @@ namespace Runtime.Data.Structure
             result.Faith = a.Faith - b.Faith;
             return result;
         }
-        public long GetTotalStat()
+        public int GetTotalStat()
         {
-            long result = 0;
+            int result = 0;
             result += Health;
             result += Damage;
             result += Defense;

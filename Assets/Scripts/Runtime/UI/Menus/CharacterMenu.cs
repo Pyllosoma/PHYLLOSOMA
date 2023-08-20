@@ -2,6 +2,7 @@
 using Runtime.Data.Structure;
 using Runtime.Managers;
 using Runtime.UI.Components;
+using Runtime.UI.Components.Info.Indicators;
 using Runtime.UI.Components.Info.Stats;
 using TMPro;
 using UnityEngine;
@@ -20,12 +21,12 @@ namespace Runtime.UI.Menus
         [SerializeField] private StatIndicator _currentStatIndicator;
         [SerializeField] private StatIndicator _changeStatIndicator;
         [Header("Anima Value")]
-        [SerializeField] private long _currentAnima = 0;
-        [SerializeField] private long _requiredAnima = 0;
-        [SerializeField] private long _remainAnima = 0;
-        [SerializeField] private TextMeshProUGUI _currentAnimaText;
-        [SerializeField] private TextMeshProUGUI _requiredAnimaText;
-        [SerializeField] private TextMeshProUGUI _remainAnimaText;
+        [SerializeField] private int _currentAnima = 0;
+        [SerializeField] private int _requiredAnima = 0;
+        [SerializeField] private int _remainAnima = 0;
+        [SerializeField] private ValueIndicator _currentAnimaValue;
+        [SerializeField] private ValueIndicator _requiredAnimaValue;
+        [SerializeField] private ValueIndicator _remainAnimaValue;
         [Header("Current Change Stat")]
         [SerializeField] private BaseStats _currentChangeStats = new BaseStats();
         [SerializeField] private ArrowNumberChanger _healthChanger;
@@ -44,9 +45,9 @@ namespace Runtime.UI.Menus
             _requiredAnima = 0;
             _remainAnima = _currentAnima;
             
-            _currentAnimaText.text = _currentAnima.ToString();
-            _requiredAnimaText.text = _requiredAnima.ToString();
-            _remainAnimaText.text = _remainAnima.ToString();
+            _currentAnimaValue.UpdateValue(_currentAnima);
+            _remainAnimaValue.UpdateValue(_remainAnima);
+            _requiredAnimaValue.UpdateValue(_requiredAnima);
             //Reset Stats
             _currentStatIndicator.Init(_playerStats);
             _changeStatIndicator.Init(_playerStats + _currentChangeStats);
@@ -83,10 +84,9 @@ namespace Runtime.UI.Menus
             _remainAnima = _currentAnima - _requiredAnima;
             _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > 0;
             //Show anima value
-            _currentAnimaText.text = _currentAnima.ToString();
-            _requiredAnimaText.text = _requiredAnima.ToString();
-            _remainAnimaText.text = _remainAnima.ToString();
-            
+            _currentAnimaValue.UpdateValue(_currentAnima);
+            _remainAnimaValue.UpdateValue(_remainAnima);
+            _requiredAnimaValue.UpdateValue(_requiredAnima);
         }
 
         public void OnStatApplyButtonClicked()
@@ -97,6 +97,13 @@ namespace Runtime.UI.Menus
             Reset();
         }
         private void OnEnable(){
+            //Start up reset
+            _currentAnima = DataManager.Instance.PlayerData.Anima;
+            _requiredAnima = 0;
+            _remainAnima = _currentAnima;
+            _currentAnimaValue.SetStartValue(_currentAnima);
+            _remainAnimaValue.SetStartValue(_remainAnima);
+            _requiredAnimaValue.SetStartValue(_requiredAnima);
             Reset();
         }
     }

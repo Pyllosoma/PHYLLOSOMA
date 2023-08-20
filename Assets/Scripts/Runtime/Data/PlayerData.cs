@@ -12,8 +12,8 @@ namespace Runtime.Data
         public long TotalPlayTime = 0;
         public long LastSaveTime = 0;
         [Header("Player Info")]
-        public long Level = 1;
-        public long Anima = 10000;
+        public int Level = 1;
+        public int Anima = 10000;
         [Header("Player Status")]
         public BaseStats Stats = new BaseStats();
         

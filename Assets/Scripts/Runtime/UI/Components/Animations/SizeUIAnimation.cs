@@ -8,12 +8,12 @@ namespace Runtime.UI.Components.Animations
 {
     public class SizeUIAnimation : UIAnimation
     {
+        [Header("Size Animation Settings")]
         [SerializeField] private AnimationCurve _resizeCurve = AnimationCurve.Linear(0f, 0f, 1f,1f);
         [SerializeField] private int _logResizePerSecond = 30;
         [SerializeField] private Vector2 _targetScale = new Vector2(1,1);
         private RectTransform _target;
         private Vector2 _startSize;
-        private Action _onComplete;
         private void Awake()
         {
             _target = GetComponent<RectTransform>();
@@ -21,17 +21,14 @@ namespace Runtime.UI.Components.Animations
         private void Start()
         {
             _startSize = _target.sizeDelta;
-            
         }
-        public override void Play(Action onComplete = null)
+        protected override void PlayAnimation()
         {
-            _onComplete = onComplete;
             _targetScale = _startSize * _targetScale;
             StartCoroutine(ResizeAnimation());
         }
-        public override void Rewind(Action onComplete = null)
+        protected override void RewindAnimation()
         {
-            _onComplete = onComplete;
             _targetScale = _startSize;
             StartCoroutine(ResizeAnimation());
         }
@@ -43,7 +40,7 @@ namespace Runtime.UI.Components.Animations
                 _target.sizeDelta = Vector2.Lerp(_target.sizeDelta, _targetScale,_resizeCurve.Evaluate(timer / _animationTime));
                 yield return new WaitForSeconds(timePerUpdate);
             }
-            _onComplete?.Invoke();
+            Complete();
         }
     }
 }

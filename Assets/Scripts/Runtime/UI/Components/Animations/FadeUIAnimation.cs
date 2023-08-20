@@ -7,25 +7,24 @@ namespace Runtime.UI.Components.Animations
     [RequireComponent(typeof(CanvasGroup))]
     public class FadeUIAnimation : UIAnimation
     {
+        [Header("Fade Animation Settings")]
         [SerializeField] private Ease _fadeEase = Ease.Linear;
+        [SerializeField] private float _startAlpha = 0f;
+        [SerializeField] private float _endAlpha = 1f;
         private CanvasGroup _canvasGroup;
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
-        public override void Play(Action onComplete = null)
+        protected override void PlayAnimation()
         {
-            _canvasGroup.alpha = 0f;
-            _canvasGroup.DOFade(1f, _animationTime).SetEase(_fadeEase).onComplete += () => {
-                onComplete?.Invoke();
-            };
+            _canvasGroup.alpha = _startAlpha;
+            _canvasGroup.DOFade(_endAlpha, _animationTime).SetEase(_fadeEase).OnComplete(Complete);
         }
-        public override void Rewind(Action onComplete = null)
+        protected override void RewindAnimation()
         {
-            _canvasGroup.alpha = 1f;
-            _canvasGroup.DOFade(0f, _animationTime).SetEase(_fadeEase).onComplete += () => {
-                onComplete?.Invoke();
-            };
+            _canvasGroup.alpha = _endAlpha;
+            _canvasGroup.DOFade(_startAlpha, _animationTime).SetEase(_fadeEase).OnComplete(Complete);
         }
     }
 }

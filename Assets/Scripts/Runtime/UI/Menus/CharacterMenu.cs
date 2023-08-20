@@ -11,7 +11,12 @@ namespace Runtime.UI.Menus
 {
     public class CharacterMenu : MonoBehaviour
     {
+        [Header("Color info")]
+        [SerializeField] private Color _positiveColor = Color.green;
+        [SerializeField] private Color _defaultColor = Color.white;
+        [SerializeField] private Color _negativeColor = Color.red;
         [Header("Player Status")]
+        [SerializeField] private BaseStats _playerStats = new BaseStats();
         [SerializeField] private StatIndicator _currentStatIndicator;
         [SerializeField] private StatIndicator _changeStatIndicator;
         [Header("Anima Value")]
@@ -31,8 +36,8 @@ namespace Runtime.UI.Menus
         [SerializeField] private ArrowNumberChanger _faithChanger;
         [Header("Apply Button")]
         [SerializeField] private Button _applyButton;
-        private void OnEnable()
-        {
+        public void Reset(){
+            _playerStats = DataManager.Instance.PlayerData.Stats;
             _currentChangeStats = new BaseStats();
             //Reset Anima
             _currentAnima = DataManager.Instance.PlayerData.Anima;
@@ -43,8 +48,16 @@ namespace Runtime.UI.Menus
             _requiredAnimaText.text = _requiredAnima.ToString();
             _remainAnimaText.text = _remainAnima.ToString();
             //Reset Stats
-            _currentStatIndicator.Init(DataManager.Instance.PlayerData.Stats);
-            _changeStatIndicator.Init(DataManager.Instance.PlayerData.Stats);
+            _currentStatIndicator.Init(_playerStats);
+            _changeStatIndicator.Init(_playerStats + _currentChangeStats);
+            
+            //Reset Arrow Number Changer
+            _healthChanger.Reset();
+            _damageChanger.Reset();
+            _defenseChanger.Reset();
+            _enduranceChanger.Reset();
+            _agilityChanger.Reset();
+            _faithChanger.Reset();
         }
         public void UpdateMenu()
         {
@@ -55,17 +68,36 @@ namespace Runtime.UI.Menus
             _currentChangeStats.Agility = _agilityChanger.Value;
             _currentChangeStats.Faith = _faithChanger.Value;
             
+            //Create Color profile
+            Color[] colors = new Color[6];
+            colors[0] = _currentChangeStats.Health > 0 ? _positiveColor : _defaultColor;
+            colors[1] = _currentChangeStats.Damage > 0 ? _positiveColor : _defaultColor;
+            colors[2] = _currentChangeStats.Defense > 0 ? _positiveColor : _defaultColor;
+            colors[3] = _currentChangeStats.Endurance > 0 ? _positiveColor : _defaultColor;
+            colors[4] = _currentChangeStats.Agility > 0 ? _positiveColor : _defaultColor;
+            colors[5] = _currentChangeStats.Faith > 0 ? _positiveColor : _defaultColor;
+            //Update stats indicator
+            _changeStatIndicator.Init(_playerStats + _currentChangeStats,colors);
+            //Change anima value
             _requiredAnima = _currentChangeStats.GetTotalStat() * 100;
             _remainAnima = _currentAnima - _requiredAnima;
             _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > 0;
-            
+            //Show anima value
             _currentAnimaText.text = _currentAnima.ToString();
             _requiredAnimaText.text = _requiredAnima.ToString();
             _remainAnimaText.text = _remainAnima.ToString();
+            
         }
+
         public void OnStatApplyButtonClicked()
         {
-            
+            DataManager.Instance.PlayerData.Stats += _currentChangeStats;
+            DataManager.Instance.PlayerData.Anima = _remainAnima;
+            //Reset data by player data
+            Reset();
+        }
+        private void OnEnable(){
+            Reset();
         }
     }
 }

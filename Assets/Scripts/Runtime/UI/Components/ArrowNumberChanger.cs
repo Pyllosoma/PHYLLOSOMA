@@ -14,17 +14,21 @@ namespace Runtime.UI.Components
         [SerializeField] private int _value = 0;
         [SerializeField] private TextMeshProUGUI _numberText = null;
         [SerializeField] private UnityEvent<int> _onNumberChanged = null;
-        private void OnEnable()
-        {
-            _value = _min;
-            _numberText.text = _value.ToString();
-        }
+
         public void ChangeNumber(int value)
         {
             _value += value;
             _value = Mathf.Clamp(_value,_min,_max);
             _numberText.text = _value.ToString();
             _onNumberChanged?.Invoke(_value);
+        }
+        private void OnEnable(){
+            Reset();
+        }
+        public void Reset()
+        {
+            _value = _min;
+            _numberText.text = _value.ToString();
         }
     }
 }

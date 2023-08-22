@@ -1,23 +1,23 @@
 ﻿using Runtime.Patterns.FSM;
 using UnityEngine;
 
-namespace Tests.Characters.MonsterFSM
+namespace Tests.Characters.MonsterFSM.StatueStates
 {
-    public class MonsterAttackState : IState<Monster>
+    public class StatueAttackState : IState<Statue>
     {
-        public void Enter(Monster entity)
+        public void Enter(Statue entity)
         {
-
+            entity.Laser.Ready();
         }
-        public void Update(Monster entity)
+        public void Update(Statue entity)
         {
             if (!entity.TargetDetector.IsTargetExist) {
-                entity.State = new MonsterIdleState();
+                entity.State = new StatueIdleState();
                 return;
             }
             var target = entity.TargetDetector.Targets[0];
-            if (!entity.Laser.IsInRange(target)) {
-                entity.State = new MonsterIdleState();
+            if (!entity.Laser.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.transform.position))) {
+                entity.State = new StatueIdleState();
                 return;
             }
             if (!entity.TargetLooker.IsInAngle) {
@@ -28,10 +28,14 @@ namespace Tests.Characters.MonsterFSM
             //     entity.Laser.Finish();
             //     return;
             // }
-            entity.Laser.Ready();
+            
             entity.Laser.Attack(target,entity.TargetBlockChecker.TargetPosition);
         }
-        public void Exit(Monster entity)
+        public void FixedUpdate(Statue entity)
+        {
+            
+        }
+        public void Exit(Statue entity)
         {
             entity.Laser.Finish();
         }

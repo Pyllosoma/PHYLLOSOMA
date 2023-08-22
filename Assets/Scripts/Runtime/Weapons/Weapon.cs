@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Runtime.Weapons
 {
@@ -14,13 +15,18 @@ namespace Runtime.Weapons
         [SerializeField] protected float _damage = 1f;
         [SerializeField] protected float _delay = 0.05f;
         [SerializeField] protected float _range = 10f;
+        [SerializeField] protected GameObject _owner = null;
+        private void Awake(){
+            _owner = transform.root.gameObject;
+        }
         //사용 캐릭터 정보를 불러와야 할 수도 있음
         public abstract void Attack(GameObject target,Vector3 attackPoint);
         public abstract void Ready();
         public abstract void Finish();
-        public bool IsInRange(GameObject target)
+        public bool IsInRange(float distance)
         {
-            return !(Vector3.Distance(transform.position, target.transform.position) > _range);
+            //Debug.Log(distance);
+            return distance < _range;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Tests.Characters
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
         public TargetLooker TargetLooker => _targetLooker;
+        public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
         public MeleeWeapon MeleeWeapon => _meleeWeapon;
         public Animator Animator => _animator;
         [SerializeField] private float _speed = 10f;
@@ -26,6 +27,7 @@ namespace Tests.Characters
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
         [SerializeField] private TargetLooker _targetLooker = null;
+        [SerializeField] private TargetBlockChecker _targetBlockChecker = null;
         private void Start()
         {
             _controller.speed = _speed;

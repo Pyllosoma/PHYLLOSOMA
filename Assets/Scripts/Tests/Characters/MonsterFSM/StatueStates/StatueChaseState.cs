@@ -17,7 +17,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
                 return;
             }
             var target = entity.TargetDetector.Targets[0];
-            if (entity.Laser.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.transform.position))) {
+            if (entity.Laser.IsInRange(Vector3.Distance(entity.gameObject.transform.position, entity.TargetBlockChecker.TargetPosition))) {
                 entity.State = new StatueAttackState();
                 return;
             }

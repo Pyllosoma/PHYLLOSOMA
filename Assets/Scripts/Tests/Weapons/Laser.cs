@@ -27,7 +27,7 @@ namespace Tests.Weapons
             }
             _chargeValue = _chargeTime;
             
-            if (Time.time - _lastAttackTime < _delay) return;
+            if (Time.time - _lastAttackTime < Delay) return;
             _lastAttackTime = Time.time;
             //공격하는 부분
             //Debug.Log("Laser Attack!");
@@ -36,8 +36,7 @@ namespace Tests.Weapons
             // shot raycast
             //공격 데미지를 주는 부분
         }
-        public override void Ready()
-        {
+        public override void Ready(){
             InternalEnableLaser(true);
         }
         public override void Finish()

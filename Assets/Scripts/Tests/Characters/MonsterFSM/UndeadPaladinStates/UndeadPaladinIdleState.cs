@@ -17,6 +17,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
             entity.Animator.SetBool("IsDefaultIdle" , true);
             
             entity.TargetLooker.SetTarget(null);
+            entity.TargetBlockChecker.SetTarget(null);
             entity.Animator.SetFloat("Speed", 0f);
 
         }

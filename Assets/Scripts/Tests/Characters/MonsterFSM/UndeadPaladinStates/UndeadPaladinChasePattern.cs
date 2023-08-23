@@ -12,6 +12,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
             entity.Animator.transform.localRotation = Quaternion.identity;
             entity.Animator.applyRootMotion = false;
             entity.TargetLooker.SetTarget(entity.TargetDetector.Targets[0].transform);
+            entity.TargetBlockChecker.SetTarget(entity.TargetDetector.Targets[0].transform);
         }
         public void Update(UndeadPaladin entity)
         {

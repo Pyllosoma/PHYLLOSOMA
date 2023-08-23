@@ -5,12 +5,13 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
 {
     public class UndeadPaladinAttackState : IState<UndeadPaladin>
     {
-
         public void Enter(UndeadPaladin entity)
         {
-            Debug.Log("UndeadPaladinAttackState Enter");
-            entity.MeleeWeapon.Ready();
+            //Debug.Log("UndeadPaladinAttackState Enter");
             entity.Animator.SetBool("IsAttack", true);
+            //Debug.Log(entity.Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+            //Debug.Log();
+            entity.MeleeWeapon.SetOwner(entity.gameObject).SetWaitTime(0.5f).SetDelay(0.75f).SetDelay(2.4f).Ready();
         }
         public void Update(UndeadPaladin entity)
         {
@@ -18,16 +19,10 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
                 entity.State = new UndeadPaladinIdleState();
                 return;
             }
-            var target = entity.TargetDetector.Targets[0];
-            if (!entity.MeleeWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.transform.position))) {
+            if (!entity.MeleeWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, entity.TargetBlockChecker.TargetPosition))) {
                 entity.State = new UndeadPaladinChasePattern();
                 return;
             }
-            // if (entity.TargetBlockChecker.IsDirectionBlocked) {
-            //     entity.MeleeWeapon.Finish();
-            //     return;
-            // }
-            entity.MeleeWeapon.Attack(target,target.transform.position);
         }
         public void FixedUpdate(UndeadPaladin entity)
         {

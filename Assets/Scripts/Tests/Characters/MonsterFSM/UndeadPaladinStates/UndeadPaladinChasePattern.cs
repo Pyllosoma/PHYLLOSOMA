@@ -33,9 +33,9 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         }
         public void Exit(UndeadPaladin entity)
         {
-            entity.Controller.velocity = UnityEngine.Vector3.zero;
-            entity.Controller.ResetPath();
+            entity.Controller.velocity = Vector3.zero;
             entity.Animator.applyRootMotion = true;
+            entity.Controller.ResetPath();
         }
     }
 }

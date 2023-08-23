@@ -723,9 +723,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064036292}
+  - component: {fileID: 1064036296}
+  - component: {fileID: 1064036297}
   - component: {fileID: 1064036291}
+  - component: {fileID: 1064036298}
   - component: {fileID: 1064036294}
-  - component: {fileID: 1064036295}
   - component: {fileID: 1064036293}
   m_Layer: 0
   m_Name: UndeadPaladin
@@ -796,12 +798,13 @@ MonoBehaviour:
   _acceleration: 10
   _patrolSpeed: 2
   _rotateSpeed: 720
+  _rigidbody: {fileID: 1064036296}
   _meleeWeapon: {fileID: 263751234}
   _animator: {fileID: 311034025}
   _controller: {fileID: 1064036291}
   _targetDetector: {fileID: 1617276830}
   _targetLooker: {fileID: 1064036294}
-  _targetBlockChecker: {fileID: 1064036295}
+  _targetBlockChecker: {fileID: 1064036298}
 --- !u!114 &1064036294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,13 +817,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea37223008841d283f277c73dcf6e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 15
+  _rotationSpeed: 0
   _isXRotate: 0
-  _isYRotate: 1
+  _isYRotate: 0
   _isZRotate: 0
   _stopWhenInAngle: 0
-  _maxAngleGap: 15
---- !u!114 &1064036295
+  _maxAngleGap: 5
+--- !u!54 &1064036296
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064036290}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!136 &1064036297
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064036290}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 1.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.875, z: 0}
+--- !u!114 &1064036298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

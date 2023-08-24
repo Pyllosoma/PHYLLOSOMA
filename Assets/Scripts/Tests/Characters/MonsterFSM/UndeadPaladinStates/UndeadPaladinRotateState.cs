@@ -6,33 +6,35 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
 {
     public class UndeadPaladinRotateState : IState<UndeadPaladin>
     {
-        private float _rotateTime = 1f;
-        private float _rotateStartTime = 0f;
+        private float _rotateSpeed = 1f;
         public void Enter(UndeadPaladin entity)
         {
+            Debug.Log(entity.TargetLooker.CurrentAngleGap);
+            entity.Animator.transform.DOMove(entity.transform.position, 0.25f).SetEase(Ease.InSine);
+            entity.Animator.transform.DORotate(entity.transform.rotation.eulerAngles, 0.25f).SetEase(Ease.InSine);
+            entity.Animator.transform.localRotation = Quaternion.identity;
             Debug.Log("RotateState");
             entity.Animator.applyRootMotion = false;
             entity.Animator.SetTrigger("Rotate");
-            
-            entity.Rigidbody.angularVelocity = Vector3.zero;
-            Vector3 targetDirection = entity.gameObject.transform.rotation.eulerAngles + new Vector3(0, entity.TargetLooker.CurrentAngleGap, 0);
-            entity.Rigidbody.DORotate(targetDirection, _rotateTime);
-            _rotateStartTime = Time.time;
         }
         public void Update(UndeadPaladin entity)
         {
             //Debug.Log(entity.TargetLooker.CurrentAngleGap);
-            if (Time.time - _rotateStartTime < _rotateTime) return;
-            
-            entity.State = !entity.TargetDetector.IsTargetExist ? new UndeadPaladinIdleState() : new  UndeadPaladinAttackState();
+            if (!entity.TargetDetector.IsTargetExist) {
+                entity.State = new UndeadPaladinIdleState();
+                return;
+            }
+            if (entity.TargetLooker.IsInAngle) {
+                entity.State = new UndeadPaladinAttackState();
+                return;
+            }
         }
-        public void FixedUpdate(UndeadPaladin entity)
-        {
+        public void FixedUpdate(UndeadPaladin entity){
+            entity.transform.Rotate(Vector3.up, entity.TargetLooker.CurrentAngleGap * _rotateSpeed * Time.fixedDeltaTime);
         }
         public void Exit(UndeadPaladin entity)
         {
             Debug.Log("Exit Rotate State");
-            entity.Rigidbody.angularVelocity = Vector3.zero;
             entity.Animator.applyRootMotion = true;
         }
     }

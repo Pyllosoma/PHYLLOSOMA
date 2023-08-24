@@ -813,7 +813,6 @@ MonoBehaviour:
   _acceleration: 10
   _patrolSpeed: 2
   _rotateSpeed: 720
-  _rigidbody: {fileID: 1064036296}
   _meleeWeapon: {fileID: 263751234}
   _animator: {fileID: 311034025}
   _controller: {fileID: 1064036291}
@@ -832,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea37223008841d283f277c73dcf6e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxAngleGap: 60
+  _maxAngleGap: 30
   _isInAngle: 0
   _stopWhenInAngle: 0
   _rotationSpeed: 0

@@ -20,10 +20,10 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
                 entity.State = new UndeadPaladinChasePattern();
                 return;
             }
-            // //Debug.Log(entity.TargetLooker.IsInAngle);
-            // if (!entity.TargetLooker.IsInAngle) {
-            //     entity.State = new UndeadPaladinRotateState();
-            // }
+            //Debug.Log(entity.TargetLooker.IsInAngle);
+            if (!entity.TargetLooker.IsInAngle) {
+                entity.State = new UndeadPaladinRotateState();
+            }
         }
         public void FixedUpdate(UndeadPaladin entity)
         {

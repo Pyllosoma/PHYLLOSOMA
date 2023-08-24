@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Runtime.Utils
 {
@@ -32,9 +33,13 @@ namespace Runtime.Utils
                 _isInAngle = false;
                 return;
             }
+            //get front angle
             var targetDirection = _target.position - transform.position;
-            _currentAngleGap = Vector3.Angle(targetDirection, transform.forward);
-            Debug.Log(_currentAngleGap);
+            var targetAngle = Mathf.Atan2(targetDirection.x, targetDirection.z) * Mathf.Rad2Deg;
+            _currentAngleGap = Mathf.DeltaAngle(transform.rotation.eulerAngles.y, targetAngle);
+            
+            
+            //Debug.Log(_target.position + " / " + transform.position + " / " + CurrentAngleGap);
             _isInAngle = Mathf.Abs(_currentAngleGap) <= _maxAngleGap;
             if (_stopWhenInAngle && _isInAngle) {
                 return;

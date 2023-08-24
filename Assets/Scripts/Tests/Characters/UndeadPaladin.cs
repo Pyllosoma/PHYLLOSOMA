@@ -17,13 +17,11 @@ namespace Tests.Characters
         public TargetLooker TargetLooker => _targetLooker;
         public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
         public MeleeWeapon MeleeWeapon => _meleeWeapon;
-        public Rigidbody Rigidbody => _rigidbody;
         public Animator Animator => _animator;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _acceleration = 10f;
         [SerializeField] private float _patrolSpeed = 2f;
         [SerializeField] private float _rotateSpeed = 720f;
-        [SerializeField] private Rigidbody _rigidbody = null;
         [SerializeField] private MeleeWeapon _meleeWeapon = null;
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _controller = null;

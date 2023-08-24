@@ -14,13 +14,14 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
             entity.Animator.transform.localPosition = Vector3.zero;
             entity.Animator.transform.localRotation = Quaternion.identity;
             entity.Controller.speed = entity.PatrolSpeed;
+            
             _currentPatrolPosition.x = Random.Range(_randomRange.X, _randomRange.Y);
             _currentPatrolPosition.z = Random.Range(_randomRange.X, _randomRange.Y);
+            
             entity.Controller.SetDestination(entity.transform.position + _currentPatrolPosition);
         }
         public void Update(UndeadPaladin entity)
         {
-            entity.Animator.SetFloat("Speed", entity.Controller.velocity.magnitude);
             if (entity.TargetDetector.IsTargetExist) {
                 entity.State = new UndeadPaladinChasePattern();
                 return;
@@ -29,6 +30,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
                 entity.State = new UndeadPaladinIdleState();
                 return;
             }
+            entity.Animator.SetFloat("Speed", entity.Controller.velocity.magnitude);
         }
         public void FixedUpdate(UndeadPaladin entity)
         {
@@ -38,6 +40,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         {
             entity.Animator.applyRootMotion = true;
             entity.Controller.speed = entity.Speed;
+            entity.Animator.SetFloat("Speed",0);
             entity.Controller.ResetPath();
         }
     }

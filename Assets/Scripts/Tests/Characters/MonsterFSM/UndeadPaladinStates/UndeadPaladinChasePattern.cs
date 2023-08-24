@@ -11,6 +11,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
             entity.Animator.transform.localPosition = Vector3.zero;
             entity.Animator.transform.localRotation = Quaternion.identity;
             entity.Animator.applyRootMotion = false;
+            entity.Animator.SetFloat("Speed",0.1f);
             entity.TargetLooker.SetTarget(entity.TargetDetector.Targets[0].transform);
             entity.TargetBlockChecker.SetTarget(entity.TargetDetector.Targets[0].transform);
         }
@@ -35,6 +36,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         {
             entity.Controller.velocity = Vector3.zero;
             entity.Animator.applyRootMotion = true;
+            entity.Animator.SetFloat("Speed",0);
             entity.Controller.ResetPath();
         }
     }

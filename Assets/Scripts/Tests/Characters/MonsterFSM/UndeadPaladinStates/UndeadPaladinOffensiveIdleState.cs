@@ -11,7 +11,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         public void Enter(UndeadPaladin entity)
         {
             _startTime = UnityEngine.Time.time;
-            entity.Animator.SetBool("IsDefaultIdle" , false);
+            entity.Animator.SetTrigger("Offensive Idle");
             //Debug.Log("OffensiveIdleState");
         }
         public void Update(UndeadPaladin entity)

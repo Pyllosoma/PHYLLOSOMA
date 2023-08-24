@@ -14,7 +14,7 @@ namespace Runtime.Utils
         public List<GameObject> Targets => _foundTargets;
         [TagSelector][SerializeField] private List<string> _targetTag = new List<string>();
         [SerializeField] private List<GameObject> _foundTargets = new List<GameObject>();
-        private bool _isTargetExist = false;
+        [SerializeField] private bool _isTargetExist = false;
         private void FixedUpdate(){
             CheckNullAndDeactivate();
         }
@@ -24,6 +24,12 @@ namespace Runtime.Utils
                 if (_foundTargets[i] == null) {
                     _foundTargets.RemoveAt(i);
                     i--;
+                    continue;
+                }
+                if (_foundTargets[i].activeSelf == false) {
+                    _foundTargets.RemoveAt(i);
+                    i--;
+                    continue;
                 }
             }
             _isTargetExist = _foundTargets.Count > 0;
@@ -37,10 +43,10 @@ namespace Runtime.Utils
         }
         private void OnTriggerExit(Collider other)
         {
-            if (_targetTag.Contains(other.tag)&&_foundTargets.Contains(other.gameObject)) {
-                _foundTargets.Add(other.gameObject);
-                _isTargetExist = _foundTargets.Count > 0;
-            }
+            // if (_targetTag.Contains(other.tag)&&_foundTargets.Contains(other.gameObject)) {
+            //     _foundTargets.Remove(other.gameObject);
+            //     _isTargetExist = _foundTargets.Count > 0;
+            // }
         }
     }
 }

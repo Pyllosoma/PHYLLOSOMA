@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Sandboxes/MonstrerSandbox.unity
+    guid: c99405e85af96f74689dab222dccf676
+  - enabled: 1
     path: Assets/Scenes/StartUpUI.unity
     guid: 99c8834b55d4cc64cb373f1c4fd59f49
   - enabled: 1

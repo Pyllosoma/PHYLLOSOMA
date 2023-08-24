@@ -12,14 +12,13 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         
         public void Enter(UndeadPaladin entity)
         {
+            //Debug.Log("IdleState");
             _startTime = Time.time;
             _patrolChanceTime = Time.time;
-            entity.Animator.SetBool("IsDefaultIdle" , true);
+            entity.Animator.SetTrigger("Idle");
             
             entity.TargetLooker.SetTarget(null);
             entity.TargetBlockChecker.SetTarget(null);
-            entity.Animator.SetFloat("Speed", 0f);
-
         }
         public void Update(UndeadPaladin entity)
         {

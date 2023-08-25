@@ -9,43 +9,45 @@ namespace Runtime.Utils
         [SerializeField] private Transform _target = null;
         [SerializeField] private float _followTime = 1f;
         [SerializeField] private float _followDistance = 10f;
-        [SerializeField] private float _updatePerSecond = 15f;
+        [SerializeField] private int _updatePerSecond = 15;
+        [SerializeField] private int _followPositionUpdatePerSecond = 10;
         [SerializeField] private AnimationCurve _followSpeedCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
-        private void OnEnable()
-        {
-            StartCoroutine(FollowTarget());
+        private void OnEnable(){
+            StartCoroutine(UpdateFollowPosition());
         }
-        internal Vector3 GetFollowPosition(Vector3 target)
+        private Vector3 GetFollowPosition(Vector3 target)
         {
             Vector3 directionFromTarget = transform.position - target;
             Vector3 followPosition = directionFromTarget.normalized * _followDistance + target;
             return followPosition;
         }
-        private IEnumerator FollowTarget()
+        private IEnumerator UpdateFollowPosition()
         {
-            float updateTime = 1f / _updatePerSecond;
-            float currentTime = 0f;
+            float updateTime = 1f / _followPositionUpdatePerSecond;
             Vector3 lastTargetPosition = _target.transform.position;
             Vector3 followPosition = GetFollowPosition(lastTargetPosition);
+            IEnumerator followPositionCoroutine = FollowTarget(followPosition);
+            StartCoroutine(followPositionCoroutine);
             while (gameObject.activeSelf) {
-                if (_target == null) {
-                    yield return new WaitForSeconds(updateTime);
-                    continue;
-                }
-                Vector3 currentTargetPosition = _target.transform.position;
-                if (lastTargetPosition == currentTargetPosition) {
-                    if (currentTime < _followTime) {
-                        currentTime += updateTime;
-                        float followSpeed = _followSpeedCurve.Evaluate(currentTime / _followTime);
-                        transform.position = Vector3.Lerp(transform.position, followPosition, followSpeed);
-                    }
-                    yield return new WaitForSeconds(updateTime);
-                    continue;
-                }
-                currentTime = updateTime;
-                lastTargetPosition = currentTargetPosition;
+                yield return new WaitForSeconds(updateTime);
+                if (!_target) continue;
+                if (lastTargetPosition == _target.transform.position) continue;
+                lastTargetPosition = _target.transform.position;
                 followPosition = GetFollowPosition(lastTargetPosition);
-                transform.position = Vector3.Lerp(transform.position, followPosition ,_followSpeedCurve.Evaluate(currentTime / _followTime));
+                StopCoroutine(followPositionCoroutine);
+                followPositionCoroutine = FollowTarget(followPosition);
+                StartCoroutine(followPositionCoroutine);
+            }
+            StopCoroutine(followPositionCoroutine);
+        }
+        private IEnumerator FollowTarget(Vector3 followPosition)
+        {
+            float updateTime = 1f / _updatePerSecond;
+            float time = 0f;
+            while (time <= _followTime) {
+                time += updateTime;
+                float followSpeed = _followSpeedCurve.Evaluate(time / _followTime);
+                transform.position = Vector3.Lerp(transform.position, followPosition, followSpeed);
                 yield return new WaitForSeconds(updateTime);
             }
         }

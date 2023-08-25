@@ -9,7 +9,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         private float _rotateSpeed = 1f;
         public void Enter(UndeadPaladin entity)
         {
-            Debug.Log(entity.TargetLooker.CurrentAngleGap);
+            //Debug.Log(entity.TargetLooker.CurrentAngleGap);
             entity.Animator.transform.DOMove(entity.transform.position, 0.25f).SetEase(Ease.InSine);
             entity.Animator.transform.DORotate(entity.transform.rotation.eulerAngles, 0.25f).SetEase(Ease.InSine);
             entity.Animator.transform.localRotation = Quaternion.identity;

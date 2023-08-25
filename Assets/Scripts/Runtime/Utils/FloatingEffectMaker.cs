@@ -8,7 +8,7 @@ namespace Runtime.Utils
         [SerializeField] private bool _isLocal = true;
         [SerializeField] private float _floatingDistance = 1f;
         [SerializeField] private float _floatingTime = 1f;
-        [SerializeField] private float _floatingUpdateRate = 0.1f;
+        [SerializeField] private float _updatePerSecond = 30f;
         [SerializeField] private AnimationCurve _floatingCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
         [SerializeField] private Vector3 _startPosition = Vector3.zero;
         [SerializeField] private Vector3 _endPosition = Vector3.zero;
@@ -26,6 +26,7 @@ namespace Runtime.Utils
         {
             var startPosition = _isStartPos ? _startPosition : _endPosition;
             var endPosition = _isStartPos ? _endPosition : _startPosition;
+            var updateTIme = 1f / _updatePerSecond;
             float time = 0f;
             while (time <= _floatingTime) {
                 var pos = 
@@ -38,8 +39,8 @@ namespace Runtime.Utils
                 } else {
                     transform.position = pos;
                 }
-                time += _floatingUpdateRate;
-                yield return new WaitForSeconds(_floatingUpdateRate);
+                time += updateTIme;
+                yield return new WaitForSeconds(updateTIme);
             }
             _isStartPos = !_isStartPos;
             StartCoroutine(CreateFloatEffect());

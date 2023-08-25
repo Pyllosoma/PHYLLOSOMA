@@ -43,10 +43,10 @@ namespace Runtime.Utils
         }
         private void OnTriggerExit(Collider other)
         {
-            // if (_targetTag.Contains(other.tag)&&_foundTargets.Contains(other.gameObject)) {
-            //     _foundTargets.Remove(other.gameObject);
-            //     _isTargetExist = _foundTargets.Count > 0;
-            // }
+            if (_targetTag.Contains(other.tag)&&_foundTargets.Contains(other.gameObject)) {
+                _foundTargets.Remove(other.gameObject);
+                _isTargetExist = _foundTargets.Count > 0;
+            }
         }
     }
 }

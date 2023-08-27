@@ -8,7 +8,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         public void Enter(UndeadPaladin entity)
         {
             entity.Animator.SetBool("IsAttack", true);
-            entity.MeleeWeapon.SetOwner(entity.gameObject).SetWaitTime(0.5f).SetDelay(0.75f).SetDelay(2.4f).Ready();
+            entity.MeleeWeapon.SetOwner(entity.gameObject).Ready();
         }
         public void Update(UndeadPaladin entity)
         {

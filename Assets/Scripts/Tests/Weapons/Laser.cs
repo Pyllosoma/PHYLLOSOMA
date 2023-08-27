@@ -9,9 +9,11 @@ namespace Tests.Weapons
     public class Laser : Weapon<Laser>
     {
         [Header("Laser Info")]
+        [SerializeField] private float _attackDelay = 0.05f;
+        [SerializeField] private float _chargeTime = 1f;
         [SerializeField] private LineRenderer _laserLine = null;
         [SerializeField] private VisualEffect _laserEffect = null;
-        [SerializeField] private float _chargeTime = 1f;
+
         private float _lastAttackTime = 0f;
         private float _chargeValue = 0f;
         private bool _isEnable = false;
@@ -27,7 +29,7 @@ namespace Tests.Weapons
             }
             _chargeValue = _chargeTime;
             
-            if (Time.time - _lastAttackTime < Delay) return;
+            if (Time.time - _lastAttackTime < _attackDelay) return;
             _lastAttackTime = Time.time;
             //공격하는 부분
             //Debug.Log("Laser Attack!");

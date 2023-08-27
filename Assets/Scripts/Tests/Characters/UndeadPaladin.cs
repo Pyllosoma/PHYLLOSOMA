@@ -1,4 +1,5 @@
 ﻿using Runtime.Utils;
+using Runtime.Utils.Targetables;
 using Runtime.Weapons;
 using Tests.Characters.MonsterFSM.UndeadPaladinStates;
 using UnityEngine;

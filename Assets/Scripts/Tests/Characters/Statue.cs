@@ -1,5 +1,6 @@
 ﻿using Runtime.Patterns.FSM;
 using Runtime.Utils;
+using Runtime.Utils.Targetables;
 using Tests.Characters.MonsterFSM;
 using Tests.Characters.MonsterFSM.StatueStates;
 using Tests.Weapons;

@@ -1,15 +1,15 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Runtime.Utils
+namespace Runtime.Utils.Targetables
 {
-    public class ObjectRotator : MonoBehaviour
+    public class ObjectRotator : MonoBehaviour, ITargetable
     {
         [SerializeField] private bool _resetAngle = false;
         [SerializeField] private bool _rotateToTarget = false;
         [SerializeField] private float _rotateTime = 1f;
         [SerializeField] private Ease _ease = Ease.InSine;
+        [SerializeField] private Vector3 _rotateAngle = Vector3.zero;
         [SerializeField] private Vector3 _startAngle = Vector3.zero;
         [SerializeField] private Transform _target = null;
         public void SetTarget(Transform target) {
@@ -26,7 +26,7 @@ namespace Runtime.Utils
         }
         public void LookAtTarget() {
             if (!_target) return;
-            transform.DOLookAt(_target.position, _rotateTime).SetEase(_ease);
+            transform.DOLookAt(_target.position + _rotateAngle, _rotateTime).SetEase(_ease);
         }
         private void Start() {
             _startAngle = transform.rotation.eulerAngles;

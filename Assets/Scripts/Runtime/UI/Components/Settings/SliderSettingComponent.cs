@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Runtime.UI.Components.Settings
 {
+    [RequireComponent(typeof(Slider))]
     public class SliderSettingComponent : SettingComponent<float>
     {
         [SerializeField] private Slider _slider;

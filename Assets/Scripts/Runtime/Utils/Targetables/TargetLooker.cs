@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Runtime.Utils
+namespace Runtime.Utils.Targetables
 {
-    public class TargetLooker : MonoBehaviour
+    public class TargetLooker : MonoBehaviour,ITargetable
     {
         public bool IsInAngle => _isInAngle;
         public float MaxAngleGap => _maxAngleGap;
@@ -18,6 +17,10 @@ namespace Runtime.Utils
         [SerializeField] private bool _isZRotate = true;
         private float _currentAngleGap = 0f;
         private Transform _target;
+        private Transform _target1;
+        public void SetTarget(Transform target) {
+            _target = target;
+        }
         private void FixedUpdate()
         {
             #if UNITY_EDITOR
@@ -50,9 +53,6 @@ namespace Runtime.Utils
                 _isXRotate ? quaternion.eulerAngles.x : transform.rotation.eulerAngles.x,
                 _isYRotate ? quaternion.eulerAngles.y : transform.rotation.eulerAngles.y,
                 _isZRotate ? quaternion.eulerAngles.z : transform.rotation.eulerAngles.z);
-        }
-        public void SetTarget(Transform target) {
-            _target = target;
         }
     }
 }

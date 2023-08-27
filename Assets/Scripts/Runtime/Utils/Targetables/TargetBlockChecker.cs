@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Runtime.Utils
+namespace Runtime.Utils.Targetables
 {
-    public class TargetBlockChecker : MonoBehaviour
+    public class TargetBlockChecker : MonoBehaviour, ITargetable
     {
         public bool IsDirectionBlocked => _isDirectionBlocked;
         public Vector3 DetectedPosition => _isDirectionBlocked ? _blockPosition : _targetPosition;

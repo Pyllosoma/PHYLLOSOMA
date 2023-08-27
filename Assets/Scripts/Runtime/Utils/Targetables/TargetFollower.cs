@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Runtime.Utils
+namespace Runtime.Utils.Targetables
 {
-    public class TargetFollower : MonoBehaviour
+    public class TargetFollower : MonoBehaviour,ITargetable
     {
         [SerializeField] private Transform _target = null;
         [SerializeField] private float _followTime = 1f;
@@ -12,10 +11,13 @@ namespace Runtime.Utils
         [SerializeField] private int _updatePerSecond = 15;
         [SerializeField] private int _followPositionUpdatePerSecond = 10;
         [SerializeField] private AnimationCurve _followSpeedCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
-        public void SetTarget(Transform target, float followTime = 1f, float followDistance = 10f){
-            _target = target;
+        public void SetTarget(Transform target, float followTime, float followDistance){
             _followTime = followTime;
             _followDistance = followDistance;
+            SetTarget(target);
+        }
+        public void SetTarget(Transform target) {
+            _target = target;
         }
         private void OnEnable(){
             StartCoroutine(UpdateFollowPosition());

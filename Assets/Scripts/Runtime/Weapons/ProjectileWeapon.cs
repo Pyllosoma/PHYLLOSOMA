@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Runtime.Attributes;
+using Runtime.Utils.Targetables;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

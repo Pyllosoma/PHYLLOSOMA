@@ -16,7 +16,6 @@ namespace Runtime.Data
         public int Anima = 10000;
         [Header("Player Status")]
         public BaseStats Stats = new BaseStats();
-        
         public Dictionary<int, int> Inventory = new Dictionary<int, int>() {
             {2000,2}
         };

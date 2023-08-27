@@ -22,7 +22,7 @@ namespace Runtime.Weapons
         public override void Attack(GameObject target = null, Vector3 attackPoint = new Vector3())
         {
             //공격 시간에 따라 공격 활성화
-            Debug.Log("MeleeWeapon Attack!");
+            //Debug.Log("MeleeWeapon Attack!");
         }
         private void OnTriggerEnter(Collider other)
         {

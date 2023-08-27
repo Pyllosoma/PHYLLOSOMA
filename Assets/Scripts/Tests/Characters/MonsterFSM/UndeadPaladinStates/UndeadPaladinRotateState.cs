@@ -13,7 +13,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
             entity.Animator.transform.DOMove(entity.transform.position, 0.25f).SetEase(Ease.InSine);
             entity.Animator.transform.DORotate(entity.transform.rotation.eulerAngles, 0.25f).SetEase(Ease.InSine);
             entity.Animator.transform.localRotation = Quaternion.identity;
-            Debug.Log("RotateState");
+            //Debug.Log("RotateState");
             entity.Animator.applyRootMotion = false;
             entity.Animator.SetTrigger("Rotate");
         }
@@ -32,9 +32,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         public void FixedUpdate(UndeadPaladin entity){
             entity.transform.Rotate(Vector3.up, entity.TargetLooker.CurrentAngleGap * _rotateSpeed * Time.fixedDeltaTime);
         }
-        public void Exit(UndeadPaladin entity)
-        {
-            Debug.Log("Exit Rotate State");
+        public void Exit(UndeadPaladin entity){
             entity.Animator.applyRootMotion = true;
         }
     }

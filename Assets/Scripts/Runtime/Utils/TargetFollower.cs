@@ -12,6 +12,11 @@ namespace Runtime.Utils
         [SerializeField] private int _updatePerSecond = 15;
         [SerializeField] private int _followPositionUpdatePerSecond = 10;
         [SerializeField] private AnimationCurve _followSpeedCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+        public void SetTarget(Transform target, float followTime = 1f, float followDistance = 10f){
+            _target = target;
+            _followTime = followTime;
+            _followDistance = followDistance;
+        }
         private void OnEnable(){
             StartCoroutine(UpdateFollowPosition());
         }

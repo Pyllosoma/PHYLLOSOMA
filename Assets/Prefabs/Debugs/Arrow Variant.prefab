@@ -93,7 +93,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f925b620419810943b9e61d1694a9434,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1468421756137580365}
+      addedObject: {fileID: 5407087803176414826}
   m_SourcePrefab: {fileID: 100100000, guid: f925b620419810943b9e61d1694a9434, type: 3}
 --- !u!1 &1058736264369800136 stripped
 GameObject:
@@ -151,7 +151,7 @@ CapsuleCollider:
   m_Height: 2.2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 1.1}
---- !u!114 &1468421756137580365
+--- !u!114 &5407087803176414826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,16 +160,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058736264369800136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29dbe056168048409f4b4bf66025141f, type: 3}
+  m_Script: {fileID: 11500000, guid: 940d1133ee57446aa724377035bcf8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _delay: 0.05
-  _duration: 0.05
-  _waitTime: 0.05
-  _attackSpeed: 1
   _range: 10
-  _owner: {fileID: 0}
   _targetTags: []
-  _collider: {fileID: 53104621824038952}
+  _owner: {fileID: 0}
+  _onReady:
+    m_PersistentCalls:
+      m_Calls: []
+  _onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFinish:
+    m_PersistentCalls:
+      m_Calls: []
   _rigidbody: {fileID: 2034139573846505803}

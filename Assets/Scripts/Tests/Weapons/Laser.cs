@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 namespace Tests.Weapons
 {
     //본래는 무기 클래스 구현 후 상속 받은 뒤에 구현되어야 하지만 테스트를 위해 빈 클래스로 구현
-    public class Laser : Weapon<Laser>
+    public class Laser : Weapon
     {
         [Header("Laser Info")]
         [SerializeField] private float _attackDelay = 0.05f;
@@ -17,7 +17,7 @@ namespace Tests.Weapons
         private float _lastAttackTime = 0f;
         private float _chargeValue = 0f;
         private bool _isEnable = false;
-        public override void Attack(GameObject target, Vector3 attackPoint)
+        protected override void OnAttack(GameObject target, Vector3 attackPoint)
         {
             _chargeValue += Time.deltaTime;
             _laserLine.material.SetFloat("_LaserPower", _chargeValue/_chargeTime);
@@ -31,20 +31,17 @@ namespace Tests.Weapons
             
             if (Time.time - _lastAttackTime < _attackDelay) return;
             _lastAttackTime = Time.time;
-            //공격하는 부분
-            //Debug.Log("Laser Attack!");
-            //공격할 타겟에게 
-            //Calculate hit point
-            // shot raycast
-            //공격 데미지를 주는 부분
         }
-        public override void Ready(){
+        protected override void OnReady(){
             InternalEnableLaser(true);
         }
-        public override void Finish()
-        {
+        protected override void OnFinish() {
             InternalEnableLaser(false);
         }
+
+        //need to change
+        public override bool IsUsable() => true;
+
         /// <summary>
         /// Laser Enable/Disable
         /// </summary>

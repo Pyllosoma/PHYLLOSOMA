@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -295,15 +295,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _delay: 3
-  _duration: 0.05
-  _waitTime: 0.05
-  _attackSpeed: 1
   _range: 1.5
-  _owner: {fileID: 1064036290}
   _targetTags:
   - Player
-  _collider: {fileID: 263751232}
+  _owner: {fileID: 1064036290}
+  _onReady:
+    m_PersistentCalls:
+      m_Calls: []
+  _onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &311034025 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1d07f70bc4a83724c8ddc195f817b5b6,
@@ -401,7 +405,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810314027}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -559,8 +563,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 810314030}
   - {fileID: 1125190914}
+  - {fileID: 810314030}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -604,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _weapon: {fileID: 1125190916}
 --- !u!1 &875353404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1125190914}
-  - component: {fileID: 1125190915}
+  - component: {fileID: 1125190916}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -1032,7 +1037,7 @@ Transform:
   m_Father: {fileID: 840919457}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1125190915
+--- !u!114 &1125190916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1041,10 +1046,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125190913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 693590f9e8544517a7002913b3063778, type: 3}
+  m_Script: {fileID: 11500000, guid: 575295e4c3964313bcff76f2b9bbb04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arrow: {fileID: 1058736264369800136, guid: 6fa7853a03dca9f458bdddb71d77055a, type: 3}
+  _damage: 1
+  _range: 10
+  _targetTags: []
+  _owner: {fileID: 0}
+  _onReady:
+    m_PersistentCalls:
+      m_Calls: []
+  _onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  _muzzle: {fileID: 1125190914}
+  _projectilePrefab: {fileID: 5495540452335679925, guid: 987f1df4ed5f8c24a8af8c1681892a76,
+    type: 3}
 --- !u!1 &1273386253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,15 +1165,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _delay: 0.05
-  _duration: 0.05
-  _waitTime: 0.05
-  _attackSpeed: 1
   _range: 10
+  _targetTags: []
   _owner: {fileID: 0}
+  _onReady:
+    m_PersistentCalls:
+      m_Calls: []
+  _onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  _attackDelay: 0.05
+  _chargeTime: 5
   _laserLine: {fileID: 1717048777}
   _laserEffect: {fileID: 1677826551}
-  _chargeTime: 5
 --- !u!114 &1273386259
 MonoBehaviour:
   m_ObjectHideFlags: 0

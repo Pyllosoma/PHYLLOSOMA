@@ -10,7 +10,7 @@ namespace Runtime.Weapons
         {
             Debug.Log("RangedWeapon Attack!");
             var projectile = Instantiate(_projectilePrefab, _muzzle.position, Quaternion.identity);
-            projectile.GetComponent<ProjectileWeapon>().Shoot(transform.forward, 10f);
+            projectile.GetComponent<ProjectileWeapon>().Shoot(target,transform.forward, 10f);
         }
         public override bool IsUsable() {
             return true;

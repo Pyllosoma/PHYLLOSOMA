@@ -52,6 +52,7 @@ namespace Tests.Weapons
                 return;
             }
             _isEnable = isEnable;
+            Debug.Log(_isEnable);
             _laserLine.gameObject.SetActive(isEnable);
             if (isEnable) {
                 _laserEffect.Play();

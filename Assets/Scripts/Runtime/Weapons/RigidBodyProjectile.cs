@@ -5,7 +5,7 @@ namespace Runtime.Weapons
     public class RigidBodyProjectile : ProjectileWeapon
     {
         [SerializeField] private Rigidbody _rigidbody;
-        public override void Shoot(Vector3 direction, float power) {
+        public override void Shoot(GameObject target,Vector3 direction, float power) {
             _rigidbody.AddForce(direction * power, ForceMode.Impulse);
         }
         protected override void Move()

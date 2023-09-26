@@ -29,6 +29,7 @@ namespace Runtime.UI.Components.Animations
 
         protected override void PlayAnimation()
         {
+            //Debug.Log("PlayAnimation : " + name);
             if (_canvasGroup) {
                 _canvasGroup.alpha = _startAlpha;
                 _canvasGroup.DOFade(_endAlpha, _animationTime).SetEase(_fadeEase).OnComplete(Complete);
@@ -40,6 +41,7 @@ namespace Runtime.UI.Components.Animations
         }
         protected override void RewindAnimation()
         {
+            //Debug.Log("RewindAnimation : " + name);
             if (_canvasGroup) {
                 _canvasGroup.alpha = _endAlpha;
                 _canvasGroup.DOFade(_startAlpha, _animationTime).SetEase(_fadeEase).OnComplete(Complete);

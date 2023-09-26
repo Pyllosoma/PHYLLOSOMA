@@ -296,9 +296,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _min: 0
-  _max: 10
-  _current: 0
+  _max: 30
+  _value: 0
   _numberText: {fileID: 20074066143129532}
+  _onNumberChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3785297472759893385
 PrefabInstance:
   m_ObjectHideFlags: 0

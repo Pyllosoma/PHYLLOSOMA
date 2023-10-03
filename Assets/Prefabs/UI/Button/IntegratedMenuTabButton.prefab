@@ -34,7 +34,6 @@ RectTransform:
   m_Children:
   - {fileID: 4168440323006391817}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -125,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7748810791568739540}
         m_TargetAssemblyTypeName: Runtime.UI.Components.TabBar.TabButton, Assembly-CSharp
-        m_MethodName: OnTabSelected
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,38 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78347fc72bc043008c40340b5455d987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 0
-  Parent: {fileID: 0}
-  _onTabSelected:
+  _onToggle:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3959402647139316337}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onTabDeselected:
+      m_Calls: []
+  _onUnToggle:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3959402647139316337}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6702812529174637745
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +185,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4168440323006391817}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -275,7 +247,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 16
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -329,22 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053e696bea34417891dd964eb2eb7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 9174712626994534316}
   _isCapitalizeText: 1
-  _onTextChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9174712626994534316}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _isEnablePrefixAndSuffix: 0
+  _prefix: 
+  _suffix: 
 --- !u!114 &6435674496596828968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +378,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4168440323006391817}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -509,7 +469,6 @@ RectTransform:
   - {fileID: 3750385415971445254}
   - {fileID: 175690044783378840}
   m_Father: {fileID: 7241829840418346468}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

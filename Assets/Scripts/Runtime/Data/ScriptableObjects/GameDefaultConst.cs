@@ -6,11 +6,13 @@ namespace Runtime.Data.ScriptableObjects
     [CreateAssetMenu(fileName = "GameDefaultConst", menuName = "Data/GameDefaultConst")]
     public class GameDefaultConst : SingletonScriptableObject<GameDefaultConst>
     {
+        public int MaxLevel => _maxLevel;
         [SerializeField] private int _baseCost = 510;
         [SerializeField] private int _startAnimaCost = 10;
         [SerializeField] private int _startAnimaRaiseCost = 90;
         [SerializeField] private int _animaIncreasePerLevel = 8;
         [SerializeField] private int _costAnimaRaiseLevel = 10;
+        [SerializeField] private int _maxLevel = 100;
         [Range(0, 100)] public int Test = 1;
         public int CalculateCostPerLevel(int level)
         {

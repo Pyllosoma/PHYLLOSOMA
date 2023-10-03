@@ -55,11 +55,17 @@ namespace Runtime.UI.Menus
             
             //Reset Arrow Number Changer
             _healthChanger.Reset();
+            _healthChanger.Init(_playerStats.Health,GameDefaultConst.Instance.MaxLevel);
             _damageChanger.Reset();
+            _damageChanger.Init(_playerStats.Damage,GameDefaultConst.Instance.MaxLevel);
             _defenseChanger.Reset();
+            _defenseChanger.Init(_playerStats.Defense,GameDefaultConst.Instance.MaxLevel);
             _enduranceChanger.Reset();
+            _enduranceChanger.Init(_playerStats.Endurance,GameDefaultConst.Instance.MaxLevel);
             _agilityChanger.Reset();
+            _agilityChanger.Init(_playerStats.Agility,GameDefaultConst.Instance.MaxLevel);
             _faithChanger.Reset();
+            _faithChanger.Init(_playerStats.Faith,GameDefaultConst.Instance.MaxLevel);
         }
         public void UpdateMenu()
         {

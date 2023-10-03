@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Runtime.Data.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ItemInfos", menuName = "Data/ItemInfos")]
-    public class ItemInfos : ScriptableObject
+    public class ItemInfos : SingletonScriptableObject<ItemInfos>
     {
         [SerializeField] private int _defaultItemStartId = 0;
         [SerializeField] private int _usableItemStartId = 1000;

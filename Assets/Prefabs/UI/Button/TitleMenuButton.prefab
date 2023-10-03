@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6b982274c9f124fac6173c4aea29cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationTime: 0.1
+  _animationTime: 0.25
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -280,7 +280,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _focusOnStart: 0
-  _isFocused: 0
   _onFocusIn:
     m_PersistentCalls:
       m_Calls:

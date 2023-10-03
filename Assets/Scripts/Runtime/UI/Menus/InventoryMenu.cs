@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure.Items;
 using Runtime.Managers;
 using Runtime.UI.Components.Info.Items;
@@ -24,7 +25,7 @@ namespace Runtime.UI.Menus
             
             foreach (var data in DataManager.Instance.PlayerData.Inventory) {
                 //Need to change later
-                var itemData = DataManager.Instance.Items.GetItem<WearableItem>(data.Key);
+                var itemData = ItemInfos.Instance.GetItem<WearableItem>(data.Key);
                 if (itemData == default) {
                     Debug.LogError("Data type is not matched.");
                     continue;

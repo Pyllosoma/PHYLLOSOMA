@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure;
 using Runtime.Managers;
 using Runtime.UI.Components;
@@ -80,7 +81,10 @@ namespace Runtime.UI.Menus
             //Update stats indicator
             _changeStatIndicator.Init(_playerStats + _currentChangeStats,colors);
             //Change anima value
-            _requiredAnima = _currentChangeStats.GetTotalStat() * 100;
+            _requiredAnima = GameDefaultConst.Instance.CalculateCostPerLevel(
+                _playerStats.GetTotalStat(),
+                _playerStats.GetTotalStat() + _currentChangeStats.GetTotalStat());
+            
             _remainAnima = _currentAnima - _requiredAnima;
             _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > 0;
             //Show anima value

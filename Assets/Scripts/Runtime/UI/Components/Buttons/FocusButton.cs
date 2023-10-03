@@ -20,6 +20,7 @@ namespace Runtime.UI.Components.Buttons
                 OnFocusIn();
                 Select();
             }
+            _isFocused = _focusOnStart;
         }
         public virtual void OnFocusIn()
         {

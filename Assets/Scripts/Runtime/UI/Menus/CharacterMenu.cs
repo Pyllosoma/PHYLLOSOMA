@@ -39,6 +39,7 @@ namespace Runtime.UI.Menus
         [Header("Apply Button")]
         [SerializeField] private Button _applyButton;
         public void Reset(){
+            _applyButton.interactable = false;
             _playerStats = DataManager.Instance.PlayerData.Stats;
             _currentChangeStats = new BaseStats();
             //Reset Anima
@@ -78,21 +79,21 @@ namespace Runtime.UI.Menus
             
             //Create Color profile
             Color[] colors = new Color[6];
-            colors[0] = _currentChangeStats.Health > 0 ? _positiveColor : _defaultColor;
-            colors[1] = _currentChangeStats.Damage > 0 ? _positiveColor : _defaultColor;
-            colors[2] = _currentChangeStats.Defense > 0 ? _positiveColor : _defaultColor;
-            colors[3] = _currentChangeStats.Endurance > 0 ? _positiveColor : _defaultColor;
-            colors[4] = _currentChangeStats.Agility > 0 ? _positiveColor : _defaultColor;
-            colors[5] = _currentChangeStats.Faith > 0 ? _positiveColor : _defaultColor;
+            colors[0] = _currentChangeStats.Health > _playerStats.Health ? _positiveColor : _defaultColor;
+            colors[1] = _currentChangeStats.Damage > _playerStats.Damage ? _positiveColor : _defaultColor;
+            colors[2] = _currentChangeStats.Defense > _playerStats.Defense ? _positiveColor : _defaultColor;
+            colors[3] = _currentChangeStats.Endurance > _playerStats.Endurance ? _positiveColor : _defaultColor;
+            colors[4] = _currentChangeStats.Agility > _playerStats.Agility ? _positiveColor : _defaultColor;
+            colors[5] = _currentChangeStats.Faith > _playerStats.Faith ? _positiveColor : _defaultColor;
             //Update stats indicator
             _changeStatIndicator.Init(_playerStats + _currentChangeStats,colors);
             //Change anima value
             _requiredAnima = GameDefaultConst.Instance.CalculateCostPerLevel(
                 _playerStats.GetTotalStat(),
-                _playerStats.GetTotalStat() + _currentChangeStats.GetTotalStat());
+                _currentChangeStats.GetTotalStat());
             
             _remainAnima = _currentAnima - _requiredAnima;
-            _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > 0;
+            _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > _playerStats.GetTotalStat();
             //Show anima value
             _currentAnimaValue.UpdateValue(_currentAnima);
             _remainAnimaValue.UpdateValue(_remainAnima);

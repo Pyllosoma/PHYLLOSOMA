@@ -7,7 +7,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
     {
         public void Enter(Statue entity)
         {
-            entity.Laser.Ready();
+            
         }
         public void Update(Statue entity)
         {
@@ -16,20 +16,17 @@ namespace Tests.Characters.MonsterFSM.StatueStates
                 return;
             }
             var target = entity.TargetDetector.Targets[0];
-            if (!entity.Laser.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.transform.position))) {
+            float distance = Vector3.Distance(entity.gameObject.transform.position, target.transform.position);
+            if (!entity.Laser.IsInRange(distance)) {
                 entity.State = new StatueIdleState();
                 return;
             }
-            if (!entity.TargetLooker.IsInAngle) {
-                entity.Laser.Finish();
+            //일정 사거리 안에 오거나 혹은 공격 각도 밖에 있다면 충격파 공격
+            if (!entity.TargetLooker.IsInAngle&&distance < entity.ShockWaveAttackRange) {
+                entity.State = new StatueShockWaveAttackState();
                 return;
             }
-            // if (entity.TargetBlockChecker.IsDirectionBlocked) {
-            //     entity.Laser.Finish();
-            //     return;
-            // }
-            
-            entity.Laser.Attack(target,entity.TargetBlockChecker.TargetPosition);
+            entity.State = new StatueLaserAttackState();
         }
         public void FixedUpdate(Statue entity)
         {
@@ -37,7 +34,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         }
         public void Exit(Statue entity)
         {
-            entity.Laser.Finish();
+            
         }
     }
 }

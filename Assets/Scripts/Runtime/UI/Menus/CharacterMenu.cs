@@ -86,7 +86,7 @@ namespace Runtime.UI.Menus
             colors[4] = _currentChangeStats.Agility > _playerStats.Agility ? _positiveColor : _defaultColor;
             colors[5] = _currentChangeStats.Faith > _playerStats.Faith ? _positiveColor : _defaultColor;
             //Update stats indicator
-            _changeStatIndicator.Init(_playerStats + _currentChangeStats,colors);
+            _changeStatIndicator.Init(_currentChangeStats,colors);
             //Change anima value
             _requiredAnima = GameDefaultConst.Instance.CalculateCostPerLevel(
                 _playerStats.GetTotalStat(),
@@ -102,7 +102,7 @@ namespace Runtime.UI.Menus
 
         public void OnStatApplyButtonClicked()
         {
-            DataManager.Instance.PlayerData.Stats += _currentChangeStats;
+            DataManager.Instance.PlayerData.Stats = _currentChangeStats;
             DataManager.Instance.PlayerData.Anima = _remainAnima;
             //Reset data by player data
             Reset();

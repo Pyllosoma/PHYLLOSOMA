@@ -15,6 +15,9 @@ namespace Runtime.UI.Components.Info.Items
         private InventoryMenu _parent;
         public void Init(int itemId,InventoryMenu parent)
         {
+            #if UNITY_EDITOR
+                Debug.Log($"{name} Item Id : {itemId}");
+            #endif
             _parent = parent;
             _itemId = itemId;
             var itemData = ItemInfos.Instance.GetItem<Item>(itemId);

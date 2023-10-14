@@ -25,11 +25,11 @@ namespace Runtime.UI.Menus
             
             foreach (var data in DataManager.Instance.PlayerData.Inventory) {
                 //Need to change later
-                var itemData = ItemInfos.Instance.GetItem<WearableItem>(data.Key);
-                if (itemData == default) {
-                    Debug.LogError("Data type is not matched.");
-                    continue;
-                }
+                // var itemData = ItemInfos.Instance.GetItem<WearableItem>(data.Key);
+                // if (itemData == default) {
+                //     Debug.LogError("Data type is not matched.");
+                //     continue;
+                // }
                 int i = 0;
                 for (i = 0; i < data.Value && count < _cache.Count; i++, count++) {
                     _cache[count].Init(data.Key,this);

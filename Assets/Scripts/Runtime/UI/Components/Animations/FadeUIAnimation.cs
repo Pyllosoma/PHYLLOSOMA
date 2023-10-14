@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace Runtime.UI.Components.Animations
 {
-    [RequireComponent(typeof(CanvasGroup))]
     public class FadeUIAnimation : UIAnimation
     {
         [Header("Fade Animation Settings")] 

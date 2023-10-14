@@ -158,6 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7610461878304783287}
+  - component: {fileID: 4484686877043463984}
   m_Layer: 0
   m_Name: InfoHolder
   m_TagString: Untagged
@@ -186,6 +187,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4484686877043463984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603900636409385996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: -30, y: 30, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &3468579422591518163
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uC774\uD15C \uC124\uBA85"
+  m_text: "\uC124\uBA85\uC544\uC774\uD15C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,

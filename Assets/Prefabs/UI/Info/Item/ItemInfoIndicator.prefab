@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useUnscaledTime: 1
-  _animationTime: 0.5
+  _animationTime: 0.25
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useUnscaledTime: 1
-  _animationTime: 0.5
+  _animationTime: 0.25
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useUnscaledTime: 1
-  _animationTime: 0.5
+  _animationTime: 0.25
   _onComplete:
     m_PersistentCalls:
       m_Calls: []

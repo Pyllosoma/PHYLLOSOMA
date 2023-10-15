@@ -13,7 +13,7 @@ namespace Tests.Weapons
                 var arrow = Instantiate(Arrow);
                 arrow.transform.position = transform.position;
                 arrow.transform.rotation = transform.rotation;
-                arrow.GetComponent<ProjectileWeapon>().Shoot(transform.forward,10f);
+                arrow.GetComponent<ProjectileWeapon>().Shoot(null,transform.forward,10f);
             }
         }
     }

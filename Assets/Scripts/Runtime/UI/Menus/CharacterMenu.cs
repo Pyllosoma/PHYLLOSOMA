@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure;
 using Runtime.Managers;
 using Runtime.UI.Components;
@@ -38,6 +39,7 @@ namespace Runtime.UI.Menus
         [Header("Apply Button")]
         [SerializeField] private Button _applyButton;
         public void Reset(){
+            _applyButton.interactable = false;
             _playerStats = DataManager.Instance.PlayerData.Stats;
             _currentChangeStats = new BaseStats();
             //Reset Anima
@@ -54,11 +56,17 @@ namespace Runtime.UI.Menus
             
             //Reset Arrow Number Changer
             _healthChanger.Reset();
+            _healthChanger.Init(_playerStats.Health,GameDefaultConst.Instance.MaxLevel);
             _damageChanger.Reset();
+            _damageChanger.Init(_playerStats.Damage,GameDefaultConst.Instance.MaxLevel);
             _defenseChanger.Reset();
+            _defenseChanger.Init(_playerStats.Defense,GameDefaultConst.Instance.MaxLevel);
             _enduranceChanger.Reset();
+            _enduranceChanger.Init(_playerStats.Endurance,GameDefaultConst.Instance.MaxLevel);
             _agilityChanger.Reset();
+            _agilityChanger.Init(_playerStats.Agility,GameDefaultConst.Instance.MaxLevel);
             _faithChanger.Reset();
+            _faithChanger.Init(_playerStats.Faith,GameDefaultConst.Instance.MaxLevel);
         }
         public void UpdateMenu()
         {
@@ -71,18 +79,21 @@ namespace Runtime.UI.Menus
             
             //Create Color profile
             Color[] colors = new Color[6];
-            colors[0] = _currentChangeStats.Health > 0 ? _positiveColor : _defaultColor;
-            colors[1] = _currentChangeStats.Damage > 0 ? _positiveColor : _defaultColor;
-            colors[2] = _currentChangeStats.Defense > 0 ? _positiveColor : _defaultColor;
-            colors[3] = _currentChangeStats.Endurance > 0 ? _positiveColor : _defaultColor;
-            colors[4] = _currentChangeStats.Agility > 0 ? _positiveColor : _defaultColor;
-            colors[5] = _currentChangeStats.Faith > 0 ? _positiveColor : _defaultColor;
+            colors[0] = _currentChangeStats.Health > _playerStats.Health ? _positiveColor : _defaultColor;
+            colors[1] = _currentChangeStats.Damage > _playerStats.Damage ? _positiveColor : _defaultColor;
+            colors[2] = _currentChangeStats.Defense > _playerStats.Defense ? _positiveColor : _defaultColor;
+            colors[3] = _currentChangeStats.Endurance > _playerStats.Endurance ? _positiveColor : _defaultColor;
+            colors[4] = _currentChangeStats.Agility > _playerStats.Agility ? _positiveColor : _defaultColor;
+            colors[5] = _currentChangeStats.Faith > _playerStats.Faith ? _positiveColor : _defaultColor;
             //Update stats indicator
-            _changeStatIndicator.Init(_playerStats + _currentChangeStats,colors);
+            _changeStatIndicator.Init(_currentChangeStats,colors);
             //Change anima value
-            _requiredAnima = _currentChangeStats.GetTotalStat() * 100;
+            _requiredAnima = GameDefaultConst.Instance.CalculateCostPerLevel(
+                _playerStats.GetTotalStat(),
+                _currentChangeStats.GetTotalStat());
+            
             _remainAnima = _currentAnima - _requiredAnima;
-            _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > 0;
+            _applyButton.interactable = _remainAnima >= 0 && _currentChangeStats.GetTotalStat() > _playerStats.GetTotalStat();
             //Show anima value
             _currentAnimaValue.UpdateValue(_currentAnima);
             _remainAnimaValue.UpdateValue(_remainAnima);
@@ -91,7 +102,7 @@ namespace Runtime.UI.Menus
 
         public void OnStatApplyButtonClicked()
         {
-            DataManager.Instance.PlayerData.Stats += _currentChangeStats;
+            DataManager.Instance.PlayerData.Stats = _currentChangeStats;
             DataManager.Instance.PlayerData.Anima = _remainAnima;
             //Reset data by player data
             Reset();

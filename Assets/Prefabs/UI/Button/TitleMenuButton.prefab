@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5047995609016216620}
   - component: {fileID: 3441817744845683311}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,13 +60,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONTIUE
+  m_text: CONTINUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee1b53c8ed8409247b69bba291446e4e, type: 2}
   m_sharedMaterial: {fileID: -5224658032677846230, guid: ee1b53c8ed8409247b69bba291446e4e,
@@ -146,8 +146,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9012911222278587829}
   - component: {fileID: 6806545076474888565}
-  - component: {fileID: 6075150058628500065}
-  - component: {fileID: 3503780404934038703}
+  - component: {fileID: 7123839743991061901}
+  - component: {fileID: 3655309420010280699}
+  - component: {fileID: 3365708916270586837}
   m_Layer: 5
   m_Name: TitleMenuButton
   m_TagString: Untagged
@@ -184,7 +185,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720608000807855066}
   m_CullTransparentMesh: 1
---- !u!114 &6075150058628500065
+--- !u!114 &7123839743991061901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,14 +198,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 25bc9c6868d1991409a511d3023cf5f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a43f8f01a4e9c545bb7b0914696bca2, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3503780404934038703
+--- !u!114 &3655309420010280699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +224,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1720608000807855066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c6b982274c9f124fac6173c4aea29cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationTime: 0.25
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _resetAlphaOnStart: 1
+  _fadeEase: 2
+  _startAlpha: 0
+  _endAlpha: 1
+--- !u!114 &3365708916270586837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720608000807855066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2498420d45f470d82267056ed2891c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -233,7 +254,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -245,7 +266,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6a43f8f01a4e9c545bb7b0914696bca2, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -254,7 +275,38 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6075150058628500065}
+  m_TargetGraphic: {fileID: 7123839743991061901}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _focusOnStart: 0
+  _onFocusIn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3655309420010280699}
+        m_TargetAssemblyTypeName: Runtime.UI.Components.Animations.UIAnimation, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFocusOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3655309420010280699}
+        m_TargetAssemblyTypeName: Runtime.UI.Components.Animations.UIAnimation, Assembly-CSharp
+        m_MethodName: Rewind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

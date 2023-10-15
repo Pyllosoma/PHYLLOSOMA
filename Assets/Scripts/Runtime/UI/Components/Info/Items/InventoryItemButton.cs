@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure.Items;
 using Runtime.Managers;
 using Runtime.UI.Menus;
@@ -14,9 +15,12 @@ namespace Runtime.UI.Components.Info.Items
         private InventoryMenu _parent;
         public void Init(int itemId,InventoryMenu parent)
         {
+            #if UNITY_EDITOR
+                Debug.Log($"{name} Item Id : {itemId}");
+            #endif
             _parent = parent;
             _itemId = itemId;
-            var itemData = DataManager.Instance.Items.GetItem<Item>(itemId);
+            var itemData = ItemInfos.Instance.GetItem<Item>(itemId);
             _itemName.text = itemData.Name;
             gameObject.SetActive(true);
         }

@@ -17,6 +17,7 @@ namespace Runtime.Data
         [Header("Player Status")]
         public BaseStats Stats = new BaseStats();
         public Dictionary<int, int> Inventory = new Dictionary<int, int>() {
+            {0,1},
             {2000,2}
         };
         public void UseItem(int id,int count)

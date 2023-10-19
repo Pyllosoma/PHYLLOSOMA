@@ -16,8 +16,6 @@ namespace Runtime.Managers
         }
         public const string PLAYER_SAVE_PATH = "save.data";
         public PlayerData PlayerData => _playerData;
-        public ItemInfos Items => _itemInfos;
-        [SerializeField] private ItemInfos _itemInfos;
         [SerializeField] private PlayerData _playerData = new PlayerData();
         private long _playStartTime = 0;
         private long _playEndTime = 0;

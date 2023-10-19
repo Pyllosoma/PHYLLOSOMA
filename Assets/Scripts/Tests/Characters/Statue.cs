@@ -19,9 +19,11 @@ namespace Tests.Characters
         public TargetDetector TargetDetector => _targetDetector;
         public TargetLooker TargetLooker => _targetLooker;
         public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
+        public float ShockWaveAttackRange => _shockWaveAttackRange;
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _acceleration = 1f;
         [SerializeField] private float _rotateSpeed = 720f;
+        [SerializeField] private float _shockWaveAttackRange = 1f;
         [SerializeField] private Laser _laser = null;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;

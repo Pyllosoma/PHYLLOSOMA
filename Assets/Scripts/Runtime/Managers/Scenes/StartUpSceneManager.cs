@@ -7,7 +7,7 @@ namespace Runtime.Managers.Scenes
     {
         public void OnContinueClicked()
         {
-            
+            Debug.Log("Doing nothing");
         }
         public void OnLoadGameClicked()
         {

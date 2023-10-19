@@ -6,23 +6,21 @@ namespace Runtime.UI.Components.TabBar
     public class TabButton : MonoBehaviour
     {
         public int Index = -1;
-        public TabBarManager Parent;
-        [SerializeField] private UnityEvent _onTabSelected;
-        [SerializeField] private UnityEvent _onTabDeselected;
-        public void OnTabSelected() {
+        public TabGroup Parent = null;
+        [SerializeField] private UnityEvent _onToggle = new UnityEvent();
+        [SerializeField] private UnityEvent _onUnToggle = new UnityEvent();
+        public void Toggle() {
+            OnToggle();
+            _onToggle?.Invoke();
+        }
+        public void UnToggle() {
+            OnUnToggle();
+            _onUnToggle?.Invoke();
+        }
+        public virtual void OnClick() {
             Parent.OnTabSelected(Index);
         }
-        /// <summary>
-        /// Change the state of the button.
-        /// </summary>
-        /// <param name="isAttention">The parameter that active or deactivate button.</param>
-        public void Attention(bool isAttention) {
-            if (isAttention) {
-                _onTabSelected.Invoke();
-            }
-            else {
-                _onTabDeselected.Invoke();
-            }
-        }
+        protected virtual void OnToggle() { }
+        protected virtual void OnUnToggle() { }
     }
 }

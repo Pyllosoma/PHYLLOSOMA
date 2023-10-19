@@ -10,12 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09a3a0b6b2e2bc84992155961c5530a6, type: 3}
-  m_Name: Items
+  m_Name: ItemInfos
   m_EditorClassIdentifier: 
   _defaultItemStartId: 0
   _usableItemStartId: 1000
   _wearableItemStartId: 2000
-  _defaultItems: []
+  _defaultItems:
+  - _id: 0
+    _itemType: 0
+    _sprite: {fileID: 21300000, guid: b3e958ee40da56645bd0bca320fce4bf, type: 3}
+    _name:
+      m_TableReference:
+        m_TableCollectionName: GUID:10168d845d72e9347a3bd3a71e30f8e9
+      m_TableEntryReference:
+        m_KeyId: 6485553152
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _description:
+      m_TableReference:
+        m_TableCollectionName: GUID:1fc4e198e6d8a7e47925276d2759d4ce
+      m_TableEntryReference:
+        m_KeyId: 27012476928
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _price: 0
   _usableItems: []
   _wearableItems:
   - _id: 2000

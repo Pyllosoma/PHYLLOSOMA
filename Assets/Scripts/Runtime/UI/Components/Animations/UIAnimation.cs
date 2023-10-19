@@ -8,6 +8,7 @@ namespace Runtime.UI.Components.Animations
     {
         public float AnimationTime => _animationTime;
         [Header("Base Animation Settings")]
+        [SerializeField] protected bool _useUnscaledTime = true;
         [SerializeField] protected float _animationTime = 0.25f;
         [SerializeField] protected UnityEvent _onComplete;
         private Action _onCompleteAction = null;

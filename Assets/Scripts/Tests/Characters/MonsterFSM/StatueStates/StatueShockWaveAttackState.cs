@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Runtime.Patterns.FSM;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM.StatueStates
 {
+    [Serializable]
     public class StatueShockWaveAttackState : IState<Statue>
     {
         private List<GameObject> _targets = new List<GameObject>();
-        private float _startTime = 0f;
-        private float _chargeTime = 1f;
-        private float _attackTime = 1f;
+        [SerializeField] private float _startTime = 0f;
+        [SerializeField] private float _chargeTime = 1f;
+        [SerializeField] private float _attackTime = 1f;
         public void Enter(Statue entity)
         {
             _targets = entity.TargetDetector.Targets;

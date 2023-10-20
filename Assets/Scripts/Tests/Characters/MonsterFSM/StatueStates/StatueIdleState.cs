@@ -1,10 +1,11 @@
-﻿using Runtime.Patterns.FSM;
+﻿using System;
+using Runtime.Patterns.FSM;
 
 namespace Tests.Characters.MonsterFSM.StatueStates
 {
+    [Serializable]
     public class StatueIdleState : IState<Statue>
     {
-        
         public void Enter(Statue entity)
         {
             entity.TargetLooker.SetTarget(null);

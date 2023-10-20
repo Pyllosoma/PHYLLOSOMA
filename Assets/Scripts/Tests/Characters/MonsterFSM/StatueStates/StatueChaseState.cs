@@ -1,24 +1,35 @@
-﻿using Runtime.Patterns.FSM;
+﻿using System;
+using Runtime.Patterns.FSM;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM.StatueStates
 {
+    [Serializable] 
     public class StatueChaseState : IState<Statue>
     {
+        [SerializeField] private float _chaseSpeed = 10f;
+        [SerializeField] private float _acceleration = 10f;
+        [SerializeField] private float _rotateSpeed = 720f;
+        
         public void Enter(Statue entity)
         {
+            //값에 따라 초기화
+            entity.Controller.speed = _chaseSpeed;
+            entity.Controller.acceleration = _acceleration;
+            entity.Controller.angularSpeed = _rotateSpeed;
+            
             entity.TargetLooker.SetTarget(entity.TargetDetector.Targets[0].transform);
             entity.TargetBlockChecker.SetTarget(entity.TargetDetector.Targets[0].transform);
         }
         public void Update(Statue entity)
         {
             if (!entity.TargetDetector.IsTargetExist) {
-                entity.State = new StatueIdleState();
+                entity.State = entity.IdleState;
                 return;
             }
             var target = entity.TargetDetector.Targets[0];
             if (entity.Laser.IsInRange(Vector3.Distance(entity.gameObject.transform.position, entity.TargetBlockChecker.TargetPosition))) {
-                entity.State = new StatueAttackState();
+                entity.State = entity.AttackState;
                 return;
             }
             entity.Controller.SetDestination(target.transform.position);

@@ -12,21 +12,21 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         public void Update(Statue entity)
         {
             if (!entity.TargetDetector.IsTargetExist) {
-                entity.State = new StatueIdleState();
+                entity.State = entity.IdleState;
                 return;
             }
             var target = entity.TargetDetector.Targets[0];
             float distance = Vector3.Distance(entity.gameObject.transform.position, target.transform.position);
             if (!entity.Laser.IsInRange(distance)) {
-                entity.State = new StatueIdleState();
+                entity.State = entity.IdleState;
                 return;
             }
-            //일정 사거리 안에 오거나 혹은 공격 각도 밖에 있다면 충격파 공격
-            if (!entity.TargetLooker.IsInAngle&&distance < entity.ShockWaveAttackRange) {
-                entity.State = new StatueShockWaveAttackState();
-                return;
-            }
-            entity.State = new StatueLaserAttackState();
+            // //일정 사거리 안에 오거나 혹은 공격 각도 밖에 있다면 충격파 공격
+            // if (!entity.TargetLooker.IsInAngle&&distance < entity.ShockWaveAttackRange) {
+            //     entity.State = new StatueShockWaveAttackState();
+            //     return;
+            // }
+            entity.State = entity.LaserAttackState;
         }
         public void FixedUpdate(Statue entity)
         {

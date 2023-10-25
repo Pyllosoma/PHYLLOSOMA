@@ -11,23 +11,21 @@ namespace Tests.Characters
 {
     public class Statue : Character<Statue>
     {
-        public Laser Laser => _laser;
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
         public TargetLooker TargetLooker => _targetLooker;
         public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
-        public float ShockWaveAttackRange => _shockWaveAttackRange;
-        [SerializeField] private float _shockWaveAttackRange = 1f;
-        [SerializeField] private Laser _laser = null;
+        public float LaserRange => _laserRange;
+        [SerializeField] private float _laserRange = 1f;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
         [SerializeField] private TargetLooker _targetLooker = null;
         [SerializeField] private TargetBlockChecker _targetBlockChecker = null;
-        
         public StatueIdleState IdleState => _idleState;
         public StatueChaseState ChaseState => _chaseState;
         public StatueAttackState AttackState => _attackState;
         public StatueLaserAttackState LaserAttackState => _laserAttackState;
+        [Header("Statue States")]
         [SerializeField] private StatueIdleState _idleState = new StatueIdleState();
         [SerializeField] private StatueChaseState _chaseState = new StatueChaseState();
         [SerializeField] private StatueAttackState _attackState = new StatueAttackState();

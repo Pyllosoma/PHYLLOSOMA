@@ -1,6 +1,7 @@
 ﻿using System;
 using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure.Items;
+using Runtime.Items;
 using Runtime.Managers;
 using Runtime.UI.Components.Animations;
 using TMPro;
@@ -21,12 +22,12 @@ namespace Runtime.UI.Components.Info.Items
         [SerializeField] private UIAnimation _descriptionContainerAnimation;
         [SerializeField] private TextMeshProUGUI _itemEffectText;
         [SerializeField] private TextMeshProUGUI _itemDescription;
-        public void Init(int itemId)
+        public void Init(ItemCode itemCode)
         {
             #if UNITY_EDITOR
-                Debug.Log($"{name} Item Id : {itemId}");
+                Debug.Log($"{name} Item Id : {itemCode}");
             #endif
-            var itemData = ItemInfos.Instance.GetItem<Item>(itemId);
+            var itemData = ItemInfos.Instance.GetItem<Item>(itemCode);
             switch (itemData.Type)
             {
                 case ItemType.DEFAULT: case ItemType.USABLE:

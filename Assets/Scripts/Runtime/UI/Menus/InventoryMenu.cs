@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Runtime.Data.ScriptableObjects;
 using Runtime.Data.Structure.Items;
+using Runtime.Items;
 using Runtime.Managers;
 using Runtime.UI.Components.Info.Items;
 using UnityEngine;
@@ -14,10 +15,10 @@ namespace Runtime.UI.Menus
         [SerializeField] private Transform _inventoryItemContainer;
         [SerializeField] private GameObject _inventoryItemPrefab;
         [SerializeField] private List<InventoryItemButton> _cache = new List<InventoryItemButton>();
-        public void OnInventoryItemButtonClicked(int itemId)
+        public void OnInventoryItemButtonClicked(ItemCode itemCode)
         {
             //Debug.Log($"Item {itemId} clicked.");
-            _itemInfoIndicator.Init(itemId);
+            _itemInfoIndicator.Init(itemCode);
         }
         private void OnEnable()
         {

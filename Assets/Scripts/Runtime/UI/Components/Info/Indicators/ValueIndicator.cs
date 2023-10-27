@@ -10,7 +10,8 @@ namespace Runtime.UI.Components.Info.Indicators
         [SerializeField] private int _curValue = 0;
         [SerializeField] private int _targetValue;
         [SerializeField] private float _updateTime = 1f;
-        [SerializeField] private int _updatePerSecond = 30;
+        [SerializeField] private int _updatePerSecond = 60;
+        [SerializeField] private AnimationCurve _updateCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
         private IEnumerator _valueUpdateCoroutine = null;
         private void OnEnable()
         {
@@ -38,11 +39,13 @@ namespace Runtime.UI.Components.Info.Indicators
         {
             float timePerUpdate = 1f / _updatePerSecond;
             float timer = 0f;
+            int gap = _targetValue - _curValue;
+            int startValue = _curValue;
             while (timer < _updateTime) {
                 timer += timePerUpdate;
-                _curValue = Mathf.RoundToInt(Mathf.Lerp(_curValue, _targetValue, timer / _updateTime));
+                _curValue = Mathf.RoundToInt(_updateCurve.Evaluate(timer / _updateTime) * gap) + startValue;
                 _moneyText.text = _curValue.ToString();
-                yield return new WaitForSeconds(timePerUpdate);
+                yield return new WaitForSecondsRealtime(timePerUpdate);
             }
             _curValue = _targetValue;
         }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Runtime.Weapons;
 using UnityEngine;
 
 namespace Tests.Weapons
@@ -13,7 +12,7 @@ namespace Tests.Weapons
                 var arrow = Instantiate(Arrow);
                 arrow.transform.position = transform.position;
                 arrow.transform.rotation = transform.rotation;
-                arrow.GetComponent<ProjectileWeapon>().Shoot(null,transform.forward,10f);
+                arrow.GetComponent<ProjectileTestWeapon>().Shoot(null,transform.forward,10f);
             }
         }
     }

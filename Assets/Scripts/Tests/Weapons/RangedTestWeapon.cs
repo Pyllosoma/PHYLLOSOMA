@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Runtime.Weapons
+namespace Tests.Weapons
 {
-    public class RangedWeapon : Weapon
+    public class RangedTestWeapon : TestWeapon
     {
         [SerializeField] private Transform _muzzle;
         [SerializeField] private GameObject _projectilePrefab;
@@ -10,7 +10,7 @@ namespace Runtime.Weapons
         {
             //Debug.Log("RangedWeapon Attack!");
             var projectile = Instantiate(_projectilePrefab, _muzzle.position, Quaternion.identity);
-            projectile.GetComponent<ProjectileWeapon>().Shoot(target,transform.forward, 10f);
+            projectile.GetComponent<ProjectileTestWeapon>().Shoot(target,transform.forward, 10f);
         }
         public override bool IsUsable() {
             return true;

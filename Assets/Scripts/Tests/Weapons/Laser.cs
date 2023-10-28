@@ -1,12 +1,11 @@
 ﻿using System;
-using Runtime.Weapons;
 using UnityEngine;
 using UnityEngine.VFX;
 
 namespace Tests.Weapons
 {
     //본래는 무기 클래스 구현 후 상속 받은 뒤에 구현되어야 하지만 테스트를 위해 빈 클래스로 구현
-    public class Laser : Weapon
+    public class Laser : TestWeapon
     {
         [Header("Laser Info")]
         [SerializeField] private float _attackDelay = 0.05f;

@@ -1,11 +1,9 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
-namespace Runtime.Weapons
+namespace Tests.Weapons
 {
     [RequireComponent(typeof(Collider))]
-    public class MeleeWeapon : Weapon
+    public class MeleeTestWeapon : TestWeapon
     {
         protected override void OnAttack(GameObject target, Vector3 attackPoint)
         {

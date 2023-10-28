@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 namespace Tests.Characters
 {
-    public class Statue : Character<Statue>
+    public class Statue : Monster<Statue>
     {
         public float Speed => _speed;
         public float Acceleration => _acceleration;

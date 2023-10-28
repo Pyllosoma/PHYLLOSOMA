@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Runtime.Attributes;
-using Runtime.Utils.Targetables;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
-namespace Runtime.Weapons
+namespace Tests.Weapons
 {
-    public abstract class ProjectileWeapon : Weapon
+    public abstract class ProjectileTestWeapon : TestWeapon
     {
         private void OnEnable() => Ready();
         private void OnDisable() => Finish();

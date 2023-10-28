@@ -22,7 +22,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
                 return;
             }
             var target = entity.TargetDetector.Targets[0].transform;
-            if (entity.MeleeWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.position))) {
+            if (entity.MeleeTestWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, target.position))) {
                 entity.State = new UndeadPaladinAttackState();
                 return;
             }

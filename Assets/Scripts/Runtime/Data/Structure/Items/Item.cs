@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Items;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -10,21 +11,21 @@ namespace Runtime.Data.Structure.Items
     [Serializable]
     public class Item
     {
-        public int Id => _id;
+        public ItemCode Code => _itemCode;
         public ItemType Type => _itemType;
         public Sprite Sprite => _sprite;
         public string Name => _name.GetLocalizedString();
         public string Description => _description.GetLocalizedString();
         public int Price => _price;
         [Header("Item Info")]
-        [SerializeField] private int _id = 0;
+        //[SerializeField] private int _id = 0;
+        [SerializeField] private ItemCode _itemCode = ItemCode.DEFAULT;
         [SerializeField] private ItemType _itemType = ItemType.DEFAULT;
         [SerializeField] private Sprite _sprite = null;
         [SerializeField] private LocalizedString _name = null;
         [SerializeField] private LocalizedString _description = null;
         [SerializeField] private int _price = 0;
-        public void InitItem(int id,ItemType itemType){
-            _id = id;
+        public void InitItem(ItemType itemType){
             _itemType = itemType;
         }
     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   _usableItemStartId: 1000
   _wearableItemStartId: 2000
   _defaultItems:
-  - _id: 0
+  - _itemCode: 0
     _itemType: 0
     _sprite: {fileID: 21300000, guid: b3e958ee40da56645bd0bca320fce4bf, type: 3}
     _name:
@@ -40,7 +40,7 @@ MonoBehaviour:
     _price: 0
   _usableItems: []
   _wearableItems:
-  - _id: 2000
+  - _itemCode: 1
     _itemType: 2
     _sprite: {fileID: 21300000, guid: fcc9af71b0f55064488158d03eafcc69, type: 3}
     _name:

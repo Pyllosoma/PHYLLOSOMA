@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 namespace Tests.Characters
 {
-    public class Statue : Character<Statue>
+    public class Statue : Monster<Statue>
     {
         public Laser Laser => _laser;
         public NavMeshAgent Controller => _controller;

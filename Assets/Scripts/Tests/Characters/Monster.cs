@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 namespace Tests.Characters
 {
     //일단 테스트를 위해 상위 부모 클래스 없이 구현
-    public class Character<T> : MonoBehaviour where T : MonoBehaviour
+    public class Monster<T> : MonoBehaviour where T : MonoBehaviour
     {
         public IState<T> State {
             get => _state;

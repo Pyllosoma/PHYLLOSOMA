@@ -17,7 +17,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
             }
             var target = entity.TargetDetector.Targets[0];
             float distance = Vector3.Distance(entity.gameObject.transform.position, target.transform.position);
-            if (!entity.Laser.IsInRange(distance)) {
+            if (entity.LaserRange < distance) {
                 entity.State = entity.IdleState;
                 return;
             }

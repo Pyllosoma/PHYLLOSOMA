@@ -8,7 +8,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         public void Enter(UndeadPaladin entity)
         {
             entity.Animator.SetBool("IsAttack", true);
-            entity.MeleeWeapon.SetOwner(entity.gameObject).Ready();
+            entity.MeleeTestWeapon.SetOwner(entity.gameObject).Ready();
         }
         public void Update(UndeadPaladin entity)
         {
@@ -16,7 +16,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
                 entity.State = new UndeadPaladinIdleState();
                 return;
             }
-            if (!entity.MeleeWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, entity.TargetBlockChecker.TargetPosition))) {
+            if (!entity.MeleeTestWeapon.IsInRange(Vector3.Distance(entity.gameObject.transform.position, entity.TargetBlockChecker.TargetPosition))) {
                 entity.State = new UndeadPaladinChasePattern();
                 return;
             }
@@ -34,7 +34,7 @@ namespace Tests.Characters.MonsterFSM.UndeadPaladinStates
         {
             //Debug.Log("Exit Attack State");
             entity.Animator.SetBool("IsAttack", false);
-            entity.MeleeWeapon.Finish();
+            entity.MeleeTestWeapon.Finish();
         }
     }
 }

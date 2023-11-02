@@ -12,8 +12,14 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         [SerializeField] private float _startTime = 0f;
         [SerializeField] private float _chargeTime = 1f;
         [SerializeField] private float _attackTime = 1f;
+        [SerializeField] private Vector3 _groundPosition = Vector3.zero;
+        private Vector3 _lastPosition = Vector3.zero;
         public void Enter(Statue entity)
         {
+            _lastPosition = entity.transform.position;
+            if (Physics.Raycast(entity.transform.position, Vector3.down, out RaycastHit hit)) {
+                _groundPosition = hit.point;
+            }
             _targets = entity.TargetDetector.Targets;
             _startTime = Time.time;
             //entity.ShockWave.Ready();

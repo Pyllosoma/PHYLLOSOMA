@@ -37,6 +37,7 @@ namespace Runtime.Managers
                 _settingData.Add(SettingConstant.CONVERSATION_VOLUME, "1");
                 _settingData.Add(SettingConstant.LANGUAGE, "ko_kr");
                 _settingData.Add(SettingConstant.SHOW_TUTORIAL, "true");
+                _settingData.Add(SettingConstant.SENSITIVITY, "1");
                 //and save it.
                 SaveSettingData();
                 return;

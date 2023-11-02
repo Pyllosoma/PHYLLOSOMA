@@ -1,9 +1,10 @@
 ﻿using Runtime.Utils;
 using Runtime.Utils.Targetables;
-using Runtime.Weapons;
 using Tests.Characters.MonsterFSM.UndeadPaladinStates;
+using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
@@ -17,13 +18,13 @@ namespace Tests.Characters
         public TargetDetector TargetDetector => _targetDetector;
         public TargetLooker TargetLooker => _targetLooker;
         public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
-        public MeleeWeapon MeleeWeapon => _meleeWeapon;
+        public MeleeTestWeapon MeleeTestWeapon => _meleeTestWeapon;
         public Animator Animator => _animator;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _acceleration = 10f;
         [SerializeField] private float _patrolSpeed = 2f;
         [SerializeField] private float _rotateSpeed = 720f;
-        [SerializeField] private MeleeWeapon _meleeWeapon = null;
+        [FormerlySerializedAs("_meleeWeapon")] [SerializeField] private MeleeTestWeapon _meleeTestWeapon = null;
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;

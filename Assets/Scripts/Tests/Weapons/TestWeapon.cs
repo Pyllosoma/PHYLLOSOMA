@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Runtime.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.Weapons
+namespace Tests.Weapons
 {
     /// <summary>
     /// 무기 최상위 클래스
     /// </summary>
-    public abstract class Weapon : MonoBehaviour
+    public abstract class TestWeapon : MonoBehaviour
     {
         public float Damage => _damage;
         public float Range => _range;
@@ -42,7 +41,7 @@ namespace Runtime.Weapons
             _onFinish.Invoke();
         }
         //사용 캐릭터 정보를 등록하고 사용할 수 있음
-        public Weapon SetOwner(GameObject owner){
+        public TestWeapon SetOwner(GameObject owner){
             _owner = owner;
             return this;
         }

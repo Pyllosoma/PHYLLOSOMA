@@ -9,5 +9,6 @@
         public const string CONVERSATION_VOLUME = "ConversationVolume";
         public const string LANGUAGE = "Language";
         public const string SHOW_TUTORIAL = "ShowTutorial";
+        public const string SENSITIVITY = "Sensitivity";
     }
 }

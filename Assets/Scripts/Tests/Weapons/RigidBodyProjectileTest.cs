@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Runtime.Weapons
+namespace Tests.Weapons
 {
-    public class RigidBodyProjectile : ProjectileWeapon
+    public class RigidBodyProjectileTest : ProjectileTestWeapon
     {
         [SerializeField] private Rigidbody _rigidbody;
         public override void Shoot(GameObject target,Vector3 direction, float power) {

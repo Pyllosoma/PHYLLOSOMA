@@ -1,7 +1,8 @@
 ﻿using System;
-using Runtime.Weapons;
+using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Vector3 = System.Numerics.Vector3;
 
 namespace Tests.Characters
@@ -9,12 +10,12 @@ namespace Tests.Characters
     public class TestMovementComponent : MonoBehaviour
     {
         [SerializeField] private float _speed = 10f;
-        [SerializeField] private RangedWeapon _weapon;
+        [FormerlySerializedAs("_weapon")] [SerializeField] private RangedTestWeapon _testWeapon;
 
         private void Update()
         {
             if(Keyboard.current.spaceKey.wasPressedThisFrame) {
-                _weapon.Attack();
+                _testWeapon.Attack();
             }
         }
 

@@ -16,12 +16,14 @@ namespace MovementAssets
         [SerializeField] private Vector2 _look;
         [SerializeField] private bool _jump;
         [SerializeField] private bool _sprint;
+        [SerializeField] private bool _kneel;
 
         //Properties
         public Vector2 Move { get { return _move; } }
         public Vector2 Look { get { return _look; } }
         public bool Sprint { get { return _sprint; } }
         public bool Jump { get { return _jump; } }
+        public bool Kneel { get { return _kneel; } }
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -54,6 +56,11 @@ namespace MovementAssets
         {
             JumpInput(value.isPressed);
         }
+
+        private void OnKneel(InputValue value)
+        {
+            KneelInput(value.isPressed);
+        }
 #endif
         #endregion
         #region setters
@@ -81,6 +88,12 @@ namespace MovementAssets
         {
             _jump = false;       
         }
+
+        public void KneelInput(bool newKneelState)
+        {
+            _kneel = newKneelState;
+        }
+
         #endregion
         #region cursor methods
         private void OnApplicationFocus(bool focus)

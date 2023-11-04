@@ -10,6 +10,9 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _acceleration = 10f;
         [SerializeField] private float _rotateSpeed = 720f;
+        [Header("State Transition Settings")]
+        [SerializeField] private float _attackRatio = 0.5f;
+        [SerializeField] private float _waitRatio = 0.5f;
         public void Enter(SkeletonKnight entity)
         {
             entity.Controller.speed = _speed;
@@ -33,12 +36,18 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
             }
             entity.Controller.SetDestination(entity.TargetDetector.Targets[0].transform.position);
             if (entity.Controller.remainingDistance <= entity.AttackState.AttackRange) {
-                entity.State = entity.AttackState;
+                var stateRatio = UnityEngine.Random.Range(0f,1f);
+                if (stateRatio < _attackRatio) {
+                    entity.State = entity.AttackState;
+                    return;
+                }
+                entity.State = entity.WaitState;
                 return;
             }
         }
         public void Exit(SkeletonKnight entity)
         {
+            entity.Controller.velocity = Vector3.zero;
             entity.Animator.SetFloat("Speed",0f);
             entity.Controller.ResetPath();
         }

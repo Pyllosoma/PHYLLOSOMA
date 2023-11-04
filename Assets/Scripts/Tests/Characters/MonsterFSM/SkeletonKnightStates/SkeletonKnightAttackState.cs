@@ -1,5 +1,6 @@
 ﻿using System;
 using Runtime.Patterns.FSM;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
@@ -16,25 +17,25 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         private float _timer = 0f;
         public void Enter(SkeletonKnight entity)
         {
+            Debug.Log("Enter Attack State");
             entity.Animator.gameObject.transform.localPosition = Vector3.zero;
             entity.Animator.gameObject.transform.localRotation = Quaternion.identity;
             _animationSpeedRatio = _attackAnimationClipLength / _attackAnimationTime;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
-            entity.Animator.SetTrigger("Attack");
-            Debug.Log("_animationSpeedRatio : " + _animationSpeedRatio);
+            entity.Animator.SetBool("IsAttack",true);
+            //Debug.Log("_animationSpeedRatio : " + _animationSpeedRatio);
         }
         public void Update(SkeletonKnight entity)
         {
             _timer += Time.deltaTime;
             if (_timer <= _attackAnimationTime) return;
-            Debug.Log("Timer: " + _timer);
+            //Debug.Log("Timer: " + _timer);
             _timer = 0f;
             if (!entity.TargetDetector.IsTargetExist) {
                 entity.State = entity.IdleState;
                 return;
             }
-            var targetDistance = Vector3.Distance(entity.gameObject.transform.position, entity.TargetDetector.Targets[0].transform.position);
-            if (targetDistance > _attackRange) {
+            if (entity.TargetDetector.TargetDistance > _attackRange) {
                 entity.State = entity.ChaseState;
                 return;
             }
@@ -44,6 +45,7 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
             entity.Animator.speed = 1f;
             _animationSpeedRatio = 1f;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
+            entity.Animator.SetBool("IsAttack",false);
             entity.Animator.gameObject.transform.localPosition = Vector3.zero;
             entity.Animator.gameObject.transform.localRotation = Quaternion.identity;
 

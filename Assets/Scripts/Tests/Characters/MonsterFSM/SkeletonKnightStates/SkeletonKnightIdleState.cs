@@ -8,7 +8,7 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
     public class SkeletonKnightIdleState : IState<SkeletonKnight>
     {
         public void Enter(SkeletonKnight entity) {
-            entity.Animator.SetTrigger("Idle");
+            Debug.Log("Enter Idle State");
         }
         public void Update(SkeletonKnight entity)
         {

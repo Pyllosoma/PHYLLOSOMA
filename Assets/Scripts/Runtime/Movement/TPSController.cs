@@ -102,6 +102,7 @@ namespace MovementAssets
         private int _animIDFreeFall;
         private int _animIDJump;
         private int _animIDMotionSpeed;
+        private int _animaKneel;
 
         //Components------------------------------------------------------
         private Animator _animator;
@@ -130,6 +131,8 @@ namespace MovementAssets
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
+
+
 
         // Start is called before the first frame update
         void Awake()
@@ -164,6 +167,7 @@ namespace MovementAssets
         {
             _animIDSpeed = Animator.StringToHash("Speed");
             _animIDJump = Animator.StringToHash("Jump");
+            _animaKneel = Animator.StringToHash("Kneel");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");

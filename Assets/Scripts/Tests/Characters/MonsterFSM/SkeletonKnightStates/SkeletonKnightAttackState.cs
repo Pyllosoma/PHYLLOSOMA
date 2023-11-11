@@ -18,9 +18,8 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         public void Enter(SkeletonKnight entity)
         {
             Debug.Log("Enter Attack State");
-            entity.Animator.gameObject.transform.localPosition = Vector3.zero;
-            entity.Animator.gameObject.transform.localRotation = Quaternion.identity;
             _animationSpeedRatio = _attackAnimationClipLength / _attackAnimationTime;
+            entity.Animator.applyRootMotion = true;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
             entity.Animator.SetBool("IsAttack",true);
             //Debug.Log("_animationSpeedRatio : " + _animationSpeedRatio);
@@ -42,13 +41,11 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         }
         public void Exit(SkeletonKnight entity)
         {
+            entity.Animator.applyRootMotion = false;
             entity.Animator.speed = 1f;
             _animationSpeedRatio = 1f;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
             entity.Animator.SetBool("IsAttack",false);
-            entity.Animator.gameObject.transform.localPosition = Vector3.zero;
-            entity.Animator.gameObject.transform.localRotation = Quaternion.identity;
-
         }
         public void FixedUpdate(SkeletonKnight entity) { }
     }

@@ -6,6 +6,7 @@ using Tests.Characters.MonsterFSM.SkeletonKnightStates;
 using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
@@ -16,7 +17,7 @@ namespace Tests.Characters
         public SkeletonKnightAttackState AttackState = new SkeletonKnightAttackState();
         public SkeletonKnightDeathState DeathState = new SkeletonKnightDeathState();
         public SkeletonKnightReturnState ReturnState = new SkeletonKnightReturnState();
-        public SkeletonKnightWaitState WaitState = new SkeletonKnightWaitState();
+        public SkeletonKnightPatrolState PatrolState = new SkeletonKnightPatrolState();
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
         public MeleeTestWeapon MeleeWeapon => _meleeWeapon;

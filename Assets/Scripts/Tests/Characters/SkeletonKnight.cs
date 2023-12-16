@@ -16,7 +16,7 @@ namespace Tests.Characters
         public SkeletonKnightChaseState ChaseState = new SkeletonKnightChaseState();
         public SkeletonKnightAttackState AttackState = new SkeletonKnightAttackState();
         public SkeletonKnightDeathState DeathState = new SkeletonKnightDeathState();
-        public SkeletonKnightReturnState ReturnState = new SkeletonKnightReturnState();
+        public SkeletonKnightGroggyState GroggyState = new SkeletonKnightGroggyState();
         public SkeletonKnightPatrolState PatrolState = new SkeletonKnightPatrolState();
         public NavMeshAgent Controller => _controller;
         public TargetDetector TargetDetector => _targetDetector;
@@ -27,11 +27,23 @@ namespace Tests.Characters
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
+        
+        
         private Vector3 _spawnPosition;
         private void Start()
         {
             _spawnPosition = transform.position;
             State = IdleState;
+        }
+        protected override void Death()
+        {
+            base.Death();
+            State = DeathState;
+        }
+        protected override void Groggy()
+        {
+            base.Groggy();
+            //make Groggy state
         }
     }
 }

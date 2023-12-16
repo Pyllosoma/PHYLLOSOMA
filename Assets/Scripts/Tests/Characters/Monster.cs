@@ -21,14 +21,72 @@ namespace Tests.Characters
                 _state?.Enter(this as T);
             }
         }
-        public BaseStats Stats => _stats;
-        [SerializeField] private BaseStats _stats = new BaseStats();
+
+        /// <summary>
+        /// Status part
+        /// </summary>
+        public float Health
+        {
+            get => _health;
+            protected set
+            {
+                _health = value;
+                if (_health <= 0) {
+                    Death();
+                }
+                if (_health >= _maxHealth) {
+                    _health = _maxHealth;
+                }
+                _monsterUI.SetHealth(_health);
+            }
+        }
+        public float SoulGauge
+        {
+            get => _soulGauge;
+            protected set
+            {
+                _soulGauge = value;
+                if (_soulGauge <= 0) {
+                    Groggy();
+                }
+                if (_soulGauge >= _maxSoulGauge) {
+                    _soulGauge = _maxSoulGauge;
+                }
+                _monsterUI.SetSoulGauge(_soulGauge);
+            }
+        }
+        [Header("Status")]
+        [SerializeField] protected float _maxHealth = 100;
+        [SerializeField] protected float _health = 100;
+        [SerializeField] protected float _maxSoulGauge = 100f;
+        [SerializeField] protected float _soulGauge = 100f;
+        
+        /// <summary>
+        /// State part
+        /// </summary>
         private IState<T> _state = null;
-        private void Update(){
+        
+        /// <summary>
+        /// Monster UI
+        /// </summary>
+        public MonsterUI MonsterUI => _monsterUI;
+        [Header("UI")]
+        [SerializeField] private MonsterUI _monsterUI = null;
+        public virtual void Reset()
+        {
+            Health = _maxHealth;
+            SoulGauge = _maxSoulGauge;
+            _monsterUI.ResetValue(_maxHealth,_maxSoulGauge);
+        }
+
+        protected virtual void Update(){
             State?.Update(this as T);
         }
-        private void FixedUpdate(){
+        protected virtual void FixedUpdate(){
             State?.FixedUpdate(this as T);
         }
+        protected virtual void Death(){}
+        //그로기 영어로
+        protected virtual void Groggy(){}
     }
 }

@@ -37,5 +37,15 @@ namespace Tests.Characters
             _controller.angularSpeed = _rotateSpeed;
             State = new UndeadPaladinIdleState();
         }
+
+        protected override void OnAlive()
+        {
+            
+        }
+
+        protected override void OnDeath()
+        {
+            
+        }
     }
 }

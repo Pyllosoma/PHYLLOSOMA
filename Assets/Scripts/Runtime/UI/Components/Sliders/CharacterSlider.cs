@@ -15,12 +15,6 @@ namespace Runtime.UI.Components.Sliders
         [SerializeField] private Slider _foreSlider;
         [SerializeField] private Slider _backSlider;
         private IEnumerator _followCurrentHealthCoroutine = null;
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                SetHealth(_currentHealth - 10);
-            }
-        }
         public void Init(int maxHealth)
         {
             _maxHealth = maxHealth;

@@ -13,10 +13,13 @@ namespace Runtime.Characters
         [SerializeField] private UnityEvent _onDeath;
         protected virtual void OnEnable()
         {
-            Reset();
             OnAlive();
             OnCharacterAlive?.Invoke(this);
             _onAlive?.Invoke();
+        }
+
+        public virtual void Start() {
+            OnAlive();
         }
 
         /// <summary>
@@ -27,10 +30,8 @@ namespace Runtime.Characters
             OnDeath();
             OnCharacterDeath?.Invoke(this);
             _onDeath?.Invoke();
-            gameObject.SetActive(false);
         }
         protected abstract void OnAlive();
         protected abstract void OnDeath();
-        public virtual void Reset() { }
     }
 }

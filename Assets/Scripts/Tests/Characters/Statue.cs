@@ -35,5 +35,15 @@ namespace Tests.Characters
         {
             State = _idleState;
         }
+
+        protected override void OnAlive()
+        {
+            
+        }
+
+        protected override void OnDeath()
+        {
+            
+        }
     }
 }

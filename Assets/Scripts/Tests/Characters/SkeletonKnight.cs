@@ -88,8 +88,8 @@ namespace Tests.Characters
         {
             base.Update();
             if (Input.GetKeyDown(KeyCode.Space)) {
-                GiveDamage(10f);
-                GiveSoulDamage(5f);
+                GiveDamage(50f);
+                GiveSoulDamage(1f);
             }
         }
         protected override void OnAlive()

@@ -1,11 +1,13 @@
-﻿using Runtime.Patterns.FSM;
+﻿using System;
+using Runtime.Patterns.FSM;
 using UnityEngine;
 
 namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
 {
+    [Serializable]
     public class SkeletonKnightGroggyState : IState<SkeletonKnight>
     {
-        [SerializeField] private float _groggyTime = 3f;
+        [SerializeField] private float _groggyTime = 4f;
         private float _timer = 0f;
         public void Enter(SkeletonKnight entity)
         {

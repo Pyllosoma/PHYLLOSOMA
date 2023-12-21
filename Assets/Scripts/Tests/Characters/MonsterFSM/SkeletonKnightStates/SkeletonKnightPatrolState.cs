@@ -43,17 +43,20 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
             Debug.Log("Distance : " + distance);
             if (distance > _frontRange) {
                 _isFront = true;
+                entity.Animator.SetTrigger("Idle");
             }
-            else if (distance < _backRange) {
+            else if (distance < _backRange)
+            {
                 _isFront = false;
+                entity.Animator.SetTrigger("Idle");
             }
             else {
                 //randomly select left or right
                 _isLateral = true;
                 int random = Random.Range(0,2);
                 _isRight = random == 0;
+                entity.Animator.SetTrigger("Lateral");
             }
-            entity.Animator.SetBool("IsLateral",_isLateral);
             _stateTime = Random.Range(_stateTimeRange.x,_stateTimeRange.y);
         }
         public void Update(SkeletonKnight entity)
@@ -118,7 +121,6 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         {
             if (entity.State != this) {
                 entity.Animator.SetFloat("LateralSpeed",0f);
-                entity.Animator.SetBool("IsLateral",false);
                 entity.Controller.ResetPath();
                 entity.Controller.velocity = Vector3.zero;
                 entity.Controller.angularSpeed = 0f;

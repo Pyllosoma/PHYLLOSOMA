@@ -21,7 +21,7 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
             _animationSpeedRatio = _attackAnimationClipLength / _attackAnimationTime;
             entity.Animator.applyRootMotion = true;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
-            entity.Animator.SetBool("IsAttack",true);
+            entity.Animator.SetTrigger("Attack");
             //Debug.Log("_animationSpeedRatio : " + _animationSpeedRatio);
         }
         public void Update(SkeletonKnight entity)
@@ -45,7 +45,6 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
             entity.Animator.speed = 1f;
             _animationSpeedRatio = 1f;
             entity.Animator.SetFloat("AttackSpeed", _animationSpeedRatio);
-            entity.Animator.SetBool("IsAttack",false);
         }
         public void FixedUpdate(SkeletonKnight entity) { }
     }

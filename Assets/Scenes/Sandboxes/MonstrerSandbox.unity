@@ -7146,6 +7146,8 @@ MonoBehaviour:
     _attackRange: 2
     _attackAnimationTime: 2.4
     _attackAnimationClipLength: 2.4
+  GroggyState:
+    _groggyTime: 3
   PatrolState:
     _speed: 0.75
     _acceleration: 100

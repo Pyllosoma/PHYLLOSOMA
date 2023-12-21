@@ -12,6 +12,7 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         [SerializeField] private float _rotateSpeed = 720f;
         public void Enter(SkeletonKnight entity)
         {
+            entity.Animator.SetTrigger("Idle");
             entity.Controller.speed = _speed;
             entity.Controller.acceleration = _acceleration;
             entity.Controller.angularSpeed = _rotateSpeed;

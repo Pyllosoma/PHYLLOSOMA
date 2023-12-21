@@ -3,6 +3,8 @@ using Runtime.Characters.Interfaces;
 using Runtime.Patterns.FSM;
 using Runtime.Utils;
 using Runtime.Utils.Targetables;
+using Sirenix.OdinInspector;
+using Tests.Characters.Components;
 using Tests.Characters.MonsterFSM.SkeletonKnightStates;
 using Tests.Weapons;
 using UnityEngine;
@@ -11,7 +13,7 @@ using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
-    public class SkeletonKnight : Monster<SkeletonKnight>,IHealth,ISoul
+    public class SkeletonKnight : Monster<SkeletonKnight>,IHealth
     {
         [Header("Skeleton Knight States")]
         public SkeletonKnightIdleState IdleState = new SkeletonKnightIdleState();
@@ -38,6 +40,9 @@ namespace Tests.Characters
         [Header("UI")]
         [SerializeField] private MonsterUI _monsterUI = null;
         
+        [Title("Character Components")]
+        public SoulComponent SoulComponent => _soulComponent;
+        [SerializeField] private SoulComponent _soulComponent;
         private Vector3 _spawnPosition;
         #region IHealth
         public float GiveDamage(float damage)
@@ -56,27 +61,10 @@ namespace Tests.Characters
         public float GetHealth() => _health;
         public void ResetHealth() => _health = _maxHealth;
         #endregion
-        #region ISoul
-        public float GiveSoulDamage(float damage)
-        {
-            _soulGauge -= damage;
-            if (_soulGauge <= 0) {
-                _soulGauge = 0f;
-                Groggy();
-            }
-            if (_soulGauge >= _maxSoulGauge) {
-                _soulGauge = _maxSoulGauge;
-            }
-            _monsterUI.SetSoulGauge(_soulGauge);
-            return _soulGauge;
-        }
-        public float GetSoulGauge() => _soulGauge;
-        public void ResetSoulGauge() => _soulGauge = _maxSoulGauge;
         public void Groggy()
         {
             State = GroggyState;
         }
-        #endregion
         public override void Start()
         {
             base.Start();
@@ -88,14 +76,13 @@ namespace Tests.Characters
         {
             base.Update();
             if (Input.GetKeyDown(KeyCode.Space)) {
-                GiveDamage(50f);
-                GiveSoulDamage(1f);
+                GiveDamage(5f);
+                _soulComponent.GiveSoulDamage(50f);
             }
         }
         protected override void OnAlive()
         {
             ResetHealth();
-            ResetSoulGauge();
         }
 
         protected override void OnDeath()

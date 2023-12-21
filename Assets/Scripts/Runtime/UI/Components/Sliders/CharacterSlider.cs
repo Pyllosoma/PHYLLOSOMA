@@ -7,22 +7,22 @@ namespace Runtime.UI.Components.Sliders
 {
     public class CharacterSlider : MonoBehaviour
     {
-        [SerializeField] private int _maxHealth = 100;
-        [SerializeField] private int _currentHealth = 100;
+        [SerializeField] private float _maxHealth = 100;
+        [SerializeField] private float _currentHealth = 100;
         [SerializeField] private float _followTime = 1f;
         [SerializeField] private float _followWaitTime = 0.5f;
         [SerializeField] private int _updatesPerSecond = 60;
         [SerializeField] private Slider _foreSlider;
         [SerializeField] private Slider _backSlider;
         private IEnumerator _followCurrentHealthCoroutine = null;
-        public void Init(int maxHealth)
+        public void Init(float maxHealth)
         {
             _maxHealth = maxHealth;
             _currentHealth = maxHealth;
             _foreSlider.value = 1f;
             _backSlider.value = 1f;
         }
-        public void SetHealth(int health,int maxHealth = -1)
+        public void SetHealth(float health,float maxHealth = -1)
         {
             if (maxHealth != -1) {
                 _maxHealth = maxHealth;

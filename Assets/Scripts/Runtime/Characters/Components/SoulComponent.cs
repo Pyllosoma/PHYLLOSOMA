@@ -1,10 +1,8 @@
-﻿using System;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
-namespace Tests.Characters.Components
+namespace Runtime.Characters.Components
 {
     public class SoulComponent : MonoBehaviour
     {

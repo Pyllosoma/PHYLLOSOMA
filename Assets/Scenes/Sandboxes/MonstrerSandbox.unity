@@ -740,7 +740,9 @@ GameObject:
   - component: {fileID: 720200975}
   - component: {fileID: 720200974}
   - component: {fileID: 720200978}
+  - component: {fileID: 720200979}
   - component: {fileID: 720200977}
+  - component: {fileID: 720200980}
   m_Layer: 5
   m_Name: MonsterUI
   m_TagString: Untagged
@@ -818,7 +820,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 810314029}
+  m_Camera: {fileID: 1600809235}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -843,11 +845,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eaab9210ec543c18ef9f9f843579cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ease: 2
-  _fadeTime: 0.5
-  _lifeTime: 2000
+  _useAutoToggle: 0
+  _lifeTime: 5
+  _animation: {fileID: 720200979}
   _healthSlider: {fileID: 421317235470969659}
   _soulGaugeSlider: {fileID: 1032643233}
+  _onToggle:
+    m_PersistentCalls:
+      m_Calls: []
+  _onUnToggle:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &720200978
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -860,6 +868,45 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &720200979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720200972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b982274c9f124fac6173c4aea29cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useUnscaledTime: 0
+  _animationTime: 1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _resetAlphaOnStart: 0
+  _fadeEase: 2
+  _startAlpha: 0
+  _endAlpha: 1
+--- !u!114 &720200980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720200972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c3d38341247dd9a7f4a6529b0d227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fixDistance: 1
+  _distance: {x: 3, y: 5}
+  _useStartOffset: 1
+  _offset: {x: 0, y: 0, z: 0}
+  _targetTransform: {fileID: 543450653526981885}
+  _fixRotation: 1
 --- !u!1 &738248680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1540,7 @@ GameObject:
   - component: {fileID: 810314029}
   - component: {fileID: 810314028}
   - component: {fileID: 810314031}
+  - component: {fileID: 810314032}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1567,12 +1615,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810314027}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 3, z: -5}
+  m_LocalRotation: {x: 0.2164396, y: -0, z: -0, w: 0.97629607}
+  m_LocalPosition: {x: 7.72, y: 4, z: -38.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 840919457}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!114 &810314031
 MonoBehaviour:
@@ -1618,6 +1666,23 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &810314032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810314027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adec29a9f1a24ab09b75b3e16914404c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  fastMovementSpeed: 100
+  freeLookSensitivity: 3
+  zoomSensitivity: 10
+  fastZoomSensitivity: 50
 --- !u!1 &840919453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1791,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1125190914}
-  - {fileID: 810314030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &840919458
@@ -3414,7 +3478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600809232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8870,3 +8934,4 @@ SceneRoots:
   - {fileID: 543450653526981885}
   - {fileID: 763221789}
   - {fileID: 1600809236}
+  - {fileID: 810314030}

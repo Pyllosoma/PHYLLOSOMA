@@ -12,7 +12,7 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         public void Enter(SkeletonKnight entity)
         {
             entity.Animator.SetTrigger("Groggy");
-            entity.SoulComponent.EnableRecover = false;
+            entity.SoulComponent.EnableSoul = false;
             _timer = 0f;
         }
         public void Update(SkeletonKnight entity)
@@ -25,7 +25,10 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         public void FixedUpdate(SkeletonKnight entity) { }
         public void Exit(SkeletonKnight entity)
         {
-            entity.SoulComponent.Reset();
+            if (entity.GetHealth() > 0f) {
+                entity.SoulComponent.Reset();
+            }
+
         }
     }
 }

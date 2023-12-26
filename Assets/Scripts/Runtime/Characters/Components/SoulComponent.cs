@@ -22,13 +22,13 @@ namespace Runtime.Characters.Components
                 _additionalRecoverPercent = value;
             
             }
-        }
+        } 
         [Title("Soul Option")]
+        public bool EnableSoul = true;
         [SerializeField] private float _soulMax = 100f;
         [SerializeField] private float _soulValue = 50f;
         [SerializeField] private float _startSoulValuePercent = 0.5f;
         [Title("Recover Option")]
-        public bool EnableRecover = true;
         [SerializeField] private bool _usePercent = false;
         [HideIf("_usePercent")] [SerializeField] private float _recoverPerSecond = 1f;
         [HideIf("_usePercent")] [SerializeField] private float _additionalRecover = 0f;
@@ -47,7 +47,7 @@ namespace Runtime.Characters.Components
         }
         private void FixedUpdate()
         {
-            if (!EnableRecover) return;
+            if (!EnableSoul) return;
             if (_soulValue >= _soulMax) return;
             _soulValue += (_usePercent?_recoverPercentPerSecond + _additionalRecoverPercent:_recoverPerSecond +  _additionalRecover) * Time.fixedDeltaTime;
             if (_soulValue >= _soulMax) {
@@ -57,6 +57,7 @@ namespace Runtime.Characters.Components
         }
         public void GiveSoulDamage(float damage)
         {
+            if (!EnableSoul) return;
             _soulValue -= damage;
             if (_soulValue <= 0) {
                 _soulValue = 0f;
@@ -67,7 +68,7 @@ namespace Runtime.Characters.Components
 
         public void Reset()
         {
-            EnableRecover = true;
+            EnableSoul = true;
             _soulValue = _soulMax * _startSoulValuePercent;
             _additionalRecover = 0f;
             _additionalRecoverPercent = 0f;

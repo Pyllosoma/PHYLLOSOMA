@@ -59,11 +59,11 @@ namespace Tests.UI
         }
         public void SetHealth(float health) {
             _timer = 0f;
-            _healthSlider.SetHealth((int)health);
+            _healthSlider.SetHealth(health);
         }
         public void SetSoulGauge(float soulGauge) {
             _timer = 0f;
-            _soulGaugeSlider.SetHealth((int)soulGauge);
+            _soulGaugeSlider.SetHealth(soulGauge);
         }
     }
 }

@@ -25,10 +25,9 @@ namespace Tests.Characters.MonsterFSM.SkeletonKnightStates
         public void FixedUpdate(SkeletonKnight entity) { }
         public void Exit(SkeletonKnight entity)
         {
-            if (entity.GetHealth() > 0f) {
+            if (entity.HealthComponent.Health > 0f) {
                 entity.SoulComponent.Reset();
             }
-
         }
     }
 }

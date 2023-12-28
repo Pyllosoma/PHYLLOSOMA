@@ -25,7 +25,7 @@ namespace Runtime.Characters
         /// <summary>
         /// 자신이 파괴될 때 호출되는 이벤트
         /// </summary>
-        protected void Death()
+        public void Death()
         {
             OnDeath();
             OnCharacterDeath?.Invoke(this);

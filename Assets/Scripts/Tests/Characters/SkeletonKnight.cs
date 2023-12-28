@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
-    public class SkeletonKnight : Monster<SkeletonKnight>,IHealth
+    public class SkeletonKnight : Monster<SkeletonKnight>
     {
         [Header("Skeleton Knight States")]
         public SkeletonKnightIdleState IdleState = new SkeletonKnightIdleState();
@@ -33,35 +33,13 @@ namespace Tests.Characters
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _controller = null;
         [SerializeField] private TargetDetector _targetDetector = null;
-        [Header("Status")]
-        [SerializeField] private float _maxHealth = 100;
-        [SerializeField] private float _health = 100;
-        [SerializeField] private float _maxSoulGauge = 100;
-        [SerializeField] private float _soulGauge = 100;
-        [Header("UI")]
-        [SerializeField] private MonsterUI _monsterUI = null;
-        
         [Title("Character Components")]
         public SoulComponent SoulComponent => _soulComponent;
+        public HealthComponent HealthComponent => _healthComponent;
+        [SerializeField] private HealthComponent _healthComponent;
         [SerializeField] private SoulComponent _soulComponent;
+
         private Vector3 _spawnPosition;
-        #region IHealth
-        public float GiveDamage(float damage)
-        {
-            _health -= damage;
-            if (_health <= 0) {
-                _health = 0f;
-                Death();
-            }
-            if (_health >= _maxHealth) {
-                _health = _maxHealth;
-            }
-            _monsterUI.SetHealth(_health);
-            return _health;
-        }
-        public float GetHealth() => _health;
-        public void ResetHealth() => _health = _maxHealth;
-        #endregion
         public void Groggy()
         {
             State = GroggyState;
@@ -77,15 +55,15 @@ namespace Tests.Characters
         {
             base.Update();
             if (Input.GetKeyDown(KeyCode.Space)) {
-                GiveDamage(5f);
+                _healthComponent.GiveDamage(100f);
                 _soulComponent.GiveSoulDamage(50f);
             }
         }
         protected override void OnAlive()
         {
-            ResetHealth();
+            _healthComponent.Reset();
+            _soulComponent.Reset();
         }
-
         protected override void OnDeath()
         {
             State = DeathState;

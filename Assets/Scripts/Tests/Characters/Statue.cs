@@ -25,15 +25,18 @@ namespace Tests.Characters
         public StatueChaseState ChaseState => _chaseState;
         public StatueAttackState AttackState => _attackState;
         public StatueLaserAttackState LaserAttackState => _laserAttackState;
+        public StatueShockWaveAttackState ShockWaveAttackState => _shockWaveAttackState;
         [Header("Statue States")]
         [SerializeField] private StatueIdleState _idleState = new StatueIdleState();
         [SerializeField] private StatueChaseState _chaseState = new StatueChaseState();
         [SerializeField] private StatueAttackState _attackState = new StatueAttackState();
         [SerializeField] private StatueLaserAttackState _laserAttackState = new StatueLaserAttackState();
         [SerializeField] private StatueShockWaveAttackState _shockWaveAttackState = new StatueShockWaveAttackState();
-        private void Start()
+        public override void Start()
         {
+            base.Start();            
             State = _idleState;
+            
         }
 
         protected override void OnAlive()

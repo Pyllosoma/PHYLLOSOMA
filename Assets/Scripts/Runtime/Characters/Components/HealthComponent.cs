@@ -31,6 +31,7 @@ public class HealthComponent : MonoBehaviour,IHealth
         [SerializeField] private UnityEvent<float> _onHealthChange;
         public void GiveDamage(float health,string attackerTag = null) {
             if (_isImmortal) return;
+            if (_isDead) return;
             _health -= health;
             _health = Mathf.Clamp(_health, 0f, _maxHealth);
             if (_health <= 0f) Death();

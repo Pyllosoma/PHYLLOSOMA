@@ -139,6 +139,10 @@ MonoBehaviour:
     m_Key: UI_SAVE
     m_Metadata:
       m_Items: []
+  - m_Id: 32212462964158464
+    m_Key: UI_CLOSE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

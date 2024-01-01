@@ -15,8 +15,8 @@ namespace Runtime.UI
         [SerializeField] private List<UIAnimation> _windowAnimations;
         [SerializeField] private UnityEvent _openEvent;
         [SerializeField] private UnityEvent _closeEvent;
-        private bool _isOpen = false;
-        private void Awake() {
+        protected bool _isOpen = false;
+        protected virtual void Awake() {
             _isOpen = gameObject.activeSelf;
         }
         public void Open(){
@@ -55,8 +55,11 @@ namespace Runtime.UI
             }
 
         }
-        private void OnValidate()
+        protected virtual void OnValidate()
         {
+            if (!_canvasGroup) {
+                _canvasGroup = GetComponent<CanvasGroup>();
+            }
             float max = 0;
             foreach (var windowAnimation in _windowAnimations) {
                 if (!windowAnimation) {

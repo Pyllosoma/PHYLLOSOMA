@@ -13,24 +13,25 @@ namespace Runtime.Characters
         [SerializeField] private UnityEvent _onDeath;
         protected virtual void OnEnable()
         {
-            Reset();
             OnAlive();
             OnCharacterAlive?.Invoke(this);
             _onAlive?.Invoke();
         }
 
+        public virtual void Start() {
+            OnAlive();
+        }
+
         /// <summary>
         /// 자신이 파괴될 때 호출되는 이벤트
         /// </summary>
-        protected void Death()
+        public void Death()
         {
             OnDeath();
             OnCharacterDeath?.Invoke(this);
             _onDeath?.Invoke();
-            gameObject.SetActive(false);
         }
         protected abstract void OnAlive();
         protected abstract void OnDeath();
-        public virtual void Reset() { }
     }
 }

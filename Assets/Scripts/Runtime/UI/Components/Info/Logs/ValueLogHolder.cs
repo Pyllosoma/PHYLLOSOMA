@@ -17,12 +17,12 @@ namespace Runtime.UI.Components.Info.Logs
         {
             StartCoroutine(UpdateLog());
         }
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                CreateLog(1000);
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.Space)) {
+        //         CreateLog(1000);
+        //     }
+        // }
         public void CreateLog(int value)
         {
             if (value == 0 ) return;

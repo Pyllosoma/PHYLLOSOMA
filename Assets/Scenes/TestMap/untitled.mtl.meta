@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/TestMap/untitled.mtl.meta
 guid: 561988de3f653a84080686e4649c6725
+========
+guid: 4cd4d66858c25b943a02ab7192c5b544
+>>>>>>>> hgp-branch:Assets/Scenes/Sandboxes/SeamlessTest/Scene02.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

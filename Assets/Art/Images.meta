@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: f93d7df2fcbdca54b8c3ad48a18701a5
+<<<<<<<< HEAD:Assets/Art/Images.meta
+guid: 168d02769e7db124ca1cbfb047c43082
 folderAsset: yes
+========
+guid: cc10e8ea4b91c7443afea0fffc70325b
+>>>>>>>> hgp-branch:Assets/Scenes/Sandboxes/SeamlessTest/Scene03.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Runtime.Data.Structure;
+using Runtime.Items;
 using UnityEngine;
 
 namespace Runtime.Data
@@ -16,25 +17,28 @@ namespace Runtime.Data
         public int Anima = 10000;
         [Header("Player Status")]
         public BaseStats Stats = new BaseStats();
-        public Dictionary<int, int> Inventory = new Dictionary<int, int>() {
-            {0,1},
-            {2000,2}
+        public Dictionary<ItemCode, int> Inventory = new Dictionary<ItemCode, int>() {
+            {ItemCode.DEBUG,1},
+            {ItemCode.DEFAULT,2}
         };
-        public void UseItem(int id,int count)
+        public void UseItem(ItemCode itemCode,int count)
         {
-            if (!Inventory.ContainsKey(id)) return;
-            Inventory[id] -= count;
-            if (Inventory[id] <= 0){
-                Inventory.Remove(id);
+            if (!Inventory.ContainsKey(itemCode)) return;
+            Inventory[itemCode] -= count;
+            if (Inventory[itemCode] <= 0){
+                Inventory.Remove(itemCode);
             }
         }
-        public void AddItem(int id, int count)
+        public void AddItem(ItemCode itemCode, int count)
         {
-            if (!Inventory.ContainsKey(id)) {
-                Inventory.Add(id,count);
+            #if UNITY_EDITOR
+                Debug.Log($"Item Acquired : Item Code {itemCode}, Count {count}");
+            #endif
+            if (!Inventory.ContainsKey(itemCode)) {
+                Inventory.Add(itemCode,count);
             }
             else {
-                Inventory[id] += count;
+                Inventory[itemCode] += count;
             }
         }
     }

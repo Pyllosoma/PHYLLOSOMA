@@ -30,30 +30,30 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         }
         public void Update(Statue entity)
         {
-            _timer += Time.deltaTime;
-            
-            //충전 이펙트
-            if (_timer > _chargeTime && _currentAnimation < 0) {
-                _currentAnimation = 0;
-                _model.transform.DOLocalMove(_animationPosition[0], _chargeTime).SetEase(Ease.Linear);
-                return;
-            }
-            //찍기 이펙트
-            if (_timer > _chargeTime + _attackTime && _currentAnimation < 1) {
-                _currentAnimation = 1;
-                _model.transform.DOLocalMove(_animationPosition[1], _attackTime).SetEase(Ease.InSine);
-                return;
-            }
-            //돌아오기 이펙트
-            if (_timer > _chargeTime + _attackTime + _returnTime && _currentAnimation < 2) {
-                _currentAnimation = 2;
-                _model.transform.DOLocalMove(_animationPosition[2], _returnTime).SetEase(Ease.OutBack).onComplete += () => {
-                    _model.transform.DOKill();
-                    _model.transform.localPosition = _animationPosition[2];
-                    entity.State = entity.IdleState;
-                };
-                return;
-            }
+            // _timer += Time.deltaTime;
+            //
+            // //충전 이펙트
+            // if (_timer > _chargeTime && _currentAnimation < 0) {
+            //     _currentAnimation = 0;
+            //     _model.transform.DOLocalMove(_animationPosition[0], _chargeTime).SetEase(Ease.Linear);
+            //     return;
+            // }
+            // //찍기 이펙트
+            // if (_timer > _chargeTime + _attackTime && _currentAnimation < 1) {
+            //     _currentAnimation = 1;
+            //     _model.transform.DOLocalMove(_animationPosition[1], _attackTime).SetEase(Ease.InSine);
+            //     return;
+            // }
+            // //돌아오기 이펙트
+            // if (_timer > _chargeTime + _attackTime + _returnTime && _currentAnimation < 2) {
+            //     _currentAnimation = 2;
+            //     _model.transform.DOLocalMove(_animationPosition[2], _returnTime).SetEase(Ease.OutBack).onComplete += () => {
+            //         _model.transform.DOKill();
+            //         _model.transform.localPosition = _animationPosition[2];
+            //         entity.State = entity.Idle;
+            //     };
+            //     return;
+            // }
         }
         public void FixedUpdate(Statue entity)
         {

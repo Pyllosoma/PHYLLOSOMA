@@ -3344,7 +3344,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1524081104
 MonoBehaviour:
@@ -4466,60 +4466,325 @@ MonoBehaviour:
   _onDeath:
     m_PersistentCalls:
       m_Calls: []
-  _laserRange: 1
-  _controller: {fileID: 1701433795}
-  _targetDetector: {fileID: 1524081104}
-  _targetLooker: {fileID: 1701433796}
-  _targetBlockChecker: {fileID: 1273386259}
-  _chaseState:
-    _chaseSpeed: 10
-    _acceleration: 10
-    _rotateSpeed: 720
-  _laserAttackState:
-    _muzzle: {fileID: 0}
-    _laser: {fileID: 0}
-    _laserHit: {fileID: 0}
-    _time: 0
-    _chargeTime: 2
-    _attackTime: 1
-    _muzzleSizeOffset: {x: 2, y: 1}
-    _muzzleAnimationCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _targetDirection: {x: 0, y: 0, z: 0}
-  _shockWaveAttackState:
-    _timer: 0
-    _chargeTime: 1
-    _attackTime: 0.5
-    _returnTime: 1
-    _flyOffset: {x: 0, y: 1, z: 0}
-    _animationPosition:
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 0}
-    _model: {fileID: 1331836871}
-    _currentAnimation: 0
+  _idle:
+    rid: 5863887964098002952
+  _chase:
+    rid: 5863887964098002953
+  _homingMissileAttack:
+    rid: 5863887964098002962
+  _chainAttack:
+    rid: 5863887964098002963
+  _laserAttack:
+    rid: 5863887964098002966
+  _shockWaveAttack:
+    rid: -2
+  _death:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 5863887964098002952
+      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _checkTargetExist: 1
+        _targetDetector: {fileID: 1524081104}
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Chase
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5863887964098002953
+      type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _states:
+        - rid: 5863887964098002958
+        - rid: 5863887964098002960
+        - rid: 5863887964098002954
+    - rid: 5863887964098002954
+      type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _range: 15
+        _targetDetector: {fileID: 1524081104}
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: HomingMissileAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5863887964098002958
+      type: {class: AgentChaseState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _speed: 10
+        _acceleration: 5
+        _angularSpeed: 180
+        _agent: {fileID: 1701433795}
+        _targetDetector: {fileID: 1524081104}
+    - rid: 5863887964098002960
+      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _checkTargetExist: 0
+        _targetDetector: {fileID: 1524081104}
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_TargetAssemblyTypeName: 
+              m_MethodName: 
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863887964098002962
+      type: {class: StatueHomingMissileAttack, ns: Tests.Characters.MonsterFSM.StatueStates,
+        asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: LaserAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5863887964098002963
+      type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _states:
+        - rid: 5863887964098002964
+        - rid: 5863887964098002965
+    - rid: 5863887964098002964
+      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _checkTargetExist: 0
+        _targetDetector: {fileID: 1524081104}
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_TargetAssemblyTypeName: 
+              m_MethodName: 
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863887964098002965
+      type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _range: 5
+        _targetDetector: {fileID: 1524081104}
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: LaserAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: LaserAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863887964098002966
+      type: {class: StatueLaserAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
+        asm: Assembly-CSharp}
+      data:
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+        _time: 0
+        _chargeTime: 1
+        _attackTime: 1
+        _muzzleSizeOffset: {x: 0.25, y: 0.15}
+        _muzzleAnimationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _targetDirection: {x: 0, y: 0, z: 0}
+        _muzzle: {fileID: 1273386253}
+        _laser: {fileID: 1717048777}
+        _laserHit: {fileID: 1677826551}
+        _targetDetector: {fileID: 1524081104}
+        _onLaserEnd:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
 --- !u!1 &1717048776
 GameObject:
   m_ObjectHideFlags: 0

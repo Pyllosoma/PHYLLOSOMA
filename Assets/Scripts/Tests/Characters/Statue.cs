@@ -1,52 +1,87 @@
-﻿using Runtime.Patterns.FSM;
+﻿using Runtime.Characters;
+using Runtime.Patterns.FSM;
 using Runtime.Utils;
 using Runtime.Utils.Targetables;
+using Sirenix.OdinInspector;
+using Tests.Characters.FSM;
 using Tests.Characters.MonsterFSM;
 using Tests.Characters.MonsterFSM.StatueStates;
 using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Tests.Characters
 {
-    public class Statue : Monster<Statue>
+    public class Statue : Monster<Character>
     {
-        public NavMeshAgent Controller => _controller;
-        public TargetDetector TargetDetector => _targetDetector;
-        public TargetLooker TargetLooker => _targetLooker;
-        public TargetBlockChecker TargetBlockChecker => _targetBlockChecker;
-        public float LaserRange => _laserRange;
-        [SerializeField] private float _laserRange = 1f;
-        [SerializeField] private NavMeshAgent _controller = null;
-        [SerializeField] private TargetDetector _targetDetector = null;
-        [SerializeField] private TargetLooker _targetLooker = null;
-        [SerializeField] private TargetBlockChecker _targetBlockChecker = null;
-        public StatueIdleState IdleState => _idleState;
-        public StatueChaseState ChaseState => _chaseState;
-        public StatueAttackState AttackState => _attackState;
-        public StatueLaserAttackState LaserAttackState => _laserAttackState;
-        public StatueShockWaveAttackState ShockWaveAttackState => _shockWaveAttackState;
-        [Header("Statue States")]
-        [SerializeField] private StatueIdleState _idleState = new StatueIdleState();
-        [SerializeField] private StatueChaseState _chaseState = new StatueChaseState();
-        [SerializeField] private StatueAttackState _attackState = new StatueAttackState();
-        [SerializeField] private StatueLaserAttackState _laserAttackState = new StatueLaserAttackState();
-        [SerializeField] private StatueShockWaveAttackState _shockWaveAttackState = new StatueShockWaveAttackState();
+        [Title("Statue States")]
+        [SerializeReference] private GameObjectFSM _idle;
+        [SerializeReference] private GameObjectFSM _chase;
+        [SerializeReference] private GameObjectFSM _homingMissileAttack;
+        [SerializeReference] private GameObjectFSM _chainAttack;
+        [SerializeReference] private GameObjectFSM _laserAttack;
+        [SerializeReference] private GameObjectFSM _shockWaveAttack;
+        [SerializeReference] private GameObjectFSM _death;
+        //Create Test State Mahcine
+        public GameObjectFSM TestState
+        {
+            get => _testState;
+            set
+            {
+                _testState?.Exit(gameObject);
+                _testState = value;
+                _testState?.Enter(gameObject);
+            }
+        }
+        private GameObjectFSM _testState;
         public override void Start()
         {
             base.Start();            
-            State = _idleState;
-            
+            _testState = _idle;
         }
-
+        protected override void Update()
+        {
+            base.Update();
+            _testState?.Update(gameObject);
+        }
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            _testState?.FixedUpdate(gameObject);
+        }
+        
         protected override void OnAlive()
         {
             
         }
-
         protected override void OnDeath()
         {
-            
+            TestState = _death;
+        }
+        public void HomingMissileAttack()
+        {
+            TestState = _homingMissileAttack;
+        }
+        public void ChainAttack()
+        {
+            TestState = _chainAttack;
+        }
+        public void LaserAttack()
+        {
+            TestState = _laserAttack;
+        }
+        public void ShockWaveAttack()
+        {
+            TestState = _shockWaveAttack;
+        } 
+        public void Chase()
+        {
+            TestState = _chase;
+        }
+        public void Idle()
+        {
+            TestState = _idle;
         }
     }
 }

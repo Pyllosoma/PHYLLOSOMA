@@ -1,8 +1,7 @@
-﻿using System;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Tests.UI
+namespace Runtime.UI.Utils
 {
     public class UIPositionFixer : MonoBehaviour
     {

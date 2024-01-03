@@ -19,16 +19,9 @@ namespace Tests.Characters.FSM.States
             _agent.speed = _speed;
             _agent.acceleration = _acceleration;
             _agent.angularSpeed = _angularSpeed;
-            base.Enter(entity);
         }
         public override void Update(GameObject entity) {
-            if (!_targetDetector.IsTargetExist) return;
             _agent.SetDestination(_targetDetector.Targets[0].transform.position);
-        }
-
-        public override void FixedUpdate(GameObject entity)
-        {
-            
         }
         public override void Exit(GameObject entity)
         {
@@ -38,7 +31,6 @@ namespace Tests.Characters.FSM.States
             _agent.angularSpeed = 0f;
             _agent.speed = 0f;
             _agent.acceleration = 0f;
-            base.Exit(entity);
         }
     }
 }

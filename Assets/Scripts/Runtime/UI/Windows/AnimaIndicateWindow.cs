@@ -1,11 +1,9 @@
-﻿using System;
-using Runtime.Managers;
+﻿using Runtime.Managers;
 using Runtime.UI.Components.Info.Indicators;
 using Runtime.UI.Components.Info.Logs;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Runtime.UI
+namespace Runtime.UI.Windows
 {
     public class AnimaIndicateWindow : UIWindow
     {

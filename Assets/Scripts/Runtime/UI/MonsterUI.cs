@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-namespace Tests.UI
+namespace Runtime.UI
 {
     public class MonsterUI : MonoBehaviour
     {
@@ -59,11 +59,11 @@ namespace Tests.UI
         }
         public void SetHealth(float health) {
             _timer = 0f;
-            _healthSlider.SetHealth(health);
+            _healthSlider.SetValue(health);
         }
         public void SetSoulGauge(float soulGauge) {
             _timer = 0f;
-            _soulGaugeSlider.SetHealth(soulGauge);
+            _soulGaugeSlider.SetValue(soulGauge);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Runtime.UI.Components.Sliders
             _foreSlider.value = 1f;
             _backSlider.value = 1f;
         }
-        public void SetHealth(float value,float maxValue = -1)
+        public void SetValue(float value,float maxValue = -1)
         {
             if (maxValue != -1) {
                 _maxValue = maxValue;

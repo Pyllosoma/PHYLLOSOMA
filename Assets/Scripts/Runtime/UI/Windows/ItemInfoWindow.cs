@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace Runtime.UI
+namespace Runtime.UI.Windows
 {
     public class ItemInfoWindow : UIWindow 
     {

@@ -6,7 +6,6 @@ using Runtime.Utils;
 using Runtime.Utils.Targetables;
 using Sirenix.OdinInspector;
 using Tests.Characters.MonsterFSM.SkeletonKnightStates;
-using Tests.UI;
 using Tests.Weapons;
 using UnityEngine;
 using UnityEngine.AI;

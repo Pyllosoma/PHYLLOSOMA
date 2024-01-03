@@ -31,6 +31,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         public override void Enter(GameObject entity)
         {
             base.Enter(entity);
+            Debug.Log("LaserAttack Enter");
             _time = 0f;
             _muzzle.transform.DOScale(_muzzleSizeOffset.y, 0.1f).SetEase(Ease.OutBack);
             _targetDirection = _targetDetector.Targets[0].transform.position - _muzzle.transform.position;

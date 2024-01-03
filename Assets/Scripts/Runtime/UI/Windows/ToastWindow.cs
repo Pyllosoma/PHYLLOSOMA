@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Runtime.UI
+namespace Runtime.UI.Windows
 {
     public class ToastWindow : UIWindow
     {

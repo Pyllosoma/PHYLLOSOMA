@@ -2,6 +2,7 @@
 using Runtime.Data.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.UI;
+using Runtime.UI.Windows;
 using UnityEngine;
 
 namespace Runtime.Items.Components

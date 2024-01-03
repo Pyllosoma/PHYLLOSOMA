@@ -17,12 +17,14 @@ namespace Tests.Characters.FSM.States
         [HideIf("_checkTargetExist")][SerializeField] private UnityEvent _onExitRange;
         public override void Update(GameObject entity)
         {
-            base.Update(entity);
-            if (_targetDetector.IsTargetExist && _checkTargetExist) {
-                _onEnterRange?.Invoke();
-            }
-            if (!_targetDetector.IsTargetExist && !_checkTargetExist) {
-                _onExitRange?.Invoke();
+            switch (_targetDetector.IsTargetExist)
+            {
+                case true when _checkTargetExist:
+                    _onEnterRange?.Invoke();
+                    break;
+                case false when !_checkTargetExist:
+                    _onExitRange?.Invoke();
+                    break;
             }
         }
     }

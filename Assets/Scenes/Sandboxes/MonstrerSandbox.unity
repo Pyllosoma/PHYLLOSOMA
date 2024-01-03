@@ -3897,7 +3897,6 @@ GameObject:
   - component: {fileID: 1637870645}
   - component: {fileID: 1637870644}
   - component: {fileID: 1637870643}
-  - component: {fileID: 1637870647}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3992,27 +3991,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1637870647
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637870642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8688154d8003624f8ab43ae726e7718, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1677826548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,29 +4449,24 @@ MonoBehaviour:
   _chase:
     rid: 5863887964098002953
   _homingMissileAttack:
-    rid: 5863887964098002962
+    rid: 5863887982519386117
   _chainAttack:
     rid: 5863887964098002963
   _laserAttack:
     rid: 5863887964098002966
   _shockWaveAttack:
-    rid: -2
+    rid: 5863887982519386114
+  _groggy:
+    rid: 5863887982519386118
   _death:
-    rid: -2
+    rid: 5863887982519386119
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 5863887964098002952
       type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: TargetDetectState
         _checkTargetExist: 1
         _targetDetector: {fileID: 1524081104}
         _onEnterRange:
@@ -4517,25 +4490,15 @@ MonoBehaviour:
     - rid: 5863887964098002953
       type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: ModuleGameObjectState
         _states:
-        - rid: 5863887964098002958
         - rid: 5863887964098002960
+        - rid: 5863887964098002958
         - rid: 5863887964098002954
     - rid: 5863887964098002954
       type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: RangeDetectState
         _range: 15
         _targetDetector: {fileID: 1524081104}
         _onEnterRange:
@@ -4559,12 +4522,7 @@ MonoBehaviour:
     - rid: 5863887964098002958
       type: {class: AgentChaseState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: AgentChaseState
         _speed: 10
         _acceleration: 5
         _angularSpeed: 180
@@ -4573,12 +4531,7 @@ MonoBehaviour:
     - rid: 5863887964098002960
       type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: TargetDetectState
         _checkTargetExist: 0
         _targetDetector: {fileID: 1524081104}
         _onEnterRange:
@@ -4611,49 +4564,17 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863887964098002962
-      type: {class: StatueHomingMissileAttack, ns: Tests.Characters.MonsterFSM.StatueStates,
-        asm: Assembly-CSharp}
-      data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1701433797}
-              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: LaserAttack
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
     - rid: 5863887964098002963
       type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: ModuleGameObjectState
         _states:
         - rid: 5863887964098002964
         - rid: 5863887964098002965
     - rid: 5863887964098002964
       type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: TargetDetectState
         _checkTargetExist: 0
         _targetDetector: {fileID: 1524081104}
         _onEnterRange:
@@ -4689,12 +4610,7 @@ MonoBehaviour:
     - rid: 5863887964098002965
       type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: RangeDetectState
         _range: 5
         _targetDetector: {fileID: 1524081104}
         _onEnterRange:
@@ -4702,7 +4618,7 @@ MonoBehaviour:
             m_Calls:
             - m_Target: {fileID: 1701433797}
               m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: LaserAttack
+              m_MethodName: ShockWaveAttack
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -4731,12 +4647,7 @@ MonoBehaviour:
       type: {class: StatueLaserAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
         asm: Assembly-CSharp}
       data:
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
+        _stateName: GameObjectFSM
         _time: 0
         _chargeTime: 1
         _attackTime: 1
@@ -4785,6 +4696,93 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
+    - rid: 5863887982519386114
+      type: {class: StatueShockWaveAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
+        asm: Assembly-CSharp}
+      data:
+        _stateName: GameObjectFSM
+        _timer: 0
+        _chargeTime: 0.5
+        _attackTime: 1
+        _returnTime: 1
+        _flyOffset: {x: 0, y: 1, z: 0}
+        _groundPound: {x: 0, y: -1, z: 0}
+        _animationPosition:
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        _model: {fileID: 1331836871}
+        _onShockWaveEnd:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Groggy
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863887982519386117
+      type: {class: EnterExitState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _stateName: EnterExitState
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: ChainAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 5863887982519386118
+      type: {class: StatueGroggy, ns: Tests.Characters.MonsterFSM.StatueStates, asm: Assembly-CSharp}
+      data:
+        _stateName: GameObjectFSM
+        _defaultGroggyTime: 2.5
+        _currentGroggyTime: 2.5
+        _onGroggy:
+          m_PersistentCalls:
+            m_Calls: []
+        _onGroggyEnd:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863887982519386119
+      type: {class: EnterExitState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+      data:
+        _stateName: EnterExitState
+        _onStateEnter:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStateExit:
+          m_PersistentCalls:
+            m_Calls: []
 --- !u!1 &1717048776
 GameObject:
   m_ObjectHideFlags: 0

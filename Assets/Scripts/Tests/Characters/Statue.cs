@@ -22,6 +22,7 @@ namespace Tests.Characters
         [SerializeReference] private GameObjectFSM _chainAttack;
         [SerializeReference] private GameObjectFSM _laserAttack;
         [SerializeReference] private GameObjectFSM _shockWaveAttack;
+        [SerializeReference] private GameObjectFSM _groggy;
         [SerializeReference] private GameObjectFSM _death;
         //Create Test State Mahcine
         public GameObjectFSM TestState
@@ -59,6 +60,16 @@ namespace Tests.Characters
         {
             TestState = _death;
         }
+
+        #region Pattern Switch
+        public void Idle()
+        {
+            TestState = _idle;
+        }
+        public void Chase()
+        {
+            TestState = _chase;
+        }
         public void HomingMissileAttack()
         {
             TestState = _homingMissileAttack;
@@ -75,13 +86,10 @@ namespace Tests.Characters
         {
             TestState = _shockWaveAttack;
         } 
-        public void Chase()
-        {
-            TestState = _chase;
+        public void Groggy() {
+            TestState = _groggy;
         }
-        public void Idle()
-        {
-            TestState = _idle;
-        }
+        #endregion
+
     }
 }

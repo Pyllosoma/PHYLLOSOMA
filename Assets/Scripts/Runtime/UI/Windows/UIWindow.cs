@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 using Runtime.UI.Components.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.UI
+namespace Runtime.UI.Windows
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class UIWindow : MonoBehaviour

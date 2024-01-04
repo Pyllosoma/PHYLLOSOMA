@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7228707937038510878}
   - component: {fileID: 4053829654992792492}
   - component: {fileID: 6747173154628956397}
+  - component: {fileID: 5643993463481522342}
   m_Layer: 0
   m_Name: DebugHommingMissile
   m_TagString: Untagged
@@ -160,3 +161,19 @@ MonoBehaviour:
         _isXRotate: 1
         _isYRotate: 1
         _isZRotate: 1
+--- !u!114 &5643993463481522342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591918192458114618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383da92f2be44ed0b2ebedda15da1fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDestroyOnCollide: 1
+  _isDestroyOnTarget: 1
+  _damage: 10
+  _targetTag: Player

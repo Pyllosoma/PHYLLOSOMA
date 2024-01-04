@@ -19,8 +19,8 @@ namespace Runtime.Characters.FSM.States.Trackers
             _agent.angularSpeed = _angularSpeed;
         }
         public override void Update(GameObject entity) {
-            if (!_targetDetector.IsTargetExist) return;
-            _agent.SetDestination(_targetDetector.Targets[0].transform.position);
+            if (!_targetableComponent.IsTargetExist) return;
+            _agent.SetDestination(_targetableComponent.Target.transform.position);
         }
         public override void Exit(GameObject entity)
         {

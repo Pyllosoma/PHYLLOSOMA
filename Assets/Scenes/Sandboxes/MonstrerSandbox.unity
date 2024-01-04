@@ -416,8 +416,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1076031442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1652,9 +1652,10 @@ GameObject:
   - component: {fileID: 810314028}
   - component: {fileID: 810314031}
   - component: {fileID: 810314032}
+  - component: {fileID: 810314033}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1794,6 +1795,27 @@ MonoBehaviour:
   freeLookSensitivity: 3
   zoomSensitivity: 10
   fastZoomSensitivity: 50
+--- !u!135 &810314033
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810314027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &840919453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840919453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c06391ff77aeaaf449ddb818382c8e7a, type: 3}
   m_Name: 
@@ -2469,10 +2491,10 @@ RectTransform:
   - {fileID: 1687901792}
   m_Father: {fileID: 108578895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.055}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -0.17750001}
+  m_SizeDelta: {x: 1, y: 0.055}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1032643233
 MonoBehaviour:
@@ -3344,7 +3366,6 @@ MonoBehaviour:
   _targetTag:
   - Player
   _foundTargets: []
-  _isTargetExist: 0
 --- !u!54 &1524081105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3798,7 +3819,6 @@ MonoBehaviour:
   _targetTag:
   - Player
   _foundTargets: []
-  _isTargetExist: 0
 --- !u!135 &1617276831
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4412,7 +4432,7 @@ MonoBehaviour:
   _chase:
     rid: 5863888003777167368
   _homingMissileAttack:
-    rid: 5863888028266135556
+    rid: 5863888028266135564
   _chainAttack:
     rid: 5863888003777167373
   _laserAttack:
@@ -4488,6 +4508,7 @@ MonoBehaviour:
         - rid: 5863888003777167369
         - rid: 5863888003777167371
         - rid: 5863888003777167370
+        - rid: 5863888028266135558
     - rid: 5863888003777167369
       type: {class: TargetDetectState, ns: Runtime.Characters.FSM.States.Detectors,
         asm: Assembly-CSharp}
@@ -4681,23 +4702,43 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863888028266135556
+    - rid: 5863888028266135558
+      type: {class: TargetLookState, ns: Runtime.Characters.FSM.States.Trackers, asm: Assembly-CSharp}
+      data:
+        _rotationSpeed: 5
+        _isXRotate: 1
+        _isYRotate: 1
+        _isZRotate: 1
+    - rid: 5863888028266135564
       type: {class: GameObjectLaunchState, ns: Runtime.Characters.FSM.States.Skills,
         asm: Assembly-CSharp}
       data:
-        _isOneShot: 1
-        _launchInterval: 0.5
-        _shotCount: 1
+        _isOneShot: 0
+        _shotCount: 5
+        _shotInterval: 0.5
         _launchCount: 1
         _useCustomSpawnPoint: 1
         _spawnPoint: {fileID: 1273386254}
-        _gameObjectPrefab: {fileID: 0}
+        _gameObjectPrefab: {fileID: 6591918192458114618, guid: 2dc8198828753e54eb4b88a255f71952,
+          type: 3}
         _onLaunch:
           m_PersistentCalls:
             m_Calls: []
         _onLaunchEnd:
           m_PersistentCalls:
-            m_Calls: []
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: ChainAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
 --- !u!1 &1717048776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,7 +5025,6 @@ MonoBehaviour:
   _targetTag:
   - Player
   _foundTargets: []
-  _isTargetExist: 0
 --- !u!135 &2046406346
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5177,7 +5217,7 @@ RectTransform:
   m_Father: {fileID: 3675902585285467023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5623,7 +5663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!137 &979678925825616340
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -6102,10 +6142,10 @@ RectTransform:
   - {fileID: 2236548633929268169}
   m_Father: {fileID: 108578895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -0.1225}
+  m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!4 &2571114142427240270
 Transform:
@@ -6362,7 +6402,7 @@ RectTransform:
   m_Father: {fileID: 4007592831027022313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

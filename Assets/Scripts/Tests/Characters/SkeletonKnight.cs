@@ -3,6 +3,7 @@ using Runtime.Characters.Components;
 using Runtime.Characters.Interfaces;
 using Runtime.Patterns.FSM;
 using Runtime.Utils;
+using Runtime.Utils.Components;
 using Runtime.Utils.Targetables;
 using Sirenix.OdinInspector;
 using Tests.Characters.MonsterFSM.SkeletonKnightStates;

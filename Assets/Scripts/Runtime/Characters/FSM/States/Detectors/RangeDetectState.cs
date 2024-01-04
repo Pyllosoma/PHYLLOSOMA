@@ -14,10 +14,10 @@ namespace Runtime.Characters.FSM.States.Detectors
         [SerializeField] private UnityEvent _onExitRange;
         public override void Update(GameObject entity)
         {
-            if (_targetDetector.IsTargetExist && _targetDetector.TargetDistance <= _range) {
+            if (_targetableComponent.IsTargetExist && _targetableComponent.TargetDistance <= _range) {
                 _onEnterRange?.Invoke();
             }
-            if (!_targetDetector.IsTargetExist || _targetDetector.TargetDistance > _range) {
+            if (!_targetableComponent.IsTargetExist || _targetableComponent.TargetDistance > _range) {
                 _onExitRange?.Invoke();
             }
         }

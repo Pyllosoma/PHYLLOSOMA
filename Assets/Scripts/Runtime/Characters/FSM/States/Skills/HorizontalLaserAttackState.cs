@@ -33,13 +33,13 @@ namespace Runtime.Characters.FSM.States.Skills
             _time = 0f;
             _muzzle.transform.DOScale(_muzzleSizeOffset.y, 0.1f).SetEase(Ease.OutBack);
             //calculate laser start and end direction
-            var targetDirection = _targetDetector.Targets[0].transform.position - _muzzle.position;
+            var targetDirection = _targetableComponent.Target.transform.position - _muzzle.position;
             targetDirection.Normalize();
             //calculate laser start and end direction
             var right = Vector3.Cross(Vector3.up, targetDirection);
             var left = -right;
             //calculate laser start and end position
-            var target = _targetDetector.Targets[0].transform.position;
+            var target = _targetableComponent.Target.transform.position;
             var leftDirectionPos = target + left * _laserLength;
             var rightDirectionPos = target + right * _laserLength;
             //calculate laser start and end direction

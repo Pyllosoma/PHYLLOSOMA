@@ -19,13 +19,17 @@ namespace Runtime.Characters.FSM.States.Trackers
 
         public override void FixedUpdate(GameObject entity)
         {
-            var targetDirection = _targetDetector.Targets[0].transform.position - _transform.position;
+            if (!_targetableComponent.IsTargetExist) return;
+            var targetDirection = _targetableComponent.Target.transform.position - _transform.position;
+            targetDirection.Normalize();
             var newDirection = Vector3.RotateTowards(_transform.forward, targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0.0f);
             var quaternion = Quaternion.LookRotation(newDirection);
-            _transform.rotation = Quaternion.Euler(
-                _isXRotate ? quaternion.eulerAngles.x : _transform.rotation.eulerAngles.x,
-                _isYRotate ? quaternion.eulerAngles.y : _transform.rotation.eulerAngles.y,
-                _isZRotate ? quaternion.eulerAngles.z : _transform.rotation.eulerAngles.z);
+            var rotation = quaternion.eulerAngles;
+            // Debug.Log(rotation);
+            if (!_isXRotate) rotation.x = 0f;
+            if (!_isYRotate) rotation.y = 0f;
+            if (!_isZRotate) rotation.z = 0f;
+            _transform.rotation = Quaternion.Euler(rotation);
         }
     }
 }

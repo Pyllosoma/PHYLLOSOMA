@@ -1,31 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Runtime.Attributes;
 using UnityEngine;
 
-namespace Runtime.Utils
+namespace Runtime.Utils.Components
 {
     /// <summary>
     /// 적을 탐색하기 위한 유틸성 컴포넌트
     /// </summary>
-    public class TargetDetector : MonoBehaviour
+    public class TargetDetector : TargetableComponent
     {
-        public bool IsTargetExist => _isTargetExist;
-        public float TargetDistance => _foundTargets.Count > 0 ? Vector3.Distance(transform.position, _foundTargets[0].transform.position) : float.MaxValue;
-        public float TargetAngle{
-            get {
-                var result = 0f;
-                if (_foundTargets.Count <=0) return result;
-                var targetDirection = _foundTargets[0].transform.position - transform.position;
-                var targetAngle = Mathf.Atan2(targetDirection.x, targetDirection.z) * Mathf.Rad2Deg;
-                result = Mathf.DeltaAngle(transform.rotation.eulerAngles.y, targetAngle);
-                return result;
+        public override GameObject Target
+        {
+            get => IsTargetExist ? _foundTargets[0] : null;
+            set {
+                #if UNITY_EDITOR
+                    Debug.Log("Target is readonly");
+                #endif
+                return;
             }
         }
+        public override bool IsTargetExist => _isTargetExist;
         public List<GameObject> Targets => _foundTargets;
         [TagSelector][SerializeField] private List<string> _targetTag = new List<string>();
         [SerializeField] private List<GameObject> _foundTargets = new List<GameObject>();
-        [SerializeField] private bool _isTargetExist = false;
+        private bool _isTargetExist = false;
         private void FixedUpdate(){
             #if UNITY_EDITOR
             //Draw Found Targets in Editor

@@ -1,4 +1,5 @@
 ﻿using Runtime.Utils;
+using Runtime.Utils.Components;
 using UnityEngine;
 
 namespace Runtime.Characters.FSM.States
@@ -7,9 +8,9 @@ namespace Runtime.Characters.FSM.States
     {
         //[Title("Required Components")]
         //[SerializeField] 
-        protected TargetDetector _targetDetector;
+        protected TargetableComponent _targetableComponent;
         public override void Enter(GameObject entity) {
-            if (!_targetDetector) _targetDetector = entity.GetComponentInChildren<TargetDetector>();
+            if (!_targetableComponent) _targetableComponent = entity.GetComponentInChildren<TargetableComponent>();
         }
     }
 }

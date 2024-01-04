@@ -1,16 +1,14 @@
-﻿using Runtime.Utils;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Tests.Characters.FSM.States
+namespace Runtime.Characters.FSM.States.Detectors
 {
-    public class TargetDetectState : GameObjectFSM
+    public class TargetDetectState : TargetBaseState
     {
-        [Title("Required Components")]
+        [Title("State Settings")]
         [InfoBox("If check target exist is true, then event will be invoked when target exist, else when target not exist")]
         [SerializeField] private bool _checkTargetExist = true;
-        [SerializeField] private TargetDetector _targetDetector;
         [FoldoutGroup("Detect Events")]
         [ShowIf("_checkTargetExist")][SerializeField] private UnityEvent _onEnterRange;
         [FoldoutGroup("Detect Events")]

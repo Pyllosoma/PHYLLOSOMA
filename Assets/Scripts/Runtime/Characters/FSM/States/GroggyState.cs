@@ -1,19 +1,14 @@
 ﻿using Sirenix.OdinInspector;
-using Tests.Characters.FSM;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace Tests.Characters.MonsterFSM.StatueStates
+namespace Runtime.Characters.FSM.States
 {
-    public class StatueGroggy : GameObjectFSM
+    public class GroggyState : GameObjectFSM
     {
-        public float GroggyTime
-        {
-            get => _currentGroggyTime;
-            set => _currentGroggyTime = value;
-        }
         [Title("State Settings")]
-        [SerializeField] private float _defaultGroggyTime = 2.5f;
+        public float GroggyTime = 2.5f;
         [SerializeField] private float _currentGroggyTime = 2.5f;
         [FoldoutGroup("State Events")]
         [SerializeField] private UnityEvent _onGroggy;
@@ -22,7 +17,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
         private float _timer = 0f;
         private bool _isGroggyEnd = false;
         public override void Enter(GameObject entity) {
-            _currentGroggyTime = _defaultGroggyTime;
+            _currentGroggyTime = GroggyTime;
             _timer = 0f;
             _isGroggyEnd = false;
             _onGroggy?.Invoke();
@@ -31,7 +26,7 @@ namespace Tests.Characters.MonsterFSM.StatueStates
             _timer += Time.deltaTime;
             if (_timer >= _currentGroggyTime && !_isGroggyEnd) {
                 _timer = 0f;
-                _currentGroggyTime = _defaultGroggyTime;
+                _currentGroggyTime = GroggyTime;
                 _onGroggyEnd?.Invoke();
             }
         }

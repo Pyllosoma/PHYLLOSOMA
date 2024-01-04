@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Runtime.Characters.FSM;
 using Runtime.Patterns.FSM;
 using Sirenix.OdinInspector;
-using Tests.Characters.FSM;
 using UnityEngine;
 using UnityEngine.Events;
 

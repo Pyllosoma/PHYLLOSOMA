@@ -17,7 +17,6 @@ namespace Runtime.Utils.Targetables
         [SerializeField] private bool _isZRotate = true;
         private float _currentAngleGap = 0f;
         private Transform _target;
-        private Transform _target1;
         public void SetTarget(Transform target) {
             _target = target;
         }

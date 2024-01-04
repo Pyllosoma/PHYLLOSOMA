@@ -1,9 +1,9 @@
 ﻿using Runtime.Characters;
+using Runtime.Characters.FSM;
 using Runtime.Patterns.FSM;
 using Runtime.Utils;
 using Runtime.Utils.Targetables;
 using Sirenix.OdinInspector;
-using Tests.Characters.FSM;
 using Tests.Characters.MonsterFSM;
 using Tests.Characters.MonsterFSM.StatueStates;
 using Tests.Weapons;
@@ -39,7 +39,7 @@ namespace Tests.Characters
         public override void Start()
         {
             base.Start();            
-            _testState = _idle;
+            TestState = _idle;
         }
         protected override void Update()
         {

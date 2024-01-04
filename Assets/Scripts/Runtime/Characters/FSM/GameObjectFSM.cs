@@ -1,10 +1,8 @@
 ﻿using System;
 using Runtime.Patterns.FSM;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Tests.Characters.FSM
+namespace Runtime.Characters.FSM
 {
     [Serializable]
     public class GameObjectFSM : IState<GameObject>

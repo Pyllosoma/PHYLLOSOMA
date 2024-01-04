@@ -1929,7 +1929,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!114 &840919459
 MonoBehaviour:
@@ -3063,7 +3063,6 @@ GameObject:
   - component: {fileID: 1273386254}
   - component: {fileID: 1273386257}
   - component: {fileID: 1273386256}
-  - component: {fileID: 1273386259}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -3080,7 +3079,7 @@ Transform:
   m_GameObject: {fileID: 1273386253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.625}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3138,22 +3137,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273386253}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1273386259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273386253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4fd633122ed353458afefc974d81777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isDirectionBlocked: 0
-  _directionCheckRange: 20
-  _targetPosition: {x: 0, y: 0, z: 0}
-  _blockPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1331836871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,7 +3432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1533051022
 Transform:
   m_ObjectHideFlags: 0
@@ -4336,7 +4319,6 @@ GameObject:
   - component: {fileID: 1701433789}
   - component: {fileID: 1701433794}
   - component: {fileID: 1701433795}
-  - component: {fileID: 1701433796}
   - component: {fileID: 1701433797}
   m_Layer: 0
   m_Name: Statue
@@ -4407,25 +4389,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1701433796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701433788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea37223008841d283f277c73dcf6e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAngleGap: 45
-  _isInAngle: 0
-  _stopWhenInAngle: 1
-  _rotationSpeed: 1
-  _isXRotate: 0
-  _isYRotate: 1
-  _isZRotate: 0
 --- !u!114 &1701433797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4445,30 +4408,61 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _idle:
-    rid: 5863887964098002952
+    rid: 5863888003777167367
   _chase:
-    rid: 5863887964098002953
+    rid: 5863888003777167368
   _homingMissileAttack:
-    rid: 5863887982519386117
+    rid: 5863888028266135556
   _chainAttack:
-    rid: 5863887964098002963
+    rid: 5863888003777167373
   _laserAttack:
-    rid: 5863887964098002966
+    rid: 5863888028266135554
   _shockWaveAttack:
     rid: 5863887982519386114
   _groggy:
-    rid: 5863887982519386118
+    rid: 5863888028266135555
   _death:
-    rid: 5863887982519386119
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 5863887964098002952
-      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 5863887982519386114
+      type: {class: StatueShockWaveAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
+        asm: Assembly-CSharp}
       data:
-        _stateName: TargetDetectState
+        _timer: 0
+        _chargeTime: 0.5
+        _attackTime: 1
+        _returnTime: 1
+        _flyOffset: {x: 0, y: 1, z: 0}
+        _groundPound: {x: 0, y: -1, z: 0}
+        _animationPosition:
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        _model: {fileID: 1331836871}
+        _onShockWaveEnd:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Groggy
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863888003777167367
+      type: {class: TargetDetectState, ns: Runtime.Characters.FSM.States.Detectors,
+        asm: Assembly-CSharp}
+      data:
         _checkTargetExist: 1
-        _targetDetector: {fileID: 1524081104}
         _onEnterRange:
           m_PersistentCalls:
             m_Calls:
@@ -4487,20 +4481,41 @@ MonoBehaviour:
         _onExitRange:
           m_PersistentCalls:
             m_Calls: []
-    - rid: 5863887964098002953
-      type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
+    - rid: 5863888003777167368
+      type: {class: ModuleGameObjectState, ns: Runtime.Characters.FSM, asm: Assembly-CSharp}
       data:
-        _stateName: ModuleGameObjectState
         _states:
-        - rid: 5863887964098002960
-        - rid: 5863887964098002958
-        - rid: 5863887964098002954
-    - rid: 5863887964098002954
-      type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+        - rid: 5863888003777167369
+        - rid: 5863888003777167371
+        - rid: 5863888003777167370
+    - rid: 5863888003777167369
+      type: {class: TargetDetectState, ns: Runtime.Characters.FSM.States.Detectors,
+        asm: Assembly-CSharp}
       data:
-        _stateName: RangeDetectState
+        _checkTargetExist: 0
+        _onEnterRange:
+          m_PersistentCalls:
+            m_Calls: []
+        _onExitRange:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863888003777167370
+      type: {class: RangeDetectState, ns: Runtime.Characters.FSM.States.Detectors,
+        asm: Assembly-CSharp}
+      data:
         _range: 15
-        _targetDetector: {fileID: 1524081104}
         _onEnterRange:
           m_PersistentCalls:
             m_Calls:
@@ -4519,79 +4534,27 @@ MonoBehaviour:
         _onExitRange:
           m_PersistentCalls:
             m_Calls: []
-    - rid: 5863887964098002958
-      type: {class: AgentChaseState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+    - rid: 5863888003777167371
+      type: {class: AgentChaseState, ns: Runtime.Characters.FSM.States.Trackers, asm: Assembly-CSharp}
       data:
-        _stateName: AgentChaseState
-        _speed: 10
-        _acceleration: 5
+        _speed: 8
+        _acceleration: 4
         _angularSpeed: 180
         _agent: {fileID: 1701433795}
-        _targetDetector: {fileID: 1524081104}
-    - rid: 5863887964098002960
-      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+    - rid: 5863888003777167373
+      type: {class: ModuleGameObjectState, ns: Runtime.Characters.FSM, asm: Assembly-CSharp}
       data:
-        _stateName: TargetDetectState
-        _checkTargetExist: 0
-        _targetDetector: {fileID: 1524081104}
-        _onEnterRange:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: 
-              m_MethodName: 
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _onExitRange:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1701433797}
-              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: Idle
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - rid: 5863887964098002963
-      type: {class: ModuleGameObjectState, ns: Tests.Characters.FSM, asm: Assembly-CSharp}
-      data:
-        _stateName: ModuleGameObjectState
         _states:
-        - rid: 5863887964098002964
-        - rid: 5863887964098002965
-    - rid: 5863887964098002964
-      type: {class: TargetDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+        - rid: 5863888003777167374
+        - rid: 5863888003777167375
+    - rid: 5863888003777167374
+      type: {class: TargetDetectState, ns: Runtime.Characters.FSM.States.Detectors,
+        asm: Assembly-CSharp}
       data:
-        _stateName: TargetDetectState
         _checkTargetExist: 0
-        _targetDetector: {fileID: 1524081104}
         _onEnterRange:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: 
-              m_MethodName: 
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
         _onExitRange:
           m_PersistentCalls:
             m_Calls:
@@ -4607,12 +4570,11 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863887964098002965
-      type: {class: RangeDetectState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+    - rid: 5863888003777167375
+      type: {class: RangeDetectState, ns: Runtime.Characters.FSM.States.Detectors,
+        asm: Assembly-CSharp}
       data:
-        _stateName: RangeDetectState
         _range: 5
-        _targetDetector: {fileID: 1524081104}
         _onEnterRange:
           m_PersistentCalls:
             m_Calls:
@@ -4643,15 +4605,17 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863887964098002966
-      type: {class: StatueLaserAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
+    - rid: 5863888028266135554
+      type: {class: HorizontalLaserAttackState, ns: Runtime.Characters.FSM.States.Skills,
         asm: Assembly-CSharp}
       data:
-        _stateName: GameObjectFSM
         _time: 0
         _chargeTime: 1
         _attackTime: 1
-        _muzzleSizeOffset: {x: 0.25, y: 0.15}
+        _laserLength: 3
+        _laserStartDirection: {x: 0, y: 0, z: 0}
+        _laserEndDirection: {x: 0, y: 0, z: 0}
+        _muzzleSizeOffset: {x: 0.3, y: 0.15}
         _muzzleAnimationCurve:
           serializedVersion: 2
           m_Curve:
@@ -4659,7 +4623,7 @@ MonoBehaviour:
             time: 0
             value: 0
             inSlope: 0
-            outSlope: 0
+            outSlope: 1
             tangentMode: 0
             weightedMode: 0
             inWeight: 0
@@ -4667,7 +4631,7 @@ MonoBehaviour:
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 0
+            inSlope: 1
             outSlope: 0
             tangentMode: 0
             weightedMode: 0
@@ -4676,11 +4640,9 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        _targetDirection: {x: 0, y: 0, z: 0}
-        _muzzle: {fileID: 1273386253}
+        _muzzle: {fileID: 1273386254}
         _laser: {fileID: 1717048777}
         _laserHit: {fileID: 1677826551}
-        _targetDetector: {fileID: 1524081104}
         _onLaserEnd:
           m_PersistentCalls:
             m_Calls:
@@ -4696,64 +4658,10 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863887982519386114
-      type: {class: StatueShockWaveAttackState, ns: Tests.Characters.MonsterFSM.StatueStates,
-        asm: Assembly-CSharp}
+    - rid: 5863888028266135555
+      type: {class: GroggyState, ns: Runtime.Characters.FSM.States, asm: Assembly-CSharp}
       data:
-        _stateName: GameObjectFSM
-        _timer: 0
-        _chargeTime: 0.5
-        _attackTime: 1
-        _returnTime: 1
-        _flyOffset: {x: 0, y: 1, z: 0}
-        _groundPound: {x: 0, y: -1, z: 0}
-        _animationPosition:
-        - {x: 0, y: 0, z: 0}
-        - {x: 0, y: 0, z: 0}
-        - {x: 0, y: 0, z: 0}
-        _model: {fileID: 1331836871}
-        _onShockWaveEnd:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1701433797}
-              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: Groggy
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - rid: 5863887982519386117
-      type: {class: EnterExitState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
-      data:
-        _stateName: EnterExitState
-        _onStateEnter:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1701433797}
-              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: ChainAttack
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _onStateExit:
-          m_PersistentCalls:
-            m_Calls: []
-    - rid: 5863887982519386118
-      type: {class: StatueGroggy, ns: Tests.Characters.MonsterFSM.StatueStates, asm: Assembly-CSharp}
-      data:
-        _stateName: GameObjectFSM
-        _defaultGroggyTime: 2.5
+        GroggyTime: 1.5
         _currentGroggyTime: 2.5
         _onGroggy:
           m_PersistentCalls:
@@ -4773,14 +4681,21 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-    - rid: 5863887982519386119
-      type: {class: EnterExitState, ns: Tests.Characters.FSM.States, asm: Assembly-CSharp}
+    - rid: 5863888028266135556
+      type: {class: GameObjectLaunchState, ns: Runtime.Characters.FSM.States.Skills,
+        asm: Assembly-CSharp}
       data:
-        _stateName: EnterExitState
-        _onStateEnter:
+        _isOneShot: 1
+        _launchInterval: 0.5
+        _shotCount: 1
+        _launchCount: 1
+        _useCustomSpawnPoint: 1
+        _spawnPoint: {fileID: 1273386254}
+        _gameObjectPrefab: {fileID: 0}
+        _onLaunch:
           m_PersistentCalls:
             m_Calls: []
-        _onStateExit:
+        _onLaunchEnd:
           m_PersistentCalls:
             m_Calls: []
 --- !u!1 &1717048776

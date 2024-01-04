@@ -1,4 +1,4 @@
-﻿using Tests.Characters.FSM;
+﻿using Runtime.Characters.FSM;
 
 namespace Tests.Characters.MonsterFSM.StatueStates
 {

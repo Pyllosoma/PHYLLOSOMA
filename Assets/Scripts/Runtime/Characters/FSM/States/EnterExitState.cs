@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Tests.Characters.FSM.States
+namespace Runtime.Characters.FSM.States
 {
     public class EnterExitState : GameObjectFSM
     {

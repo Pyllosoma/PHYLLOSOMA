@@ -1,12 +1,10 @@
-﻿using Runtime.Utils;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
-namespace Tests.Characters.FSM.States
+namespace Runtime.Characters.FSM.States.Trackers
 {
-    public class AgentChaseState : GameObjectFSM
+    public class AgentChaseState : TargetBaseState
     {
         [Title("Movement Settings")]
         [SerializeField] private float _speed = 10f;
@@ -14,13 +12,14 @@ namespace Tests.Characters.FSM.States
         [SerializeField] private float _angularSpeed = 720f;
         [Title("Required Components")]
         [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private TargetDetector _targetDetector;
         public override void Enter(GameObject entity) {
+            base.Enter(entity);
             _agent.speed = _speed;
             _agent.acceleration = _acceleration;
             _agent.angularSpeed = _angularSpeed;
         }
         public override void Update(GameObject entity) {
+            if (!_targetDetector.IsTargetExist) return;
             _agent.SetDestination(_targetDetector.Targets[0].transform.position);
         }
         public override void Exit(GameObject entity)

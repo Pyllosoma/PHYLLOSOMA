@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tests.Characters.FSM
+namespace Runtime.Characters.FSM
 {
     [Serializable]
     public class ModuleGameObjectState : GameObjectFSM

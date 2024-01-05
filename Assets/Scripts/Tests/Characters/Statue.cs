@@ -23,8 +23,9 @@ namespace Tests.Characters
         [SerializeReference] private GameObjectFSM _laserAttack;
         [SerializeReference] private GameObjectFSM _shockWaveAttack;
         [SerializeReference] private GameObjectFSM _groggy;
+        [SerializeReference] private GameObjectFSM _regeneration;
         [SerializeReference] private GameObjectFSM _death;
-        //Create Test State Mahcine
+        //Create Test State Machine
         public GameObjectFSM TestState
         {
             get => _testState;
@@ -88,6 +89,9 @@ namespace Tests.Characters
         } 
         public void Groggy() {
             TestState = _groggy;
+        }
+        public void Regeneration() {
+            TestState = _regeneration;
         }
         #endregion
 

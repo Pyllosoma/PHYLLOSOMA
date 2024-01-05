@@ -4441,6 +4441,8 @@ MonoBehaviour:
     rid: 5863887982519386114
   _groggy:
     rid: 5863888028266135555
+  _regeneration:
+    rid: 5863888054166749186
   _death:
     rid: -2
   references:
@@ -4457,12 +4459,10 @@ MonoBehaviour:
         _attackTime: 1
         _returnTime: 1
         _flyOffset: {x: 0, y: 1, z: 0}
-        _groundPound: {x: 0, y: -1, z: 0}
-        _animationPosition:
-        - {x: 0, y: 0, z: 0}
-        - {x: 0, y: 0, z: 0}
-        - {x: 0, y: 0, z: 0}
-        _model: {fileID: 1331836871}
+        _groundPoundOffset: {x: 0, y: -1, z: 0}
+        _flyPosition: {x: 0, y: 0, z: 0}
+        _groundPoundPosition: {x: 0, y: 0, z: 0}
+        _target: {fileID: 1331836871}
         _onShockWaveEnd:
           m_PersistentCalls:
             m_Calls:
@@ -4692,7 +4692,7 @@ MonoBehaviour:
             m_Calls:
             - m_Target: {fileID: 1701433797}
               m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
-              m_MethodName: Idle
+              m_MethodName: Regeneration
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -4730,6 +4730,29 @@ MonoBehaviour:
             - m_Target: {fileID: 1701433797}
               m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
               m_MethodName: ChainAttack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 5863888054166749186
+      type: {class: MovePointState, ns: Runtime.Characters.FSM.States.Movements, asm: Assembly-CSharp}
+      data:
+        _isLocal: 1
+        _ease: 27
+        _duration: 1
+        _movePoint: {x: 0, y: 1, z: 0}
+        _target: {fileID: 1331836872}
+        _onMovePointReached:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1701433797}
+              m_TargetAssemblyTypeName: Tests.Characters.Statue, Assembly-CSharp
+              m_MethodName: Idle
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}

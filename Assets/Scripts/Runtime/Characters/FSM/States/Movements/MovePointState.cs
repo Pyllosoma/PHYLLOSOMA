@@ -16,9 +16,9 @@ namespace Runtime.Characters.FSM.States.Movements
         [SerializeField] private Transform _target;
         [FoldoutGroup("Move Point Events")]
         [SerializeField] private UnityEvent _onMovePointReached;
-        public override void Enter(GameObject target)
+        public override void Enter(GameObject entity)
         {
-            base.Enter(target);
+            base.Enter(entity);
             if (_isLocal) _target.DOLocalMove(_movePoint, _duration).SetEase(_ease).OnComplete(() => _onMovePointReached?.Invoke());
             else _target.DOMove(_movePoint, _duration).SetEase(_ease).OnComplete(() => _onMovePointReached?.Invoke());
         }

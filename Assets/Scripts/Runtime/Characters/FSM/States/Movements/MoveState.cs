@@ -5,6 +5,9 @@ namespace Runtime.Characters.FSM.States.Movements
 {
     public class MoveState : GameObjectFSM
     {
+        /// <summary>
+        /// Move direction
+        /// </summary>
         private enum MoveDirection
         {
             FORWARD = 0,
@@ -15,7 +18,8 @@ namespace Runtime.Characters.FSM.States.Movements
             DOWN = 5
         }
         [Title("State Settings")]
-        [SerializeField] private MoveDirection _moveDirection = MoveDirection.FORWARD;
+        [SerializeField] 
+        private MoveDirection _moveDirection = MoveDirection.FORWARD;
         [SerializeField] private float _speed = 1f;
         public override void FixedUpdate(GameObject entity)
         {
@@ -23,6 +27,11 @@ namespace Runtime.Characters.FSM.States.Movements
             var direction = GetDirection(entity);
             entity.transform.position += direction * (_speed * Time.fixedDeltaTime);
         }
+        /// <summary>
+        /// Get direction by move direction
+        /// </summary>
+        /// <param name="entity">Game object that will be moved</param>
+        /// <returns>Direction</returns>
         private Vector3 GetDirection(GameObject entity)
         {
             switch (_moveDirection)

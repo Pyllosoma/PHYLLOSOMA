@@ -3,16 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - DialogSpeaker
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - CanPush
+  - 
   - Water
   - UI
-  - Ground
   - 
   - 
   - 
@@ -37,7 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - OverlayUI
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
